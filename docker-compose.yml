@@ -41,76 +41,78 @@ services:
   #   networks:
   #     - docker-net
 
-  # namenode:
-  #   container_name: namenode
-  #   image: apache/hadoop:3
-  #   hostname: namenode
-  #   command: ["hdfs", "namenode"]
-  #   ports:
-  #     - 9870:9870
-  #     - 8020:8020
-  #     - 9000:9000
-  #   env_file:
-  #     - .env
-  #   environment:
-  #     ENSURE_NAMENODE_DIR: "/tmp/hadoop-hadoop/dfs/name"
-  #   volumes:
-  #     - ./namenode:/tmp/hadoop-root/dfs/name
-  #     - hadoop_namenode:/tmp/hadoop-root/dfs/name
-  #   networks:
-  #     - docker-net
+  namenode:
+    container_name: namenode
+    image: apache/hadoop:3
+    hostname: namenode
+    command: ["hdfs", "namenode"]
+    ports:
+      - 9870:9870
+      - 8020:8020
+      - 9000:9000
+    env_file:
+      - .env
+    environment:
+      ENSURE_NAMENODE_DIR: "/tmp/hadoop-hadoop/dfs/name"
+    volumes:
+      - ./namenode:/tmp/hadoop-root/dfs/name
+      - hadoop_namenode:/tmp/hadoop-root/dfs/name
+    networks:
+      - docker-net
 
-  # datanode:
-  #   image: apache/hadoop:3
-  #   container_name: datanode
-  #   hostname: datanode 
-  #   command: ["hdfs", "datanode"]
-  #   ports:
-  #     - 9864:9864
-  #     - 9866:9866
-  #   expose:
-  #     - 50010
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - hadoop_datanode:/tmp/hadoop-root/dfs/data
-  #     - ./datanode:/tmp/hadoop-root/dfs/data
-  #   networks:
-  #     - docker-net
+  datanode:
+    image: apache/hadoop:3
+    container_name: datanode
+    hostname: datanode 
+    command: ["hdfs", "datanode"]
+    ports:
+      - 9864:9864
+      - 9866:9866
+    expose:
+      - 50010
+    env_file:
+      - .env
+    volumes:
+      - hadoop_datanode:/tmp/hadoop-root/dfs/data
+      - ./datanode:/tmp/hadoop-root/dfs/data
+    networks:
+      - docker-net
 
-  # resourcemanager:
-  #   image: apache/hadoop:3
-  #   hostname: resourcemanager
-  #   command: ["yarn", "resourcemanager"]
-  #   ports:
-  #      - 8088:8088
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - ./test.sh:/opt/test.sh
-  #   networks:
-  #     - docker-net
+  resourcemanager:
+    image: apache/hadoop:3
+    hostname: resourcemanager
+    command: ["yarn", "resourcemanager"]
+    ports:
+       - 8088:8088
+    env_file:
+      - .env
+    volumes:
+      - ./test.sh:/opt/test.sh
+    networks:
+      - docker-net
 
-  # nodemanager:
-  #   image: apache/hadoop:3
-  #   command: ["yarn", "nodemanager"]
-  #   env_file:
-  #     - .env
-  #   ports:
-  #     - 8188:8188
-  #   networks:
-  #     - docker-net
+  nodemanager:
+    image: apache/hadoop:3
+    command: ["yarn", "nodemanager"]
+    env_file:
+      - .env
+    ports:
+      - 8188:8188
+    networks:
+      - docker-net
 
   notebook:
+    container_name: notebook
     build:
       context: ./notebook
     volumes:
-      - ./workspace:/home/jovyan/work
+      - ${PWD}/workspace:/home/jovyan/work
     ports:
       - 8888:8888
-      - 4040:4040
-      - 8889:8889
+    environment:
+      - JUPYTER_TOKEN=pass
     command: start-notebook.sh
+    user: root
     networks:
         - docker-net
 

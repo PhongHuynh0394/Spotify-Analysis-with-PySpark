@@ -1,0 +1,4 @@
+.env
+datanode
+test.sh
+/workspace/.ipynb_checkpoints
