@@ -8,39 +8,6 @@ volumes:
   hadoop_namenode:
 
 services:
-  # spark:
-  #   image: docker.io/bitnami/spark:3.5
-  #   container_name: spark-master
-  #   hostname: spark
-  #   env_file:
-  #     - .env
-  #   environment:
-  #     - SPARK_MODE=master
-  #     - SPARK_RPC_AUTHENTICATION_ENABLED=no
-  #     - SPARK_RPC_ENCRYPTION_ENABLED=no
-  #     - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-  #     - SPARK_SSL_ENABLED=no
-  #     - SPARK_USER=spark
-  #     - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
-  #   ports:
-  #     - '8080:8080'
-  #     - '7077:7077'
-  #     - '4040:4040'
-  #   networks:
-  #     - docker-net
-
-  # spark-worker:
-  #   image: docker.io/bitnami/spark:3.5
-  #   container_name: spark-worker
-  #   env_file:
-  #     - .env
-  #   environment:
-  #     - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
-  #   ports:
-  #     - 8081:8081
-  #   networks:
-  #     - docker-net
-
   namenode:
     container_name: namenode
     image: apache/hadoop:3
@@ -116,18 +83,35 @@ services:
     networks:
         - docker-net
 
-
-  # dremio:
-  #   container_name: dremio
-  #   hostname: dremio
-  #   image: dremio/dremio-oss
+  # spark:
+  #   image: docker.io/bitnami/spark:3.5
+  #   container_name: spark-master
+  #   hostname: spark
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     - SPARK_MODE=master
+  #     - SPARK_RPC_AUTHENTICATION_ENABLED=no
+  #     - SPARK_RPC_ENCRYPTION_ENABLED=no
+  #     - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+  #     - SPARK_SSL_ENABLED=no
+  #     - SPARK_USER=spark
+  #     - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
   #   ports:
-  #     - 9047:9047
-  #     - 31010:31010
-  #     - 45678:45678
-  #   volumes:
-  #     - db-data:/var/lib/dremio
-  #     - ./localFiles:/localFiles
-  #     - db-data:/opt/dremio/data
+  #     - '8080:8080'
+  #     - '7077:7077'
+  #     - '4040:4040'
+  #   networks:
+  #     - docker-net
+
+  # spark-worker:
+  #   image: docker.io/bitnami/spark:3.5
+  #   container_name: spark-worker
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+  #   ports:
+  #     - 8081:8081
   #   networks:
   #     - docker-net
