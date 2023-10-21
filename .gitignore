@@ -2,3 +2,5 @@
 datanode
 test.sh
 /workspace/.ipynb_checkpoints
+
+prefect/flows/__pycache__

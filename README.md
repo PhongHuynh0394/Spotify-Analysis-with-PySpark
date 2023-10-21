@@ -1,3 +1,23 @@
+# PREFECT ADDED
+
+New features added:
+- Makefile (alias command)
+- prefect-compose.yml (docker compose for prefect)
+
+## To Test Prefect
+Run the following command:
+```bash
+make prefect-build
+```
+This will build a prefect images with requirements.txt in prefect folder
+
+Wait for a second for everything build up, then start services: `make prefect-up`
+
+Reversely, run `make prefect-down` to turn off services
+
+Check port 4200 to visit Prefect UI. You will see there is a flow already in `flows run` or `Deployments` section. It is
+a sample flow correspone to [main_flow.py](./prefect/flows/main_flow.py).
+
 # PySpark
 
 ## Prerequisite
