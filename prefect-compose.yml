@@ -1,0 +1,54 @@
+networks:
+  docker-net:
+    name: docker-net
+    driver: bridge
+
+volumes:
+  prefect:
+
+services:
+  prefect-server:
+    build:
+      context: ./prefect
+    image: prefect
+    hostname: prefect-server
+    container_name: prefect-server
+    volumes:
+      - prefect:/root/.prefect
+    # entrypoint: ["bash", "entrypoint.sh"]
+    command: prefect server start
+    environment:
+      - PREFECT_UI_URL=http://127.0.0.1:4200/api
+      - PREFECT_API_URL=http://127.0.0.1:4200/api
+      # If you want to access Prefect Server UI from anywhere other than the Docker host machine, you will need to change
+      # PREFECT_UI_URL and PREFECT_API_URL to match the external hostname/IP of the host machine. For example:
+      #- PREFECT_UI_URL=http://external-ip:4200/api
+      #- PREFECT_API_URL=http://external-ip:4200/api
+      - PREFECT_SERVER_API_HOST=0.0.0.0
+      # Uncomment the following line if you want to use the 'S3 Bucket' storage block instead of the older 'S3' storage
+      # - EXTRA_PIP_PACKAGES=prefect-aws
+    ports:
+      - 4200:4200
+    networks:
+      - docker-net
+
+  prefect:
+    image: prefect:latest
+    container_name: prefect
+    restart: always
+    volumes:
+      - "./prefect/flows:/opt/prefect/flows"
+    environment:
+      - PREFECT_API_URL=http://prefect-server:4200/api
+      # - PREFECT_UI_URL=http://prefect-server:4200/api
+      - PREFECT_SERVER_API_HOST=prefect-server
+#       Use PREFECT_API_KEY to use the CLI to interact with Prefect Cloud
+#     - PREFECT_API_KEY=YOUR_API_KEY
+    # network_mode: "host"
+    networks:
+        - docker-net
+    depends_on:
+      - prefect-server
+
+
+
