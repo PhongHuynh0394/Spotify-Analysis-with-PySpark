@@ -15,8 +15,14 @@ Wait for a second for everything build up, then start services: `make prefect-up
 
 Reversely, run `make prefect-down` to turn off services
 
-Check port 4200 to visit Prefect UI. You will see there is a flow already in `flows run` or `Deployments` section. It is
-a sample flow correspone to [main_flow.py](./prefect/flows/main_flow.py).
+Check `port 4200` to visit Prefect UI. You will see there is a flow already in `flows run` or `Deployments` section. 
+
+**To Run pipeline:** Just trigger the `Run` button on prefect UI, there is 1 sample basic flow and 1 schedule flow for auto run
+
+**Pipeline Structure Files:**
+- Sample flow: [main_flow.py](./prefect/flows/main_flow.py) (This file has 2 flows)
+- Sample tasks: [sample_task.py](./prefect/flows/sample_task.py) (this file also has 2 tasks)
+
 
 # PySpark
 
