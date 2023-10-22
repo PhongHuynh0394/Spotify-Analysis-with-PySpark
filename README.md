@@ -1,4 +1,6 @@
-# PySpark
+# PySpark Practice
+
+`There is some new notebook can be use to practice with spark sql and spark dataframe. Cheer :)))`
 
 ## Prerequisite
 
