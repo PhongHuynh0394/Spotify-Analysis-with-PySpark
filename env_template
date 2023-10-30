@@ -8,6 +8,7 @@ SPARK_RPC_ENCRYPTION_ENABLED=no
 SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
 SPARK_SSL_ENABLED=no
 SPARK_USER=spark
+
 #HDFS
 CORE-SITE.XML_fs.default.name=hdfs://namenode:8020
 CORE-SITE.XML_fs.defaultFS=hdfs://namenode
@@ -15,7 +16,9 @@ HDFS-SITE.XML_dfs.namenode.rpc-address=namenode:8020
 HDFS-SITE.XML_dfs.replication=1
 HDFS-SITE.XML_dfs.permissions.enabled=false
 HDFS-SITE.XML_dfs.webhdfs.enabled=true
+# HDFS-STIE.XML_dfs.datanode.data.dir="[SSD]file://tmp/hadoop-hadoop/dfs/data"
 HDFS-SITE.XML_dfs.client.use.datanode.hostname=true
+#HDFS-SITE.XML_dfs.encrypt.data.transfer=true
 
 MAPRED-SITE.XML_mapreduce.framework.name=yarn
 MAPRED-SITE.XML_yarn.app.mapreduce.am.env=HADOOP_MAPRED_HOME=$HADOOP_HOME
@@ -41,3 +44,12 @@ CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.root.default.acl_administer_queue
 CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.node-locality-delay=40
 CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.queue-mappings=
 CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.queue-mappings-override.enable=false
+
+# Mongodb
+MONGODB_USER=root
+MONGODB_PASSWORD=123
+
+#Prefect
+PREFECT_API_URL=http://prefect-server:4200/api
+PREFECT_SERVER_API_HOST=prefect-server
+PREFECT_LOGGING_LOG_PRINTS=True
