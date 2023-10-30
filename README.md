@@ -1,8 +1,9 @@
-# PREFECT ADDED
+# Prefect Branch !!
 
 New features added:
 - Makefile (alias command)
 - prefect-compose.yml (docker compose for prefect)
+- Added connecting mongodb flow
 
 ## To Test Prefect
 Run the following command:
@@ -22,7 +23,9 @@ Check `port 4200` to visit Prefect UI. You will see there is a flow already in `
 **Pipeline Structure Files:**
 - Sample flow: [main_flow.py](./prefect/flows/main_flow.py) (This file has 2 flows)
 - Sample tasks: [sample_task.py](./prefect/flows/sample_task.py) (this file also has 2 tasks)
+- Mongodb connection task: [mongodb_task.py](./prefect/flows/Ingest_Mongodb/mongodb_task.py)
 
+Checkout the data from Mongodb Atlas Cloud
 
 # PySpark
 

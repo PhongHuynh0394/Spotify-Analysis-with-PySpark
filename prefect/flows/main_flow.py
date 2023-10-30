@@ -19,7 +19,6 @@ def pipeline_B():
     print(f"Hello {name} {lastName}")
 
 
-
 if __name__ == "__main__":
     pipeline_A = pipeline_A.to_deployment(name='Ingest data MongoDB deployment',
                              tags=['Ingest data','MongoDB Atlas'])
@@ -27,4 +26,5 @@ if __name__ == "__main__":
     pipeline_B = pipeline_B.to_deployment(name='Pipeline ELT deployment',
                              tags=['ELT'],
                              interval=600) # 600 seconds
+
     serve(pipeline_A, pipeline_B)
