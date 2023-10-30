@@ -12,7 +12,7 @@ password = os.getenv("MONGODB_PASSWORD")
 uri = f"mongodb+srv://{user}:{password}@python.zynpktu.mongodb.net/?retryWrites=true&w=majority"
 
 @task
-def connectMongo():
+def ingest_Mongodb():
     # Create a new client and connect to the server
     client = MongoClient(uri)
 

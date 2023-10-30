@@ -4,3 +4,4 @@ test.sh
 /workspace/.ipynb_checkpoints
 
 prefect/flows/__pycache__
+prefect/flows/Ingest_Mongodb/__pycache__
