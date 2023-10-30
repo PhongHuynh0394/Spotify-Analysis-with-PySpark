@@ -2,3 +2,4 @@ pandas
 prefect
 prefect-sqlalchemy
 pymongo
+python-dotenv

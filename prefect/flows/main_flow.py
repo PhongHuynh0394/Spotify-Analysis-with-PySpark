@@ -1,16 +1,25 @@
+from flows.mongodb_task import connectMongo
 from prefect import flow, serve
 from sample_task import *
+from mongodb_task import *
+from dotenv import load_dotenv
 
-@flow(name="hello flow A", 
+# Load env
+load_dotenv()
+user = os.getenv("MONGODB_USER")
+password = os.getenv("MONGODB_PASSWORD")
+uri = f"mongodb+srv://{user}:{password}@python.zynpktu.mongodb.net/?retryWrites=true&w=majority"
+
+@flow(name="Ingest MongoDB Atlas", 
       log_prints=True)
-def flow_A():
-    """This is a sample hello flow A"""
-    print("This is flow A")
+def pipeline_A():
+    """Test connection with MongoDB Atlas"""
+    connectMongo()
 
 
 @flow(name="hello flow B", 
       log_prints=True) 
-def hello_flow():
+def pipeline_B():
     """This is a sample hello flow B"""
     name = getName() #Run task getName
     lastName = getLastName() #Run task getLastName
@@ -19,9 +28,10 @@ def hello_flow():
 
 
 if __name__ == "__main__":
-    hello_flow = hello_flow.to_deployment(name='test-hello-B-deployment',
-                             tags=['sample tag B', 'sample tag other'],
+    pipeline_A = pipeline_A.to_deployment(name='Ingest data MongoDB',
+                             tags=['Ingest data','MongoDB Atlas'])
+
+    pipeline_B = pipeline_B.to_deployment(name='Pipeline ELT',
+                             tags=['ELT'],
                              interval=600) # 600 seconds
-    flow_A = flow_A.to_deployment(name='test-hello-A-deployment',
-                             tags=['tag A', 'tag other'])
-    serve(hello_flow, flow_A)
+    serve(pipeline_A, pipeline_B)
