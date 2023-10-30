@@ -3,9 +3,19 @@
 New features added:
 - Makefile (alias command)
 - prefect-compose.yml (docker compose for prefect)
-- Added connecting mongodb flow
+
+=> Newest: Added connecting mongodb flow
 
 ## To Test Prefect
+
+To make sure you have newest updated, please pull (or clone) this branch, then remove the old prefect image in your Docker Desktop (if you already had one)
+
+But if you don't use Docker Desktop, you can follow these commandline instead to remove your old Prefect image:
+```bash
+docker images | grep prefect | awk '{print $3}' | xargs docker rmi
+```
+Then re-build the new prefect image
+
 Run the following command:
 ```bash
 make prefect-build
@@ -16,7 +26,7 @@ Wait for a second for everything build up, then start services: `make prefect-up
 
 Reversely, run `make prefect-down` to turn off services
 
-Check `port 4200` to visit Prefect UI. You will see there is a flow already in `flows run` or `Deployments` section. 
+Check [**localhost:4200**](http://localhost:4200) to visit Prefect UI. You will see there is a flow already in `flows run` or `Deployments` section. 
 
 **To Run pipeline:** Just trigger the `Run` button on prefect UI, there is 1 sample basic flow and 1 schedule flow for auto run
 
