@@ -7,8 +7,8 @@ import csv
 
 load_dotenv()
 
-client_id = os.getenv("CLIENT_ID")
-client_secret = os.getenv("CLIENT_SECRET")
+client_id = os.getenv("SPOTIFY_CLIENT_ID")
+client_secret = os.getenv("SPOTIFY_CLIENT_SECRET")
 
 
 def get_token():
