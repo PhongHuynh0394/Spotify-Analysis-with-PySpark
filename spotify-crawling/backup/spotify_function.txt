@@ -1,3 +1,13 @@
+def search_for_artist_id(artist_name, headers):
+    '''
+    Returns the artist id of the first artist found
+    '''
+    url = "https://api.spotify.com/v1/search"
+    params = {"q": artist_name, "type": "artist", "limit": 1}
+    result = get(url, headers=headers, params=params)
+    json_result = json.loads(result.content)["artists"]["items"][0]["id"]
+    return json_result
+
 def get_artist_albums(artist_id, headers):
     '''
     Returns a list of albums from the artist
