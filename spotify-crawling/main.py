@@ -53,6 +53,7 @@ if __name__ == "__main__":
                 # TODO: Add song to csv
                 songs_data.append((song_id, song_name, song_popularity, song_disc_number, song_explicit, song_dancibility, song_energy, song_key, song_loudness, song_mode,
                                   song_speechiness, song_acousticness, song_instrumentalness, song_liveness, song_valence, song_tempo, song_duration_ms, song_time_signature, album_id, artist_id))
+                print(song_name)
 
     # Write to csv
     with open(ARTIST, "w", newline="") as f:

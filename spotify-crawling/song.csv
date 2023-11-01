@@ -1,134 +1,255 @@
 song_id,song_name,song_popularity,song_disc_number,song_explicit,song_dancibility,song_energy,song_key,song_loudness,song_mode,song_speechiness,song_acousticness,song_instrumentalness,song_liveness,song_valence,song_tempo,song_duration_ms,song_time_signature,album_id,artist_id
-6cC4WIsqtrquOLhQLtJWSp,Got To Get Better In A Little While - Live,24,1,False,0.484,0.793,2,-12.32,1,0.0322,0.229,0.174,0.699,0.887,107.8,832200,4,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-31qBdpbVY6E81KX6apN1kT,"Why Does Love Got To Be So Sad - Live At Fillmore East, New York / 1970",25,1,False,0.344,0.74,2,-11.71,1,0.0411,0.0127,0.00634,0.674,0.736,111.093,889467,4,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-0t5Or2FIzwEfwWz6iDAOi2,"Key To The Highway - Live At Fillmore East, New York / 1970",22,1,False,0.385,0.457,9,-12.238,1,0.0307,0.147,0.000374,0.769,0.782,85.334,385507,4,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-47v9TSLy2BwavTDNygQ3b2,Blues Power - Live,22,1,False,0.413,0.799,0,-11.381,1,0.0359,0.459,0.00384,0.601,0.865,129.351,631000,4,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-5m0iS3l8AFdzibNsxhoVXv,Have You Ever Loved A Woman - Live,20,1,False,0.455,0.398,0,-13.155,1,0.0522,0.515,0.000831,0.927,0.514,126.608,496493,3,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-7m3axunjIUDkyBNPZySpP8,Bottle Of Red Wine - Live,21,1,False,0.495,0.693,0,-11.444,1,0.0297,0.136,0.00338,0.906,0.566,135.822,335040,4,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-7uHbvmA5mSREGgrndwFyQ0,"Tell The Truth - Live At Fillmore East, New York / 1970",18,2,False,0.441,0.662,11,-12.262,0,0.0267,0.0108,0.0023,0.186,0.794,99.467,687961,4,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-0ZKaa1xFzCUl83WI3ieG7r,"Nobody Knows You When You're Down And Out - Live At Fillmore East, New York / 1970",20,2,False,0.466,0.367,0,-14.99,1,0.0329,0.753,2.66e-05,0.646,0.37,151.672,333133,3,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-2OgKca37WIlulUAt7F0GHN,Roll It Over - Live,16,2,False,0.502,0.694,9,-11.686,1,0.0304,0.226,0.00111,0.732,0.887,109.577,400667,4,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-6EzGjK11ulMw8kR3FROfZD,Presence Of The Lord - Live,18,2,False,0.42,0.443,0,-13.162,1,0.0404,0.762,7.78e-06,0.748,0.394,129.391,376488,4,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-0TG9Wl94TpT8paYZXRiQUW,"Little Wing - Live At Fillmore East, New York / 1970",27,2,False,0.408,0.535,6,-13.553,0,0.0426,0.583,2.58e-05,0.143,0.473,130.932,420573,4,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-4MJparGJJYlWIBtbOfZZBg,"Let It Rain - Live At Fillmore East, New York / 1970",24,2,False,0.336,0.825,2,-12.435,1,0.0556,0.0061,0.484,0.737,0.669,139.32,1186600,4,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-2r4z29cwj1WtlAWuP2uAtG,"Crossroads - Live At Fillmore East, New York / 1970",27,2,False,0.337,0.643,2,-11.871,1,0.0368,0.0784,0.0207,0.907,0.853,167.139,509800,4,4dYhBXJ9iQH8jKaGPsg3FW,2rc78XDH9zuJP6bm78lU8Z
-02RDTSLWoJeM4hd8pJzGlo,Why Does Love Got To Be So Sad - Live,25,1,False,0.328,0.769,2,-11.352,1,0.0441,0.235,0.00962,0.256,0.583,108.726,575507,4,0lctewrLljhj5GWi5fdq1F,2rc78XDH9zuJP6bm78lU8Z
-6OdI92IvoibUeatOZG8J6R,Got To Get Better In A Little While - Live,28,1,False,0.467,0.883,2,-10.07,1,0.0346,0.124,0.399,0.893,0.819,108.625,830620,4,0lctewrLljhj5GWi5fdq1F,2rc78XDH9zuJP6bm78lU8Z
-3OSqpdcSJFaKBoFjlmOToi,Let It Rain - Live,17,1,False,0.327,0.927,2,-10.22,1,0.0984,0.0248,0.44,0.701,0.313,125.133,1068166,4,0lctewrLljhj5GWi5fdq1F,2rc78XDH9zuJP6bm78lU8Z
-0ByF9EfOcIxkpkX3naALYY,Presence Of The Lord - Live,21,1,False,0.403,0.557,9,-12.32,0,0.0348,0.804,0.00184,0.359,0.378,130.418,370839,4,0lctewrLljhj5GWi5fdq1F,2rc78XDH9zuJP6bm78lU8Z
-5Epyz0zXMYINMlCvAxdK4T,Tell The Truth - Live,13,1,False,0.493,0.683,4,-11.909,0,0.0278,0.567,0.0127,0.832,0.87,101.291,682223,4,0lctewrLljhj5GWi5fdq1F,2rc78XDH9zuJP6bm78lU8Z
-5rmBDOts0c8Ar8IzjPihgF,Bottle Of Red Wine - Live,15,1,False,0.457,0.746,0,-11.733,1,0.0323,0.0547,0.00275,0.981,0.49,136.869,339054,4,0lctewrLljhj5GWi5fdq1F,2rc78XDH9zuJP6bm78lU8Z
-3PBRTNVVVZyIKa6CRlfGWH,Roll It Over - Live,18,1,False,0.482,0.677,11,-13.069,0,0.0318,0.412,0.141,0.518,0.844,109.15,406937,4,0lctewrLljhj5GWi5fdq1F,2rc78XDH9zuJP6bm78lU8Z
-12BmHTZhPJ7Rsvo7Jdg0n3,Blues Power - Live,16,1,False,0.359,0.805,0,-10.828,1,0.032,0.539,0.0667,0.648,0.824,129.848,630524,4,0lctewrLljhj5GWi5fdq1F,2rc78XDH9zuJP6bm78lU8Z
-0RFoDx9gPRaxCLQBWD2Vmr,Have You Ever Loved A Woman - Live,15,1,False,0.414,0.369,0,-14.539,1,0.0322,0.506,0.000288,0.785,0.354,126.437,491993,3,0lctewrLljhj5GWi5fdq1F,2rc78XDH9zuJP6bm78lU8Z
-1pnaT16BPTlkPYk6D3tMhL,I Looked Away,14,1,False,0.505,0.488,0,-9.191,1,0.0292,0.375,0.00102,0.154,0.72,117.449,187173,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-3cMCyIlkHG01PDS33ULNFn,Bell Bottom Blues,16,1,False,0.411,0.689,2,-6.117,1,0.0333,0.577,0.0605,0.145,0.644,133.176,304520,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-4pCOav1nZGDDuS1xGAHAyB,Keep On Growing,13,1,False,0.5,0.904,10,-6.251,1,0.0677,0.369,0.243,0.0856,0.74,92.276,383013,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-0cQampQePoqX2EGUKFOuxX,Nobody Knows You (When You're Down And Out),13,1,False,0.322,0.518,0,-8.46,1,0.0325,0.911,0.386,0.611,0.404,166.151,300093,3,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-4bhoXJ9bJwhPhJFjGxCn4x,I Am Yours,10,1,False,0.685,0.311,7,-16.02,1,0.0339,0.402,0.356,0.232,0.613,121.647,217400,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-5LD95mwc2RQaaMltdfgaBO,Anyday,12,1,False,0.188,0.867,2,-6.119,1,0.0561,0.169,0.00247,0.198,0.717,169.275,396893,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-1U1q006m7BxYCIpwSAjPq0,Key To The Highway,12,1,False,0.297,0.644,9,-7.166,1,0.0387,0.44,0.851,0.38,0.554,84.202,580573,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-5O8J9WXgMf3ssCH5u1iZIn,Tell The Truth,10,1,False,0.44,0.888,4,-4.916,1,0.0585,0.447,0.0409,0.103,0.589,104.546,401840,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-35cWcZA6e5TpVKmAJuRVrp,Why Does Love Got To Be So Sad?,12,1,False,0.353,0.962,10,-4.879,1,0.184,0.119,6.26e-05,0.109,0.297,125.442,284467,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-0mEdtMUfVhGWftbQ4CkgJi,Have You Ever Loved A Woman,13,1,False,0.303,0.642,0,-6.759,1,0.0523,0.647,0.0767,0.296,0.644,170.433,414387,3,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-4484Ep0YNUy4bbJkMdXbQr,Little Wing,11,1,False,0.273,0.808,6,-4.404,0,0.0422,0.46,0.0111,0.251,0.602,133.712,336333,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-2CxCiCOLcy6uB6swGpG72S,It's Too Late,9,1,False,0.542,0.595,9,-5.964,1,0.0313,0.718,1.63e-05,0.425,0.719,111.352,232773,3,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-4FzVgf3e1KGwRbFRWPI05W,Layla,24,1,False,0.411,0.899,1,-3.876,1,0.0645,0.57,0.274,0.3,0.495,115.686,426560,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-7b0g7UPixaXpZYGXRCR4PT,Thorn Tree In The Garden,10,1,False,0.643,0.12,11,-20.158,0,0.0336,0.943,0.0412,0.101,0.202,95.533,170840,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-4GUszhvfLaViE4OS92uHVW,Mean Old World,9,2,False,0.772,0.451,0,-11.442,1,0.042,0.793,0.0322,0.066,0.891,94.276,230187,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-3uXjkfN4S21DMBE7icSy5L,Roll It Over,11,2,False,0.488,0.84,9,-4.859,1,0.0266,0.0104,0.002,0.0991,0.81,104.317,272867,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-3e90d6wV3rQ36D0dSQhMe1,Tell The Truth - Single Version,9,2,False,0.406,0.968,4,-3.878,1,0.0621,0.0872,0,0.399,0.755,88.409,204573,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-0EYtvFhu8L5KBGkkkES0yN,Snake Lake Blues,17,2,False,0.409,0.563,4,-9.641,1,0.0297,0.303,0.456,0.054,0.603,184.732,213600,3,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-3pMCFSOScZIhdKS1kwtznL,Evil,10,2,False,0.455,0.843,2,-8.837,1,0.0444,0.133,0.343,0.133,0.824,96.432,275920,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-2Z2Hri10QNEop885VChnmv,Mean Old Frisco,8,2,False,0.482,0.777,9,-8.651,1,0.0351,0.361,0.413,0.376,0.705,149.768,247680,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-3z1rSNPcNPDB8uHhVDPPPV,One More Chance,9,2,False,0.664,0.645,11,-10.399,0,0.0232,0.399,0.0064,0.377,0.762,94.068,197653,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-6ux9KP7YBD9VZaLnCKeQS4,Got To Get Better In A Little While - Jam,8,2,False,0.563,0.695,7,-9.435,1,0.0373,0.00971,0.853,0.111,0.819,98.437,225240,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-7krL9aLIk4QU0uG9vIKI1d,Got To Get Better In A Little While - Remixed,11,2,False,0.448,0.906,2,-7.014,1,0.0412,0.0295,0.35,0.209,0.781,90.155,365453,4,7EC1uzqEoYL2i3ZlFzGnMf,2rc78XDH9zuJP6bm78lU8Z
-1BGVklnx4mU14VQgCwLY35,I Looked Away - 40th Anniversary Version / 2010 Remastered,8,1,False,0.501,0.488,0,-9.131,1,0.029,0.324,0.00113,0.165,0.729,117.573,184560,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-0Gl0KOFS0I0HFkHSmTGJTr,Bell Bottom Blues - 40th Anniversary Version / 2010 Remastered,11,1,False,0.404,0.695,2,-6.162,1,0.034,0.587,0.0383,0.159,0.646,133.136,301720,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-6VtX65zfTbHPpeWQysRaxW,Keep On Growing - 40th Anniversary Version / 2010 Remastered,6,1,False,0.506,0.906,10,-6.309,1,0.0652,0.357,0.278,0.126,0.724,92.578,380680,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-4jeLkOXA2NKRFfjjj8im1h,Nobody Knows You When You're Down And Out - 40th Anniversary Version / 2010 Remastered,8,1,False,0.456,0.512,0,-8.454,1,0.0284,0.908,0.426,0.736,0.376,83.256,297320,3,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-5x9K1jGj8boxhboInG1FuF,I Am Yours - 40th Anniversary Version / 2010 Remastered,5,1,False,0.681,0.307,7,-16.001,1,0.034,0.426,0.433,0.217,0.612,121.604,215093,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-5RO3bTp2tcW344zRikavSu,Anyday - 40th Anniversary Version / 2010 Remastered,5,1,False,0.191,0.869,2,-6.158,1,0.0539,0.182,0.00179,0.184,0.741,168.702,395520,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-05wFe6L7gz3pk1W6q8oWKj,Key To The Highway - 40th Anniversary Version / 2010 Remastered,6,1,False,0.292,0.64,9,-7.153,1,0.0372,0.424,0.826,0.478,0.571,83.926,577973,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-5PoXbYl1dh0Axfa9DBdUrT,Tell The Truth - 40th Anniversary Version / 2010 Remastered,4,1,False,0.444,0.888,4,-4.938,1,0.0567,0.446,0.0549,0.102,0.589,104.454,398360,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-0mcW5vcRphbDoNu28FoZ3G,Why Does Love Got To Be So Sad? - 40th Anniversary Version / 2010 Remastered,6,1,False,0.378,0.963,10,-4.909,1,0.171,0.0983,9.59e-05,0.291,0.298,125.507,281907,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-0dWD1IFtCe0j9JdeyIOKR0,Have You Ever Loved A Woman? - 40th Anniversary Version / 2010 Remastered,6,1,False,0.303,0.648,0,-6.795,1,0.0512,0.642,0.053,0.407,0.644,170.379,412960,3,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-7bfVZO1Wq2vu40VawtCW2z,Little Wing - 40th Anniversary Version / 2010 Remastered,7,1,False,0.275,0.81,6,-4.396,0,0.0424,0.464,0.0125,0.36,0.607,133.729,333133,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-1GDd532NhV1uLI1vuhOmh0,It's Too Late - 40th Anniversary Version / 2010 Remastered,4,1,False,0.531,0.598,9,-6.03,1,0.0324,0.702,4.67e-06,0.395,0.751,111.397,229693,3,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-5zapHXSbNi7u9IqWNo0fuO,Layla - 40th Anniversary Version / 2010 Remastered,15,1,False,0.404,0.902,1,-3.88,1,0.0665,0.577,0.297,0.287,0.497,115.669,423840,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-40xHesFWa0pIZW0Vh99v46,Thorn Tree In The Garden - 40th Anniversary Version / 2010 Remastered,4,1,False,0.631,0.119,11,-20.17,0,0.0354,0.931,0.0385,0.097,0.208,95.814,170867,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-7F01KOcoawJB7akObBYJfX,Mean Old World - 40th Anniversary Version / 2010 Remastered,3,2,False,0.57,0.45,0,-11.443,1,0.0798,0.795,0.0388,0.0564,0.899,189.596,228813,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-136FKGFqD0WMdasekbOi8q,Roll It Over - 40th Anniversary Version / 2010 Remastered,4,2,False,0.492,0.85,9,-4.868,1,0.0275,0.0104,0.00472,0.146,0.758,104.328,271027,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-7Ey4FEqYTUNMg1bCyA4Ohb,Tell The Truth - Single Version / 40th Anniversary Version / 2010 Remastered,3,2,False,0.409,0.968,4,-3.858,1,0.0599,0.0719,0,0.53,0.738,88.414,202987,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-2HSEunOhsN4Wyy1g0yBM5h,It's Too Late - 40th Anniversary Version / 2010 Remastered / Live For The Johnny Cash TV Show / 1970,0,2,False,0.572,0.87,9,-5.225,1,0.0749,0.715,0.000115,0.866,0.908,111.906,251653,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-2iISE7nL2qNhDu83Mgmfg3,Got To Get Better In A Little While - 40th Anniversary Version / 2010 Remastered / Live For The Johnny Cash TV Show / 1970,0,2,False,0.517,0.961,11,-5.714,0,0.0464,0.472,0.203,0.948,0.875,110.606,394093,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-3sroRBfc3XUTVFdPPdkn9w,Matchbox - 40th Anniversary Version / 2010 Remastered / Live For The Johnny Cash TV Show / 1970,0,2,False,0.293,0.946,2,-5.28,1,0.56,0.738,0.000135,0.965,0.797,186.311,236613,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-41R8wZX6LYiQDFD4isOzuX,Blues Power - 40th Anniversary Version / 2010 Remastered / Live For The Johnny Cash TV Show / 1970,0,2,False,0.492,0.945,0,-4.35,1,0.0497,0.21,0.00258,0.954,0.895,138.347,392720,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-29Mmadkx700kPqzIBoN9Cq,Snake Lake Blues - 40th Anniversary Version / 2010 Remastered,3,2,False,0.411,0.572,4,-9.688,1,0.0307,0.281,0.627,0.0701,0.569,184.787,213400,3,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-6BZvdGvZCjHraNxyR125lK,Evil - 40th Anniversary Version / 2010 Remastered,3,2,False,0.459,0.822,0,-8.874,1,0.0416,0.153,0.318,0.164,0.846,96.493,274080,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-5WpHgb4h9DLiJ9G3VqxHia,Mean Old Frisco - 40th Anniversary Version / 2010 Remastered,2,2,False,0.48,0.789,9,-8.614,1,0.0338,0.368,0.364,0.39,0.694,148.989,244707,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-1fd9Y3RuEc9QVc7oAv2ERd,One More Chance - 40th Anniversary Version / 2010 Remastered,2,2,False,0.664,0.639,9,-10.389,1,0.023,0.426,0.0133,0.35,0.768,94.047,195707,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-4Nkaq0dGUWIJLrXEW8ffVU,Got To Get Better In A Little While - Jam / 40th Anniversary Version / 2010 Remastered,2,2,False,0.561,0.691,7,-9.435,1,0.0381,0.00906,0.883,0.123,0.822,98.45,224320,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-0SlO2YxyqpD3i3w3QzOPIr,Got To Get Better In A Little While - Remixed / 40th Anniversary Version / 2010 Remastered,4,2,False,0.446,0.912,2,-7.061,1,0.0436,0.0255,0.313,0.285,0.794,90.316,364693,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-5AZJya89S3Fgl02XNWOkqj,Why Does Love Got To Be So Sad? - Live At Fillmore East,6,3,False,0.252,0.896,9,-5.771,1,0.0863,0.121,0.117,0.602,0.54,101.703,569720,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-2Pw2LMrWwZrvkQ4SmHEmaJ,Got To Get Better In A Little While - Live At Fillmore East,20,3,False,0.469,0.948,2,-5.781,1,0.0449,0.029,0.313,0.95,0.875,108.72,830667,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-16K4KqCfsry033BpxZaiGL,Let It Rain - Live At Fillmore East,5,3,False,0.365,0.982,2,-5.736,1,0.207,0.00869,0.293,0.797,0.231,125.904,1068013,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-5Rb6sz4eWjt8cLaXoqzWUw,Presence Of The Lord - Live At Fillmore East,10,3,False,0.42,0.696,0,-7.589,1,0.0404,0.657,0.000562,0.702,0.462,128.952,369440,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-3R8s7UCxI4NGRXVXKGIJCQ,Key To The Highway - Live At Fillmore East,13,3,False,0.369,0.589,9,-7.26,1,0.0285,0.181,0.00111,0.868,0.803,85.429,385800,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-6QKX32Y0ItqFJ9jDdElnmM,Nobody Knows You When You're Down And Out - Live At Fillmore East,4,3,False,0.442,0.483,0,-9.63,1,0.0354,0.77,3.84e-05,0.957,0.327,152.203,350747,3,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-6FBLEmGkMTeSlYI1vBz6Q0,Tell The Truth - Live At Fillmore East,3,4,False,0.514,0.82,4,-7.166,0,0.0306,0.414,0.00715,0.824,0.881,103.581,681547,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-5UmaKiigRVz57LyGA4j6vD,Bottle Of Red Wine - Live At Fillmore East,7,4,False,0.434,0.894,0,-6.673,1,0.038,0.0276,0.00105,0.994,0.551,136.713,334867,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-0hnTzwT1n6EZB7Dyl8oe5r,Roll It Over - Live At Fillmore East,8,4,False,0.492,0.818,11,-8.203,0,0.0354,0.214,0.0157,0.956,0.836,109.122,404147,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-3qZjfFmk41tiv2uIQHQT3d,Blues Power - Live At Fillmore East,7,4,False,0.356,0.898,0,-6.616,1,0.0371,0.315,0.0984,0.691,0.828,130.132,629880,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-2e1GVKsg1ilvm6BGNOMpUB,Have You Ever Loved A Woman? - Live At Fillmore East,8,4,False,0.447,0.455,0,-9.879,1,0.0362,0.511,0.00598,0.974,0.43,125.075,492960,3,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-0qn14BYTBYHNKnqprffu8M,Little Wing - Live,4,4,False,0.384,0.734,6,-6.277,0,0.0419,0.65,0.000239,0.691,0.509,131.034,370840,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-4CyyM7T5YRCWjPYH80OXSC,Crossroads - Live At Fillmore East,3,4,False,0.315,0.805,2,-7.283,1,0.0364,0.0663,0.0245,0.94,0.882,172.552,497827,4,5aoxWOFAgalv9NtxUp5cHq,2rc78XDH9zuJP6bm78lU8Z
-2xNruEPnV3JHJ9qvHvcEF3,I Looked Away,52,1,False,0.501,0.488,0,-9.131,1,0.029,0.324,0.00113,0.165,0.729,117.573,184560,4,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-2YJgM8lj4u5YEZRSHSfL60,Bell Bottom Blues,58,1,False,0.404,0.695,2,-6.162,1,0.034,0.587,0.0383,0.159,0.646,133.136,301720,4,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-6QwOmMMlQ9dlZlS12yFc2b,Keep On Growing,42,1,False,0.506,0.906,10,-6.309,1,0.0652,0.357,0.278,0.126,0.724,92.578,380680,4,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-0xvRoqvLmijll3D5qTnrRP,Nobody Knows You When You're Down And Out,43,1,False,0.456,0.512,0,-8.454,1,0.0284,0.908,0.426,0.736,0.376,83.256,297320,3,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-1JedX5wEESMiktPb9DwqvH,I Am Yours,41,1,False,0.681,0.307,7,-16.001,1,0.034,0.426,0.433,0.217,0.612,121.604,215093,4,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-1mXVgbMGX8YGBm5KNcMh4i,Anyday,38,1,False,0.191,0.869,2,-6.158,1,0.0539,0.182,0.00179,0.184,0.741,168.702,395520,4,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-1iDEGFxf1S2ZOy8xGF3dhJ,Key To The Highway,37,1,False,0.292,0.64,9,-7.153,1,0.0372,0.424,0.826,0.478,0.571,83.926,577973,4,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-1w2fR7E6qOVDQGSFdYatbs,Tell The Truth,34,1,False,0.444,0.888,4,-4.938,1,0.0567,0.446,0.0549,0.102,0.589,104.454,398360,4,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-6S5DtyJNXTgHEXIVUToAPP,Why Does Love Got To Be So Sad?,42,1,False,0.378,0.963,10,-4.909,1,0.171,0.0983,9.59e-05,0.291,0.298,125.507,281907,4,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-2ROJOb98GorxStuOuZWcGd,Have You Ever Loved A Woman?,57,1,False,0.303,0.648,0,-6.795,1,0.0512,0.642,0.053,0.407,0.644,170.379,412960,3,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-2Wq9vCNpcpJOhsZb1JvLhH,Little Wing,42,1,False,0.275,0.81,6,-4.396,0,0.0424,0.464,0.0125,0.36,0.607,133.729,333133,4,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-3z22I9KvX08FKIlLFQHj97,It's Too Late,37,1,False,0.531,0.598,9,-6.03,1,0.0324,0.702,4.67e-06,0.395,0.751,111.397,229693,3,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-2kkvB3RNRzwjFdGhaUA0tz,Layla,76,1,False,0.404,0.902,1,-3.88,1,0.0665,0.577,0.297,0.287,0.497,115.669,423840,4,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-6gZvsNkfeeEbN2shppEPto,Thorn Tree In The Garden,47,1,False,0.631,0.119,11,-20.17,0,0.0354,0.931,0.0385,0.097,0.208,95.814,170867,4,5iIWnMgvSM8uEBwXKsPcXM,2rc78XDH9zuJP6bm78lU8Z
-0ZNLrkF2WEldsF3e89FuZh,I Looked Away - 40th Anniversary Version / 2010 Remastered,17,1,False,0.501,0.488,0,-9.131,1,0.029,0.324,0.00113,0.165,0.729,117.573,184560,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-7ouZzOt2Dp1rfHtB9UTdCd,Bell Bottom Blues - 40th Anniversary Version / 2010 Remastered,19,1,False,0.404,0.695,2,-6.162,1,0.034,0.587,0.0383,0.159,0.646,133.136,301720,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-6JEoH02hAIdLg42CiH4Keg,Keep On Growing - 40th Anniversary Version / 2010 Remastered,17,1,False,0.506,0.906,10,-6.309,1,0.0652,0.357,0.278,0.126,0.724,92.578,380680,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-2gcxuLIt0UqWEvA8G9SPZS,Nobody Knows You When You're Down And Out - 40th Anniversary Version / 2010 Remastered,15,1,False,0.456,0.512,0,-8.454,1,0.0284,0.908,0.426,0.736,0.376,83.256,297320,3,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-6w6a5NTOBDmtokaL7XLLma,I Am Yours - 40th Anniversary Version / 2010 Remastered,13,1,False,0.681,0.307,7,-16.001,1,0.034,0.426,0.433,0.217,0.612,121.604,215093,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-2hu0Dutajw0XGlIEncp9r4,Anyday - 40th Anniversary Version / 2010 Remastered,15,1,False,0.191,0.869,2,-6.158,1,0.0539,0.182,0.00179,0.184,0.741,168.702,395520,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-2qWKx1nz92TagX3ev7ixXv,Key To The Highway - 40th Anniversary Version / 2010 Remastered,14,1,False,0.292,0.64,9,-7.153,1,0.0372,0.424,0.826,0.478,0.571,83.926,577973,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-7v02yXbtoblovSeH5X3QBh,Tell The Truth - 40th Anniversary Version / 2010 Remastered,12,1,False,0.444,0.888,4,-4.938,1,0.0567,0.446,0.0549,0.102,0.589,104.454,398360,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-7cT70z4xRqg3zbKoeMg5iB,Why Does Love Got To Be So Sad? - 40th Anniversary Version / 2010 Remastered,14,1,False,0.378,0.963,10,-4.909,1,0.171,0.0983,9.59e-05,0.291,0.298,125.507,281907,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-222crew3tEir2UscC1rjCe,Have You Ever Loved A Woman? - 40th Anniversary Version / 2010 Remastered,13,1,False,0.303,0.648,0,-6.795,1,0.0512,0.642,0.053,0.407,0.644,170.379,412960,3,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-0dLsIMPbZeuLNmofznoeTs,Little Wing - 40th Anniversary Version / 2010 Remastered,14,1,False,0.275,0.81,6,-4.396,0,0.0424,0.464,0.0125,0.36,0.607,133.729,333133,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-7tE2inlklB6bMFcIZ36wYA,It's Too Late - 40th Anniversary Version / 2010 Remastered,12,1,False,0.531,0.598,9,-6.03,1,0.0324,0.702,4.67e-06,0.395,0.751,111.397,229693,3,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-4OcTjNItuEI4wjl9LOPoIm,Layla - 40th Anniversary Version / 2010 Remastered,26,1,False,0.404,0.902,1,-3.88,1,0.0665,0.577,0.297,0.287,0.497,115.669,423840,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-6uzCGK712IiW0W45VqfnyS,Thorn Tree In The Garden - 40th Anniversary Version / 2010 Remastered,12,1,False,0.631,0.119,11,-20.17,0,0.0354,0.931,0.0385,0.097,0.208,95.814,170867,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-5vQ9hxKUMCisn1v1nGjXgo,Mean Old World - 40th Anniversary Version / 2010 Remastered,13,2,False,0.57,0.45,0,-11.443,1,0.0798,0.795,0.0388,0.0564,0.899,189.596,228813,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-6Pk6NyWD2rqD0kowEwfBLm,Roll It Over - 40th Anniversary Version / 2010 Remastered,15,2,False,0.492,0.85,9,-4.868,1,0.0275,0.0104,0.00472,0.146,0.758,104.328,271027,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-5FAHQLwAn4Xxgc33a4dvBj,Tell The Truth - Single Version / 40th Anniversary Version / 2010 Remastered,13,2,False,0.409,0.968,4,-3.858,1,0.0599,0.0719,0,0.53,0.738,88.414,202987,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-1XCnoSA8Ry9lHBbyVqaMIL,It's Too Late - 40th Anniversary Version / 2010 Remastered / Live For The Johnny Cash TV Show / 1970,0,2,False,0.572,0.87,9,-5.225,1,0.0749,0.715,0.000115,0.866,0.908,111.906,251653,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-5YIFlNG2uFRFMBLwoqIyux,Got To Get Better In A Little While - 40th Anniversary Version / 2010 Remastered / Live For The Johnny Cash TV Show / 1970,0,2,False,0.517,0.961,11,-5.714,0,0.0464,0.472,0.203,0.948,0.875,110.606,394093,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-5ZYV8c9AvIBOzbAsjBLrlE,Matchbox - 40th Anniversary Version / 2010 Remastered / Live For The Johnny Cash TV Show / 1970,0,2,False,0.293,0.946,2,-5.28,1,0.56,0.738,0.000135,0.965,0.797,186.311,236613,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-3PabKvKtTwWkYzRhONWtaa,Blues Power - 40th Anniversary Version / 2010 Remastered / Live For The Johnny Cash TV Show / 1970,0,2,False,0.492,0.945,0,-4.35,1,0.0497,0.21,0.00258,0.954,0.895,138.347,392720,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-1PwQXUFoHqyfIuk7ranRh7,Snake Lake Blues - 40th Anniversary Version / 2010 Remastered,37,2,False,0.411,0.572,4,-9.688,1,0.0307,0.281,0.627,0.0701,0.569,184.787,213400,3,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-4Jb1ZDYJYWg9rNR2R60QbA,Evil - 40th Anniversary Version / 2010 Remastered,21,2,False,0.459,0.822,0,-8.874,1,0.0416,0.153,0.318,0.164,0.846,96.493,274080,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-02NWofTAUFBaO5n1k1w7hI,Mean Old Frisco - 40th Anniversary Version / 2010 Remastered,17,2,False,0.48,0.789,9,-8.614,1,0.0338,0.368,0.364,0.39,0.694,148.989,244707,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-0qL4lnFD7xzhhDz2ObqsxL,One More Chance - 40th Anniversary Version / 2010 Remastered,21,2,False,0.664,0.639,9,-10.389,1,0.023,0.426,0.0133,0.35,0.768,94.047,195707,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-64Y6waMfgUYdVe8LcjKXS2,Got To Get Better In A Little While - Jam / 40th Anniversary Version / 2010 Remastered,17,2,False,0.561,0.691,7,-9.435,1,0.0381,0.00906,0.883,0.123,0.822,98.45,224320,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-4qJiEBTc44kHSb8S0BkC3u,Got To Get Better In A Little While - Remixed / 40th Anniversary Version / 2010 Remastered,22,2,False,0.446,0.912,2,-7.061,1,0.0436,0.0255,0.313,0.285,0.794,90.316,364693,4,1KoerhgSJnUkS0aKS6qELi,2rc78XDH9zuJP6bm78lU8Z
-39mWeuDyB4DcyeG1RU3cEQ,Mean Old World,3,1,False,0.772,0.45,0,-11.461,1,0.0424,0.803,0.0448,0.0691,0.893,94.325,231027,4,461DZY36jLWf2tnfK8yhb1,2rc78XDH9zuJP6bm78lU8Z
-6jeF8zzjtvh1PLdPKMtDKf,Roll It Over,4,1,False,0.486,0.847,9,-4.9,1,0.0272,0.0105,0.00381,0.108,0.747,104.323,272867,4,461DZY36jLWf2tnfK8yhb1,2rc78XDH9zuJP6bm78lU8Z
-3lXL63t1zbiihW1YGcHeRg,Tell The Truth,3,1,False,0.31,0.967,4,-3.879,1,0.0655,0.0908,0,0.426,0.731,177.006,204573,4,461DZY36jLWf2tnfK8yhb1,2rc78XDH9zuJP6bm78lU8Z
-3Yv3SaTyjd5gZdigKYOsHy,It's Too Late,9,1,False,0.579,0.862,9,-5.239,1,0.0605,0.749,0.000107,0.851,0.886,111.772,252093,4,461DZY36jLWf2tnfK8yhb1,2rc78XDH9zuJP6bm78lU8Z
-72TL6N79XdKzl5Y5aUacfi,Got To Get Better In A Little While,7,1,False,0.515,0.959,11,-5.685,0,0.0431,0.425,0.231,0.949,0.888,110.733,394667,4,461DZY36jLWf2tnfK8yhb1,2rc78XDH9zuJP6bm78lU8Z
-7fO4c5Zchnwju79j7LyZQp,Matchbox (Live),5,1,False,0.292,0.952,2,-5.298,1,0.605,0.731,0.000106,0.968,0.787,186.005,236893,4,461DZY36jLWf2tnfK8yhb1,2rc78XDH9zuJP6bm78lU8Z
-2qxgeLhwUapVZHbfcwmgjd,Blues Power (Live),6,1,False,0.474,0.942,0,-4.335,1,0.0529,0.215,0.00179,0.969,0.865,138.153,393400,4,461DZY36jLWf2tnfK8yhb1,2rc78XDH9zuJP6bm78lU8Z
+7wr3iS3rUDjdLdJSc0Nifc,Don't Push / Right Back / New Thrash - Live,33,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+7lKMYUftN1FNWD5GgZDjhK,Work That We Do - Live,30,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+2WjWmDLQScc19yn28aW6yb,40oz. To Freedom - Live,30,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+3MST5S4m1l8UxcCxNap2LR,House of Suffering - Live,28,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+4m7dJS5ZimcEQ2HgFYw8sL,Badfish - Live,30,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+6KWkc14czceUIoctC6ZHEe,Leaving Babylon - Live,40,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+7c9ztzQlQO9v5PAInA0NHy,Prison Oval Rock - Live,39,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+0Atesv2I7vigfy3PJvYB0r,We're Only Gonna Die for Our Arrogance - Live,28,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+3YT2Ain39SGqjeLWfv7KcU,Let's Go Get Stoned - Live,28,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+6TOS56f6sxnTi2XqHbNLEF,Pool Shark - Live,26,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+3QenQqMIeddeUXmpMe9bl5,S.T.P. - Live,26,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+7CZryXCql22iBaXXJSx0iQ,I'm Not a Loser - Live,25,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+27XUK67mYFoklYvTFDq3K2,Scarlet Begonias - Live,26,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+5aqpAnaUUblqumESVSjMfH,Loving / Good Hole College - Live,29,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+3BPTXO45jfmWmedZFowLna,Cost of Living - Live,38,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+2uW4tXuissai07nrS2LzK9,D.J.'s - Live,25,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+003JTVSNiRD8fqzsF8SwBK,Saw Red - Live,24,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+28b3HlUsHpeiSyiusWzI0k,Jah is My Light / Greatest Hits - Live,24,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+4yKhkk5IX20uWWcPeFcuWw,Jailhouse - Live,24,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+4XjLEj1MSUcUz1Gczr29Ve,54-46 That's My Number - Live,38,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+5ulX2UYEDxRs9NiYzopm9E,Date Rape - Live,24,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+6mAi4AC4AyEJgsG6Sv9zwI,Youth Are Getting Restless - Live,23,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+0hlZfAKOZla2nMaqqI2bMC,Romantic Girl / Winner Takes All - Live,41,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+4gIiTmz6fOQ8wnxD1mW5Te,Myage - Live,22,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+71gJFJCFMWMCrFjnykzU0r,Slow Ride - Live,23,1,True,,,,,,,,,,,,,,4SsUhMdeVbtmIVpHps7Jzc,0EdvGhlC1FkGItLOWQzG4J
+6AxKXXikKxH23yRZbXlczs,santeria - lofi,33,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+1gR5TDDEvDkxTs1UGjR910,what i got - lofi,42,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+3rLhfcpeN53pRnlXPQ80ae,doin' time - lofi,47,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+1yV96xUdxrBIlJIiBtcTcX,wrong way - lofi,27,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+3PbL26oav7atML9ltDRs5l,badfish - lofi,27,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+1QbqYd3ejlPw7OsXsTZrIc,smoke two joints - lofi,29,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+1FcQD6kc4IBt8dVPoTpdLq,caress me down - lofi,28,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+4AiVHw0wO8yaiIHsOLVzHz,40oz. to freedom - lofi,26,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+52i5gjoHqpKQdFeGo0ywke,waiting for my ruca - lofi,25,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+4E1zPYhVkdXbm1C4X9oeXh,boss dj - lofi,23,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+0Uu23JhjJ4tiLeBlrDwa1l,slow ride - lofi,23,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+7gWWE2bmgNxlBn0NQfciiR,right back - lofi,25,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+0UNjdBCzpPNhitMw97aCaU,stp - lofi,22,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+1G1fgtXhvW2VWdIENMKCwf,dj's - lofi,22,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+1MPFj6N8034IIbonmEFGJm,let's go get stoned - lofi,22,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+5ZK6G4mhTE0deyOKs4Bkvo,saw red - lofi,21,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+1XI0KkFGDS0Asc9HvVZd7E,5446 - lofi,22,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+6IAAK2Thz1TMS9iekmdPEQ,same in the end - lofi,22,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+7jMoi7itEWOb6SUn0HPEr9,seed - lofi,21,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+6K70ZuEU0XCCbsy0UvQndx,rivers of babylon - lofi,21,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+1u6xA2YG8fFZMgxaa7IEIh,get ready - lofi,21,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+5EEX4qYYymqu8xdrFJHps2,krs one - lofi,21,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+2UbM1gUK0iQdQ4ErKO2AfG,jailhouse - lofi,20,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+7pLjFO0AaymR0FLljKSAWO,date rape - lofi,21,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+3rvXIOFabfcJD5Qe2wO0u1,steppin razor - lofi,22,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+2phiQuNbqgh7b4WrrTsYLY,garden grove - lofi,21,1,False,,,,,,,,,,,,,,696pAMUhtOEyenQukQKRxI,0EdvGhlC1FkGItLOWQzG4J
+4dbEjv7imvqQ28GZ23t97g,Caress Me Down - Español Dub (Scientist Mix),23,1,False,,,,,,,,,,,,,,1uFb8xIikYRlfXfsHpnEMu,0EdvGhlC1FkGItLOWQzG4J
+1rW7cpepPBglAdE0NFdRt3,Garden Grove Dub - Scientist Mix,40,1,False,,,,,,,,,,,,,,1uFb8xIikYRlfXfsHpnEMu,0EdvGhlC1FkGItLOWQzG4J
+6JQngaGvqOsUOJpsK5xFdp,Santeria Dub - Scientist Mix,39,1,False,,,,,,,,,,,,,,1uFb8xIikYRlfXfsHpnEMu,0EdvGhlC1FkGItLOWQzG4J
+4LgIiJN2AdnURdp3fgBMSB,Hong Kong Phooey Subliminal Dub - Mad Professor Mix,22,1,False,,,,,,,,,,,,,,1uFb8xIikYRlfXfsHpnEMu,0EdvGhlC1FkGItLOWQzG4J
+1zFYQemdUhDk7Hm4OWbG9i,"April 29, 1992 (Miami) Dub - Mad Professor Mix",21,1,False,,,,,,,,,,,,,,1uFb8xIikYRlfXfsHpnEMu,0EdvGhlC1FkGItLOWQzG4J
+5b556t6qGJw7QUj7zXlNYF,Pawn Shop Dub - Mad Professor Mix,27,1,False,,,,,,,,,,,,,,1uFb8xIikYRlfXfsHpnEMu,0EdvGhlC1FkGItLOWQzG4J
+2C1d11T3HZsC17YOf1Z8sy,Garden Grove Vocal Dub - Scientist Mix,19,1,True,,,,,,,,,,,,,,1uFb8xIikYRlfXfsHpnEMu,0EdvGhlC1FkGItLOWQzG4J
+31JMLwIe0Yi13xyJfh6Wgo,Hong Kong Phooey Dub - Mad Professor Mix,24,1,False,,,,,,,,,,,,,,1uFb8xIikYRlfXfsHpnEMu,0EdvGhlC1FkGItLOWQzG4J
+4upI3VkfF64kCqXBmZPQQn,Great Stone - Live At The Palace/1995,24,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+15Rq754K9hUAh2ViuctqPu,We're Only Gonna Die For Our Arrogance - Live At The Palace/1995,21,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+7iINRP60i0rSNRCGh02MnV,Don't Push - Live At The Palace/1995,23,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+1JNd2bC8qC3FSdVbcszZHf,Garden Grove - Live At The Palace/1995,23,1,True,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+34zEduAjeCpvep9WSMd4d4,Don't Push - Reprise / Live At The Palace/1995,0,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+3mkXvz3ZHRdMuoztZxyzDa,Right Back - Live At The Palace/1995,21,1,True,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+5LKWVIjtkzR9XfHj3icAlN,New Thrash - Live At The Palace/1995,19,1,True,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+5dOCXUAZ6bCDQviKRm6es0,Saw Red - Live At The Palace/1995,21,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+16sHyyLrE4cFM5N2uCURwV,Badfish - Live At The Palace/1995,28,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+5sBSzjh0Afp0ffG1U1K4Me,All You Need - Live At The Palace/1995,20,1,True,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+2Z7GZFIqfw4bRxomKrjTS9,Hope - Live At The Palace/1995,19,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+5zKdt94rwvZIRDjLUwrzAe,Foolish Fool - Live At The Palace/1995,21,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+7vbrXgY8PXYPLQXGkGg3mV,Falling Idols - Live At The Palace/1995,18,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+3bL9gh6GshMbm4nltTK9SS,Caress Me Down - Live At The Palace/1995,21,1,True,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+7Agj6pxh34TkjOvjA8foXG,40 Oz. To Freedom - Live At The Palace/1995,30,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+640bfZnoIBFM1ZdrGLQy5v,Ebin - Live At The Palace/1995,19,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+6QHTeHHuTXpSK0F0YluN9T,54-46 Was My Number - Live At The Palace/1995,23,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+2PWHG2Nt61T9t9ahYnBlKc,Date Rape - Live At The Palace/1995,19,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+1k3ik4HzYZqCHDJ9HMs4hf,House Of Suffering - Live At The Palace/1995,17,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+4GhPfMZpVKwc7W4kSmeTEK,D.J.s - Live At The Palace/1995,19,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+4z1MFzDQoKeRuxK4JpvvT1,I Love My Dog - Live At The Palace/1995,17,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+5ldV0x1OmNL7nWOFDgVrpK,Pool Shark - Live At The Palace/1995,18,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+3YbYA3JOBidjdBA3UiI8QN,Work That We Do - Live At The Palace/1995,18,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+0u0pi56jTOikNpejmelJ7Y,Greatest Hits - Live At The Palace/1995,19,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+7fih3khpY372T8tMeR9bNh,Smoke Two Joints - Live At The Palace/1995,21,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+43zyq2e9SopcgyUCOg5BLD,Scarlet Begonias - Live At The Palace/1995,19,1,False,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+0de3OlOE0sY1PZQZnSvUyd,Ring The Alarm - Live At The Palace/1995,17,1,True,,,,,,,,,,,,,,0IAENkkw32C2AFHv5XvrTq,0EdvGhlC1FkGItLOWQzG4J
+2i1r2nvzVLN1F7fC1KRIvc,Wrong Way - Live / Acoustic Version,27,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+1WHyYU5kFPKZMq0FTmpkkv,Saw Red - Acoustic Version,33,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+3fYMEPMGF3izTb2QlUDLQZ,Foolish Fool - Acoustic Version,43,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+3OFTdZGN3Y7XjZFpO5jzJ1,Don't Push - Acoustic Version,33,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+5jkyjRyPo5rl4X4X2n064a,Mary / Big Salty Tears - Live / Acoustic Version,30,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+2zlrtodRDvPLPgjAe14lA8,Boss D.J. - Acoustic Version,35,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+66kbYNcHau3K8Qe0sb8ULQ,Garden Grove - Live / Acoustic Version,27,1,True,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+4G63fUJXyEYzu9RPYChpUe,Rivers Of Babylon - Acoustic Version,37,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+1jBu2MvSWmLaTI0O3oRPMI,Little District - Acoustic Version,29,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+4FQ0qSXH3TVEmyL1ERmDkB,KRS-One - Live / Acoustic Version,27,1,True,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+1uCzlBE0jqEFoEqJMbm6lR,Marley Medley: Guava Jelly / This Train - Acoustic Version,46,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+2BwFrs0hnttqDm8CXLv0Hi,What Happened / Eye Of Fatima - Acoustic Version,29,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+6DZO4qJMgLTwk1YbS79Fmy,Freeway Time In L.A. County Jail - Acoustic Version,42,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+3ME5ELmdwYoaLWSpc8j3IB,Pool Shark - Acoustic Version,32,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+0SsQwDrXWed7rXuRODidXS,It's Who You Know - Acoustic Version,25,1,False,,,,,,,,,,,,,,760Zl8uV0tMet5ihlXOYDX,0EdvGhlC1FkGItLOWQzG4J
+6qgmlODilqAFRmFhNazr0h,Don't Push - Live At Kommotion/1994,23,1,True,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+4jzqMflDysTJHkFA4EXrkd,Right Back - Live At Kommotion/1994,22,1,True,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+2EvfYuXQKTwh2E197agK7t,New Thrash - Live At Kommotion/1994,21,1,True,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+0zI7NjzC25Wdn9rTAkZjuy,Let's Go Get Stoned - Live At Kommotion/1994,23,1,True,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+08HmqzLYGKGBj0xv7vpdYF,Greatest Hits - Live At Kommotion/1994,23,1,True,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+03fTmxD79eXHej3lKJ2lZJ,Date Rape - Live At Kommotion/1994,23,1,True,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+5RZ48KopwOR7RnfbhnUGNW,S.T.P. - Live At Kommotion/1994,23,1,True,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+70P6a9MQQ4vWyYKUdZeF5I,Badfish - Live At Kommotion/1994,24,1,False,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+0C04obXqXgmMKMqL8Fr3YG,D.J.'s - Live At Kommotion/1994,22,1,False,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+3C7b3KXyQDuNIJxMxlSkfb,Work That We Do - Live At Kommotion/1994,22,1,False,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+0XcPRHVVcdtXBMRKrwOEj0,Pool Shark - Live At Kommotion/1994,22,1,False,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+2s1XtVXeyZkkuIrMKhcAjJ,Ebin - Live At The Tressel Tavern/1994,19,1,False,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+7K05w8jNQcWng8q3542tPU,All You Need - Live Warped Tour/1995,20,1,True,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+6SqyfFDHp58FBizU1BGJD7,Waiting For My Ruca - Live Warped Tour/1995,20,1,True,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+1fUo7qdj5cp8HzK6XAwbEy,Caress Me Down - Live At The Palace/1995,20,1,True,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+2ZsEBpLwL5wVhyTHG3Ev88,KRS-One - Live At The House Of Blues/1996,19,1,False,,,,,,,,,,,,,,7AR3ee5m8Nwc5s3W2POewq,0EdvGhlC1FkGItLOWQzG4J
+1jmq9ekr49AjpLTvI8LHHi,Doin' Time - Uptown Dub,32,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+29MeshT2GjuAuFawuBUcIX,Get Out! - Remix,45,1,True,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+0elKh7FAv38yxQFoHc6fFp,Romeo - Demo,31,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+6r6BSyg4JwpaJj882HNgPu,New Realization - Demo,30,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+6DsSMhr0pCAn0apG1wGCVv,Don't Push,30,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+3sfknzcDPtjK1Sutrmbei9,Slow Ride,33,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+7mkjceHZr3DD0SK1nUpjFj,Chick On My Tip,42,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+6bi0ZAEv7zeqXYnQBWxUUv,Had A Dat,28,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+1cq7LNd8qVdOQDrG38a34J,Trenchtown Rock,30,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+2C1FYWWW7HMmtxzADyIaEy,Badfish,30,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+3zUICZtWXjRkQgcBr16uHK,Drunk Drivin',2,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+4EITMnFZ3LzjOuyath6EGU,Saw Red,40,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+204Mp03UDldypQSOIUmRdQ,Garbage Grove,29,1,True,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+77KuggXmWIkfUzKVkXENc7,"April 29th, 1992 (Leary)",28,1,True,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+6w8WDU9lj28AiYBEqR1T7E,Superstar Punani,30,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+1PvwTLKiZM3vTnRDN3JhKi,Legal Dub,32,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+2c7juiCpLJ8Vj8ibRwqUEw,What's Really Goin' Wrong,27,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+0Y4VsRdBDlsXl7Vvf8gjKP,Doin' Time - Eerie Splendor Remix,26,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+3sHrSNeSZrz2iH7rbxxnDr,Thanx Dub - Instrumental,28,1,False,,,,,,,,,,,,,,75TcMiwrxS0jHbWkbLnNqD,0EdvGhlC1FkGItLOWQzG4J
+0yJslHE460lZcM5OASoBnn,Trenchtown Rock,29,1,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+4E9JPsbXYX2ui8GDHhwwkM,Doin' Time,36,1,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+0kFpb2zqfMCwD1upw0kHw3,Wrong Way,35,1,True,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+0bmhIgMDXOwudE22YgYxOJ,Paddle Out,28,1,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+1Ut0PcWguWEdmYuMmurqfw,What I Got,37,1,True,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+2QJQKCJLs2GRCZvNAwL4SM,Pawn Shop,38,1,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+0VZ6N5xd8OchXM96mYLxNW,"April 29, 1992 (Miami)",34,1,True,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+4720MO7CO5DVMAryRJRh29,Santeria,39,1,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+6QaJ98BmiX9KAayja1sauv,Seed,31,1,True,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+6UncHVmTQ1s87PItlra9EJ,Jailhouse,33,1,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+45ysPwEf7vH5yoHCzKtTf3,Caress Me Down,33,1,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+2SW3ozEwEQqQNjMh81Ph0O,The Ballad Of Johnny Butt,29,1,True,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+4UR1uFgnEmM4baaLWU0Yc1,Under My Voodoo,27,1,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+59IwsFoDLUMhzZW0wESuET,Burritos,29,1,True,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+4vu0dC8JfMv07g0lZ9Yxh4,Same In The End,32,1,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+12T6Koi4VVpcWzE3diiPs3,Get Ready,30,1,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+73xMgycXvR94dn7JEGZuJE,What I Got - Reprise,31,1,True,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+1D7uhJA0ntyYoxwxf2aI1Q,Garden Grove,33,1,True,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+5gYgWJrkbAAbOQwHDp7iXa,I Love My Dog,43,2,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+4MK9s4Z3PXdS4RWEt0i5Fk,Superstar Punani,27,2,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+5tRTGpWqA5lV1uo3xZ9Epq,"April 29th, 1992 (Leary)",24,2,True,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+4S46ih9E0G8NUeCpGm2WQ8,Saw Red - Acoustic Version,32,2,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+08Hh2BNGNKe6Ks5vukPOn5,Little District - Acoustic Version,30,2,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+2OIEF2gyjhi67ZdeG2YogV,Zimbabwe - Acoustic Version,28,2,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+7ve2T8NpzGTaYgWan4LJh2,What I Got - Demo,25,2,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+3vfAjXMk0owJS5jHuCRCC6,Doin' Time - Uptown Dub,23,2,True,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+0pHLEYaSh2Os2wZmltZ0gO,Doin' Time - Eerie Splendor Remix,21,2,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+29i74DIwRiI100UQBA332Y,Doin' Time - Remixed By Wyclef Jean,31,2,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+5uCfqIxzABOjZDSlaZl1Gf,Doin' Time - Remixed By Marshall Arts,36,2,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+2caJ40sWyF4VyVtZgUpwUH,Doin' Time - Marshall Arts Instrumental Version,25,2,False,,,,,,,,,,,,,,4kq4T5cWLlP8NJkMA3S6AN,0EdvGhlC1FkGItLOWQzG4J
+2rNdokgvZAx0Gf56tbq7bW,Garden Grove,34,1,True,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+5nkYHBWXu7KCgcdwP6jcB1,What I Got,49,1,True,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+5cPfmNMC3AENizySC5oPu2,Wrong Way,42,1,True,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+4B6dMwXS6q8pw1HBWV8Cc8,Same In The End,37,1,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+6TiUowwluPjwIusdZthgYv,"April 29, 1992 (Miami)",33,1,True,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+2Z2vOukzwOgqR4dkymRSWd,Santeria,58,1,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+6vGz9D15KduwX4W2f7KX9j,Seed,31,1,True,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+6s4dya6PLrPVTYkfTmzZ47,Jailhouse,32,1,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+17hqX08GS41mq4QbRnRpVz,Pawn Shop,33,1,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+7BY45SLc8OHLkTJv8TwO8z,Paddle Out,26,1,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+03EWmbFFgOASsSZRplUDz4,The Ballad Of Johnny Butt,28,1,True,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+2dkGxItBKKA24mGpdPygTS,Burritos,28,1,True,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+513KOUdZpwxIbXkNUkrB74,Under My Voodoo,26,1,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+2iRVtq5rnNQ6E20ljfyDCY,Get Ready,29,1,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+4YKbb6ie3RBJmRHRSO9oiA,Caress Me Down,31,1,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+7czpya5MZXGBVo2Z18TyFd,What I Got,30,1,True,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+0Ylaocf86J0PZAhjAP8wzl,Doin' Time,40,1,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+3ImkwJkb7RX4yh8Fpz6pN9,Doin' Time,26,2,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+1GcT1n4CCo0Mqcyu7fjOM5,Date Rape,30,2,True,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+0nSr5i9ewbdFNxUuEgHeq9,All You Need,24,2,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+3C7xBXgoZjguCYbU2gvA8H,Lincoln Highway Dub,23,2,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+4G0Lyn6r56fXpU4nMbBMLx,Rivers Of Babylon,26,2,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+6n2DqMvXZpYfji4dOguaXx,What I Got,24,2,False,,,,,,,,,,,,,,4R3tXoorBpHji6Jdms8a4Q,0EdvGhlC1FkGItLOWQzG4J
+4IjdXghz0YdNnEkdXmDGE0,Waiting For Bud,36,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+17VOjOWAuf5xjkczNtJUKd,Steady B Loop Dub,33,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+1dpoi57apNWeO9DNcyyLnV,Raleigh Soliloquy Pt. I,30,1,True,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+0nxEXj9mTSi3QdYiODNxXa,Pool Shark,36,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+0QSMnEFjzN0FuvyNjaHnCH,Steppin' Razor,49,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+41ww8W0WL4pZI0A7nK4vzA,Greatest-Hits,54,1,True,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+1ZS2NcXtZCPCVvT7H7CIPL,Free Loop,33,1,True,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+7mfhiP2lgtPzWEIEvhXRPX,Q-Ball,30,1,True,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+0q3dawIqs8A5PphPhap98V,Saw Red,52,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+7EwZEmPBiXW0sCaMqe9epH,Work That We Do,38,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+2ghs13Bt6G9mUsfJIHvw9u,Lincoln Highway Dub,36,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+2eel5Us5RHsvtBNPnFT5E1,Pool Shark - Acoustic Version,38,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+11CiPQqnR8j7nsfZVMpboM,Cisco Kid,47,1,True,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+2R6Y2Jtr67Zot8P8AyBlyh,Raleigh Soliloquy Pt. II,28,1,True,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+1HUiTDFAUwLTCZxIMF4SIg,S.T.P.,49,1,True,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+0Ko9gGyOSjYxb71VBZotZW,Boss D.J.,51,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+3qcEgWEozANkRDi8gmepsw,I Don't Care Too Much For Reggae Dub,29,1,True,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+4ntnyl8GRrndDoo4jgiWP4,Falling Idols,32,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+2BRSnN49rGJ6YKnc8G3dA3,All You Need,37,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+7jrST3ttfuGKt984O3QPlW,Freeway Time In LA County Jail,32,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+0O1xfLW9ATrw2BAzit0qPT,Mary,32,1,True,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+1qFkpyCS9dtuvpdTojCiog,Raleigh Soliloquy Pt. III,26,1,False,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+26YtOyPwGDeVLQlt3EWmmj,Don't Push,37,1,True,,,,,,,,,,,,,,0yZuUc5poB8rtqkbmA0APm,0EdvGhlC1FkGItLOWQzG4J
+3Cx9j78Z0NE6jYwBWvvV3P,Waiting For My Ruca,60,1,True,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+0vtJ9Dq53hfXE3KyP1yPni,40oz. To Freedom,61,1,True,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+0Jur3mZsQba3vqSpcmsOPm,Smoke Two Joints,65,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+1XvMlowIHtiLoMd0rH8vHz,We're Only Gonna Die For Our Arrogance,48,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+4FlWVsDRnYa28oJSAApL4t,Don't Push,53,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+72KtYadTtUchP2opNvcSWr,5446 Thats My Number/ Ball And Chain,55,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+2fXLhLA7cPYEmQ1NbeAtBD,Badfish,54,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+2qN7J3rwekpYjskmtOT6Ex,Let's Go Get Stoned,50,1,True,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+2oYAiyJlovFFzan6tX76DT,New Thrash,43,1,True,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+1NpLCZNSYEegtDYCRA5PNN,Scarlet Begonias,60,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+2wNa2VUe6VY8JLBAMaxmLc,Live At E's,44,1,True,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+0dUQI22joLSJc0kSLNnRi4,D.J.'s,45,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+7rNs7hQsYpPeKyZlDX7ntV,Chica Me Tipo,46,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+6BukIakKj13FZWCugXCCda,Right Back,50,1,True,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+4y15tYrvSv1c0HxFEJR3wl,What Happened,48,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+2qGgFxiXWplBWJwk4jYFuV,New Song,42,1,True,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+1CHuPmcfltngwCIztkX4wv,Ebin,50,1,True,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+7FLQo89iaS5gf2hnIEW7P9,Date Rape,59,1,True,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+26wJ64Pgts69F81vy1FHyu,Hope,43,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+50zZ6S7YI5dVL69a7GkArx,KRS-One,46,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+59FK9uQYzunUJOLky9K4yK,Rivers Of Babylon,51,1,False,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+1weVfOVVCNUadzABZeXg7j,Thanx,37,1,True,,,,,,,,,,,,,,0vuwlanMPucXrYMGnOjhYL,0EdvGhlC1FkGItLOWQzG4J
+0ONvhpE2qD0bURJ3BzEDxW,D.J.'s,42,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+4paJ10JPNCyOaLtz2cY928,Badfish,70,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+1XxSVil40QANKQ3b5mRARs,Let's Go Get Stoned,56,1,True,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+5EP8ymkhXa0JPmxyO1J0e0,New Song,36,1,True,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+7EjIbU2g4ldFv67SssQQua,Had A Dat,39,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+41kOJzQBdezTDhaELIXS3B,Don't Push,43,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+4i73U1W4jC17QCBGXuIL1V,Ball And Chain - Demo,39,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+6lIk5tgKezTTpxq1do60Tz,Slow Ride,58,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+4l8QmziTCKxPc32fRV5Qb9,Date Rape Stylee - Rarities Version,38,1,True,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+0jaYpqtFB4SFG3O3l3Jx7P,Live At E's,32,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+705LXaxLVtPTJeoHP8tmdN,Ebennz Change - Demo,34,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+7jFyXMSPgeAvDloEylosRf,Romeo - Demo,47,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+3JhIxj7Pksxa7Eaq975SwQ,Date Rape - Demo,30,1,True,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+1iD5bh9EmBSEC7KWJv6rAi,New Realization - Demo,46,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+3bpnTPFi7apYCiETliAuXW,Roots Of Creation - Demo,34,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+5AzSDWagBj5PA174y43lvL,Chick On My Tip,34,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+3A05Whl0b0ZVjjp6aFcHln,Perfect World - Rarities Version,51,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+0n0cDZSy9FeGZ1mNMifamB,Smoke Two Joints - Rarities Version,34,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+6QQ3NfxB8ZlKxqLc7OYZ2m,Johnny Too Bad,33,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J
+0hh4nBIC54BxVBBK7Nq35X,Shame In Dem Game,28,1,False,,,,,,,,,,,,,,02VqlfUtNMogzTh1lckGOF,0EdvGhlC1FkGItLOWQzG4J

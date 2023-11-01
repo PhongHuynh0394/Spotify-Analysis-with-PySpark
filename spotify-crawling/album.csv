@@ -1,8 +1,13 @@
 album_id,album_type,album_name,album_popularity,album_release_date,album_total_tracks,album_label,artist_id
-4dYhBXJ9iQH8jKaGPsg3FW,album,Live At The Fillmore,29,1994-02-22,13,Universal Records,2rc78XDH9zuJP6bm78lU8Z
-0lctewrLljhj5GWi5fdq1F,album,Derek & The Dominos In Concert (Live),24,1973,9,Polydor Records,2rc78XDH9zuJP6bm78lU8Z
-7EC1uzqEoYL2i3ZlFzGnMf,album,Layla And Other Assorted Love Songs (song_id, song_name, song_popularity, song_disc_number, song_explicit, song_dancibility, song_energy, song_key, song_loudness, song_mode, song_speechiness, song_acousticness, song_instrumentalness, song_liveness, song_valence, song_tempo, song_duration_ms, song_time_signature50th Anniversary Deluxe Edition),22,1970-11-09,23,UMC (Universal Music Catalogue),2rc78XDH9zuJP6bm78lU8Z
-5aoxWOFAgalv9NtxUp5cHq,album,Layla And Other Assorted Love Songs (Super Deluxe Edition),19,1970-11-01,40,Universal Music Group International,2rc78XDH9zuJP6bm78lU8Z
-5iIWnMgvSM8uEBwXKsPcXM,album,Layla And Other Assorted Love Songs (Remastered 2010),65,1970-11-01,14,Universal Music Group International,2rc78XDH9zuJP6bm78lU8Z
-1KoerhgSJnUkS0aKS6qELi,album,Layla And Other Assorted Love Songs (Deluxe Edition),31,1970-11-01,27,Universal Music Group International,2rc78XDH9zuJP6bm78lU8Z
-461DZY36jLWf2tnfK8yhb1,album,Layla And Other Assorted Love Songs Volume 2,6,1970,7,Revolver Music Ltd,2rc78XDH9zuJP6bm78lU8Z
+4SsUhMdeVbtmIVpHps7Jzc,album,"$5 At The Door (Live at Tressel Tavern, 1994)",43,2023-04-21,25,Surfdog Records,0EdvGhlC1FkGItLOWQzG4J
+696pAMUhtOEyenQukQKRxI,album,study and chill with sublime,42,2023-01-27,26,lonelyboy sound,0EdvGhlC1FkGItLOWQzG4J
+1uFb8xIikYRlfXfsHpnEMu,album,Sublime Meets Scientist & Mad Professor Inna L.B.C.,34,2021-10-22,8,Gasoline Alley,0EdvGhlC1FkGItLOWQzG4J
+0IAENkkw32C2AFHv5XvrTq,album,3 Ring Circus - Live At The Palace,32,2013-06-01,27,Gasoline Alley,0EdvGhlC1FkGItLOWQzG4J
+760Zl8uV0tMet5ihlXOYDX,album,Sublime Acoustic: Bradley Nowell & Friends,43,1998-11-17,15,Gasoline Alley,0EdvGhlC1FkGItLOWQzG4J
+7AR3ee5m8Nwc5s3W2POewq,album,Stand By Your Van - Live!,29,1998-06-23,16,Gasoline Alley,0EdvGhlC1FkGItLOWQzG4J
+75TcMiwrxS0jHbWkbLnNqD,album,Second-Hand Smoke,43,1997-11-11,19,Gasoline Alley,0EdvGhlC1FkGItLOWQzG4J
+4kq4T5cWLlP8NJkMA3S6AN,album,Sublime (10th Anniversary Edition / Deluxe Edition),45,1996-07-30,34,Gasoline Alley,0EdvGhlC1FkGItLOWQzG4J
+4R3tXoorBpHji6Jdms8a4Q,album,Sublime,50,1996-07-30,23,Gasoline Alley,0EdvGhlC1FkGItLOWQzG4J
+0yZuUc5poB8rtqkbmA0APm,album,Robbin' The Hood,53,1994-03-01,23,Gasoline Alley,0EdvGhlC1FkGItLOWQzG4J
+0vuwlanMPucXrYMGnOjhYL,album,40oz. To Freedom,64,1992-06-01,22,Gasoline Alley,0EdvGhlC1FkGItLOWQzG4J
+02VqlfUtNMogzTh1lckGOF,album,Jah Won't Pay The Bills,61,1991,20,Gasoline Alley,0EdvGhlC1FkGItLOWQzG4J
