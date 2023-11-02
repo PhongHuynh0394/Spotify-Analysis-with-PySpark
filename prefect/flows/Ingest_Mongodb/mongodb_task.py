@@ -2,11 +2,9 @@ from prefect import task
 from prefect.tasks import task_input_hash
 from datetime import timedelta
 from pymongo.mongo_client import MongoClient
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
-# Load env
-load_dotenv()
 user = os.getenv("MONGODB_USER")
 password = os.getenv("MONGODB_PASSWORD")
 uri = f"mongodb+srv://{user}:{password}@python.zynpktu.mongodb.net/?retryWrites=true&w=majority"
@@ -17,6 +15,9 @@ def ingest_Mongodb():
     client = MongoClient(uri)
 
     db = client.list_database_names()
+    # db = client['Thien'] # Select Thien Database
+    # db.list_collection_names() # like show tables
+
 
     print('databases:')
     for db_name in db:
