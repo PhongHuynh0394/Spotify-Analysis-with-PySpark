@@ -3,3 +3,4 @@ prefect
 prefect-sqlalchemy
 pymongo
 python-dotenv
+pyspark

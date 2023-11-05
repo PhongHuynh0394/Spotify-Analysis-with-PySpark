@@ -2,7 +2,6 @@ from prefect import task
 from prefect.tasks import task_input_hash
 from datetime import timedelta
 from pymongo.mongo_client import MongoClient
-# from dotenv import load_dotenv
 import os
 
 user = os.getenv("MONGODB_USER")
