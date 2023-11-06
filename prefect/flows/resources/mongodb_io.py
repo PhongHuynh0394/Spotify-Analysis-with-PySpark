@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from pymongo.errors import ConnectionFailure
 from contextlib import contextmanager
 import os
 
@@ -11,4 +12,5 @@ def MongodbIO(database_name: str = "testDB"):
     try:
         yield client[database_name]
     finally:
+        print("Close connection to MongoDB")
         client.close()

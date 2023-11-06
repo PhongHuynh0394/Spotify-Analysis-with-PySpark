@@ -31,17 +31,18 @@ def bronze_layer_task(collection, spark: SparkSession, table_name: str) -> None:
 
 
 @flow(name="Ingest Hadoop from MongoDB flow",
-        task_runner=ConcurrentTaskRunner())
+        task_runner=ConcurrentTaskRunner(),
+      log_prints=True)
 def IngestHadoop(spark: SparkSession):
     """Extract data From MongoDb and Load to HDFS"""
     # Connect with MongoDB Atlas
-    # user = os.getenv("MONGODB_USER") password = os.getenv("MONGODB_PASSWORD")
-    database_name = 'testDB'
+    # user = os.getenv("MONGODB_USER") 
+    # password = os.getenv("MONGODB_PASSWORD")
     # uri = f"mongodb+srv://{user}:{password}@python.zynpktu.mongodb.net/?retryWrites=true&w=majority"
-
     # mongo_client = MongoClient(uri)
     # mongo_db = mongo_client[database_name]
 
+    database_name = 'testDB'
     with MongodbIO(database_name) as mongo_db:
         collections = mongo_db.list_collection_names() #get all collections
 
@@ -50,3 +51,4 @@ def IngestHadoop(spark: SparkSession):
             print(f"{collection} start being Ingested...")
             bronze_layer_task.submit(mongo_db[collection], spark, collection) #collection is also the name of table
             print("Successfull...")
+

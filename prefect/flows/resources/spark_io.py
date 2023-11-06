@@ -4,11 +4,13 @@ from contextlib import contextmanager
 
 @contextmanager
 def SparkIO(conf: SparkConf = SparkConf()):
-    print('enter Spark')
+    app_name = conf.get("spark.app.name")
+    master = conf.get("spark.master")
+    print(f'Create SparkSession app {app_name} with {master} mode')
     spark = SparkSession.builder.config(conf=conf).getOrCreate()
     try:
         yield spark
     finally:
-        print('Stop spark')
+        print(f'Stop SparkSession app {app_name}')
         spark.stop()
 

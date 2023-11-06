@@ -1,4 +1,5 @@
 from prefect import task
+import pandas as pd
 from prefect.tasks import task_input_hash
 from datetime import timedelta
 from pymongo.mongo_client import MongoClient
@@ -21,6 +22,9 @@ def ingest_Mongodb():
     print('databases:')
     for db_name in db:
         print(db_name)
+
+    collection = client['testDB']
+    print(pd.DataFrame(list(collection['Thien'].find())))
 
     # Send a ping to confirm a successful connection
     try:
