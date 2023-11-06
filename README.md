@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Prefect Branch !!
 
 New features added:
@@ -42,7 +41,6 @@ Check [**localhost:4200**](http://localhost:4200) to visit Prefect UI. You will 
 Checkout the data from Mongodb Atlas Cloud
 
 # PySpark
-=======
 
 ## Prerequisite
 
