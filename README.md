@@ -4,6 +4,7 @@
 New features added:
 - Makefile (alias command)
 - prefect-compose.yml (docker compose for prefect)
+- pyspark installed (Updated Dockerfile)
 
 => Newest: Added connecting mongodb flow
 
@@ -35,6 +36,8 @@ Check [**localhost:4200**](http://localhost:4200) to visit Prefect UI. You will 
 - Sample flow: [main_flow.py](./prefect/flows/main_flow.py) (This file has 2 flows)
 - Sample tasks: [sample_task.py](./prefect/flows/sample_task.py) (this file also has 2 tasks)
 - Mongodb connection task: [mongodb_task.py](./prefect/flows/Ingest_Mongodb/mongodb_task.py)
+- ELT Ingest data from MongoDB to Hadoop: [bronze_layer.py](./prefect/flows/ELT_pipeline/bronze_layer.py)
+
 
 Checkout the data from Mongodb Atlas Cloud
 
