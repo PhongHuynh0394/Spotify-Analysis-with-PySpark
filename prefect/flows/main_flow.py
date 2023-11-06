@@ -2,8 +2,10 @@ from prefect import flow, serve
 from sample_task import *
 from ELT_pipeline.bronze_layer import *
 from Ingest_Mongodb.mongodb_task import *
+from resources.spark_io import *
 from datetime import datetime
 from pyspark.sql import SparkSession
+from pyspark import SparkConf
 
 
 @flow(name="Ingest MongoDB Atlas flow", 
@@ -17,15 +19,12 @@ def pipeline_A():
       log_prints=True) 
 def pipeline_B():
     """ELT pipeline with pyspark"""
-    # init Spark Session
-    spark = (SparkSession.builder 
-        .appName("ELT-app-{}".format(datetime.today())) 
-        .master('local[*]')  # Run in localmode
-        .getOrCreate())
 
-    IngestHadoop(spark)
+    conf = (SparkConf().setAppName("ELT-app-{}".format(datetime.today()))
+            .setMaster("local[*]"))
 
-    spark.stop()
+    with SparkIO(conf) as spark:
+        IngestHadoop(spark)
 
 
 

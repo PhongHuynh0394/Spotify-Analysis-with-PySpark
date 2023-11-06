@@ -6,4 +6,5 @@ test.sh
 
 prefect/flows/__pycache__
 prefect/flows/Ingest_Mongodb/__pycache__
-prefect/flows/ELT/__pycache__
+prefect/flows/ELT_pipeline/__pycache__
+prefect/flows/resources/__pycache__

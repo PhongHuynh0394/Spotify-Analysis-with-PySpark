@@ -5,8 +5,8 @@ from prefect.tasks import task_input_hash
 from datetime import datetime, timedelta
 from prefect.task_runners import ConcurrentTaskRunner
 from pyspark.sql import SparkSession
-from pyspark.sql.types import *
 import pandas as pd
+from resources.mongodb_io import MongodbIO
 
 @task(name="bronze_layer_task",
       description="Extract data from MongoDB to HDFS at bronze layer",
@@ -14,7 +14,7 @@ import pandas as pd
       cache_expiration=timedelta(hours=1),
       task_run_name="bronze_{table_name}",
       tags=["bronze layer", "pyspark"])
-def bronze_layer_task(collection, spark, table_name: str) -> None:
+def bronze_layer_task(collection, spark: SparkSession, table_name: str) -> None:
     """Extract data from MongoDB to HDFS at bronze layer"""
 
     hdfs_uri = f"hdfs://namenode:8020/bronze_layer/{table_name}.parquet"
@@ -32,20 +32,21 @@ def bronze_layer_task(collection, spark, table_name: str) -> None:
 
 @flow(name="Ingest Hadoop from MongoDB flow",
         task_runner=ConcurrentTaskRunner())
-def IngestHadoop(spark):
+def IngestHadoop(spark: SparkSession):
     """Extract data From MongoDb and Load to HDFS"""
     # Connect with MongoDB Atlas
-    user = os.getenv("MONGODB_USER")
-    password = os.getenv("MONGODB_PASSWORD")
+    # user = os.getenv("MONGODB_USER") password = os.getenv("MONGODB_PASSWORD")
     database_name = 'testDB'
-    uri = f"mongodb+srv://{user}:{password}@python.zynpktu.mongodb.net/?retryWrites=true&w=majority"
+    # uri = f"mongodb+srv://{user}:{password}@python.zynpktu.mongodb.net/?retryWrites=true&w=majority"
 
-    mongo_client = MongoClient(uri)
-    mongo_db = mongo_client[database_name]
-    collections = mongo_db.list_collection_names() #get all collections
+    # mongo_client = MongoClient(uri)
+    # mongo_db = mongo_client[database_name]
 
-    #Running task concurrently
-    for collection in collections:
-        print(f"{collection} start being Ingested...")
-        bronze_layer_task.submit(mongo_db[collection], spark, collection) #collection is also the name of table
-        print("Successfull...")
+    with MongodbIO(database_name) as mongo_db:
+        collections = mongo_db.list_collection_names() #get all collections
+
+        #Running task concurrently
+        for collection in collections:
+            print(f"{collection} start being Ingested...")
+            bronze_layer_task.submit(mongo_db[collection], spark, collection) #collection is also the name of table
+            print("Successfull...")
