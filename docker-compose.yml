@@ -93,10 +93,8 @@ services:
     volumes:
       - prefect:/root/.prefect
     command: prefect server start
-    environment:
-      - PREFECT_UI_URL=http://127.0.0.1:4200/api
-      - PREFECT_API_URL=http://127.0.0.1:4200/api
-      - PREFECT_SERVER_API_HOST=0.0.0.0
+    env_file:
+      - .env
     ports:
       - 4200:4200
     networks:
@@ -108,8 +106,10 @@ services:
     restart: always
     volumes:
       - "./prefect/flows:/opt/prefect/flows"
-    env_file:
-      - .env
+    environment:
+      - PREFECT_API_URL=http://prefect-server:4200/api
+      - PREFECT_SERVER_API_HOST=prefect-server
+      - PREFECT_LOGGING_LOG_PRINTS=True
     networks:
       - docker-net
     depends_on:
