@@ -10,6 +10,7 @@ SPARK_SSL_ENABLED=no
 SPARK_USER=spark
 
 #HDFS
+HADOOP_HOME=
 CORE-SITE.XML_fs.default.name=hdfs://namenode:8020
 CORE-SITE.XML_fs.defaultFS=hdfs://namenode
 HDFS-SITE.XML_dfs.namenode.rpc-address=namenode:8020
@@ -50,6 +51,6 @@ MONGODB_USER=root
 MONGODB_PASSWORD=123
 
 #Prefect
-PREFECT_UI_URL=http://127.0.0.1:4200/api
-PREFECT_API_URL=http://127.0.0.1:4200/api
-PREFECT_SERVER_API_HOST=0.0.0.0
+PREFECT_API_URL=http://prefect-server:4200/api
+PREFECT_SERVER_API_HOST=prefect-server
+PREFECT_LOGGING_LOG_PRINTS=True

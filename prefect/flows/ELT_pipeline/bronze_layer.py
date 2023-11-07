@@ -25,7 +25,6 @@ def bronze_layer_task(collection, spark: SparkSession, table_name: str) -> None:
     except Exception as e:
         raise e
 
-    
     print(f"Writing {table_name}")
     spark_data.write.parquet(hdfs_uri, mode="overwrite")
     print(f"Bronze: Successfully push {table_name}.parquet")
