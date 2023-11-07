@@ -13,7 +13,7 @@ from pyspark import SparkConf
       log_prints=True)
 def pipeline_A():
     """Ingest data from raw source to MongoDB Atlas"""
-    ingest_Mongodb()
+    ingest_MongoDB_flow()
 
 
 @flow(name="ELT flow", 
@@ -26,7 +26,6 @@ def pipeline_B():
 
     with SparkIO(conf) as spark:
         IngestHadoop(spark)
-
 
 
 if __name__ == "__main__":
