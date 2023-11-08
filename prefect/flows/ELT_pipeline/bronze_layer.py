@@ -48,6 +48,8 @@ def bronze_layer_task(collection, spark: SparkSession, table_name: str) -> None:
         spark_data = spark.createDataFrame(mongo_data, schema=mongo_data.columns.tolist())
     except Exception as e:
         print(f"Error to Create Spark DataFrame {table_name} {e}")
+        print(f"Start Create Schema for {table_name}")
+
         schema = createSchema(mongo_data)
         spark_data = spark.createDataFrame(mongo_data, schema=schema)
 
@@ -55,8 +57,9 @@ def bronze_layer_task(collection, spark: SparkSession, table_name: str) -> None:
     spark_data.write.parquet(hdfs_uri, mode="overwrite")
     print(f"Bronze: Successfully push {table_name}.parquet")
 
+
 @flow(name="Ingest Hadoop from MongoDB flow",
-        task_runner=ConcurrentTaskRunner(),
+      task_runner=ConcurrentTaskRunner(),
       log_prints=True)
 def IngestHadoop(spark: SparkSession):
     """Extract data From MongoDb and Load to HDFS"""
@@ -69,4 +72,6 @@ def IngestHadoop(spark: SparkSession):
         #Running task concurrently
         for collection in collections:
             print(f"{collection} start being Ingested...")
-            bronze_layer_task.submit(mongo_db[collection], spark, collection).wait() #collection is also the name of table
+            future = bronze_layer_task.submit(mongo_db[collection], spark, collection) #collection is also the name of table
+            future.wait()
+            
