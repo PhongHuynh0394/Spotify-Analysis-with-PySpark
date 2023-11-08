@@ -25,7 +25,7 @@ def pipeline_B():
             .setMaster("local[*]"))
 
     with SparkIO(conf) as spark:
-        IngestHadoop(spark)
+        IngestHadoop(spark, return_state=True)
 
 
 if __name__ == "__main__":

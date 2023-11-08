@@ -1,12 +1,36 @@
-import os
 from pymongo.mongo_client import MongoClient
 from prefect import task, flow
 from prefect.tasks import task_input_hash
 from datetime import datetime, timedelta
 from prefect.task_runners import ConcurrentTaskRunner
 from pyspark.sql import SparkSession
+from pyspark.sql.types import *
 import pandas as pd
 from resources.mongodb_io import MongodbIO
+
+def createSchema(df: pd.DataFrame):
+    """This function create Pyspark Schema"""
+    field = []
+
+    for col in df.columns:
+        dtype = str(df[col].dtype)
+
+        if dtype == 'object':
+            field_type = StringType()
+        elif 'int' in dtype:
+            field_type = IntegerType()
+        elif 'bool' in dtype: 
+            field_type = BooleanType()
+        elif 'float' in dtype: 
+            field_type = FloatType()
+        elif dtype == 'double':
+            field_type = DoubleType()
+        else:
+            field_type = StringType()
+        
+        field.append(StructField(col, field_type, True))
+
+    return StructType(field)
 
 @task(name="bronze_layer_task",
       description="Extract data from MongoDB to HDFS at bronze layer",
@@ -23,7 +47,9 @@ def bronze_layer_task(collection, spark: SparkSession, table_name: str) -> None:
     try:
         spark_data = spark.createDataFrame(mongo_data, schema=mongo_data.columns.tolist())
     except Exception as e:
-        raise e
+        print(f"Error to Create Spark DataFrame {table_name} {e}")
+        schema = createSchema(mongo_data)
+        spark_data = spark.createDataFrame(mongo_data, schema=schema)
 
     print(f"Writing {table_name}")
     spark_data.write.parquet(hdfs_uri, mode="overwrite")
@@ -35,8 +61,10 @@ def bronze_layer_task(collection, spark: SparkSession, table_name: str) -> None:
 def IngestHadoop(spark: SparkSession):
     """Extract data From MongoDb and Load to HDFS"""
 
-    with MongodbIO() as mongo_db:
-        collections = mongo_db.list_collection_names() #get all collections
+    database_name = "crawling_data"
+
+    with MongodbIO(database_name) as mongo_db:
+        collections = mongo_db.list_collection_names() #get all collectons
 
         #Running task concurrently
         for collection in collections:
