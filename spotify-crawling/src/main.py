@@ -69,6 +69,11 @@ def main():
     genres_df = pd.DataFrame(final_genres_data, columns=[
                              "artist_id", "artist_genres"])
 
+    artists_df.to_csv('../data/artists_data.csv', index=False, mode='a')
+    albums_df.to_csv('../data/albums_data.csv', index=False, mode='a')
+    songs_df.to_csv('../data/songs_data.csv', index=False, mode='a')
+    genres_df.to_csv('../data/genres_data.csv', index=False, mode='a')
+
     # Initialize MongoDB
     mongodb = MongoDB(client)
 
