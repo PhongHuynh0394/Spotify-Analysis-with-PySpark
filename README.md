@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Crawl songs information from [The Top 1000 Artists of All Time](https://www.acclaimedmusic.net/061024/1948-09art.htm).
+Crawl songs information of artists from [The Top 1000 Artists of All Time](https://www.acclaimedmusic.net/061024/1948-09art.htm).
 
 For each artist name, we will use Spotify Api to extract all albums of him/her. In each album, all songs is going to be scraped to extract features such as `id`, `name`, ...
 
