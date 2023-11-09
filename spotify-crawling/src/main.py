@@ -53,7 +53,7 @@ def main():
         raise Exception("Invalid start and end index")
     elif end_index > len(artists_name):
         raise Exception("Invalid end index")
-    elif thread_chunk_size < 1 or thread_chunk_size > len(artists_name) or len(artists_name) % thread_chunk_size != 0 or len(artists_name) / thread_chunk_size < 1:
+    elif thread_chunk_size < 1 or thread_chunk_size > len(artists_name) or len(artists_name) / thread_chunk_size < 1:
         raise Exception("Invalid thread chunk size")
     else:
         final_artists_data, final_albums_data, final_songs_data, final_genres_data = multithreading_processing_on_artist(
@@ -69,10 +69,10 @@ def main():
     genres_df = pd.DataFrame(final_genres_data, columns=[
                              "artist_id", "artist_genres"])
 
-    artists_df.to_csv('../data/artists_data.csv', index=False, mode='a')
-    albums_df.to_csv('../data/albums_data.csv', index=False, mode='a')
-    songs_df.to_csv('../data/songs_data.csv', index=False, mode='a')
-    genres_df.to_csv('../data/genres_data.csv', index=False, mode='a')
+    # artists_df.to_csv('../data/artists_data.csv', index=False, mode='a')
+    # albums_df.to_csv('../data/albums_data.csv', index=False, mode='a')
+    # songs_df.to_csv('../data/songs_data.csv', index=False, mode='a')
+    # genres_df.to_csv('../data/genres_data.csv', index=False, mode='a')
 
     # Initialize MongoDB
     mongodb = MongoDB(client)
