@@ -41,3 +41,7 @@ CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.root.default.acl_administer_queue
 CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.node-locality-delay=40
 CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.queue-mappings=
 CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.queue-mappings-override.enable=false
+
+# Spotify
+SPOTIFY_CLIENT_ID = "04a66f0624b6402e98960282cc08e4de"
+SPOTIFY_CLIENT_SECRET = "35e7ae559b6e478dbaa4487067e4ef82"
