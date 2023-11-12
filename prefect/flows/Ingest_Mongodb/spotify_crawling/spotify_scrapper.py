@@ -1,5 +1,5 @@
-from genius_api_auth import get_token as genius_get_token
-from genius_scrapper import GeniusScrapper
+from .genius_api_auth import get_token as genius_get_token
+from .genius_scrapper import GeniusScrapper
 from requests import get
 from queue import Queue
 import json

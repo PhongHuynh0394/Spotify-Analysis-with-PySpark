@@ -7,7 +7,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 
 # Add our requirements.txt file to the image and install dependencies
 COPY requirements.txt .
-RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-dir
+RUN pip install --upgrade pip & pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-dir
 
 COPY flows /opt/prefect/flows
 

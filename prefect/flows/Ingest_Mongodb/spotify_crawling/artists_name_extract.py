@@ -1,3 +1,4 @@
+from alive_progress import alive_bar
 import requests
 from bs4 import BeautifulSoup
 
@@ -10,7 +11,7 @@ URLS = ("https://www.acclaimedmusic.net/061024/1948-09art.htm",
         "https://www.acclaimedmusic.net/061024/1948-09art5.htm")
 
 # Define path to store list of artists name
-FILE_PATH = "../data/artists_name.txt"
+FILE_PATH = "data/artists_names.txt"
 
 
 def get_artists_name(urls):
@@ -25,24 +26,26 @@ def get_artists_name(urls):
     """
     artists_name = []
     # Send an HTTP GET request to the web page
-    for url in urls:
-        response = requests.get(url)
+    with alive_bar(len(urls)) as bar:
+        for url in urls:
+            response = requests.get(url)
 
-        # Parse the HTML content
-        soup = BeautifulSoup(response.content, 'html.parser')
+            # Parse the HTML content
+            soup = BeautifulSoup(response.content, 'html.parser')
 
-        # Find the table
-        table = soup.find('table')
+            # Find the table
+            table = soup.find('table')
 
-        # Extract data from the table
-        if table:
-            rows = table.find_all('tr')  # Find all table rows
-            for row in rows:
-                # Find all cells in each row
-                cells = row.find_all('td')
-                # Extract text from the cells and remove leading/trailing spaces
-                artist_name = cells[1].text.strip()
-                artists_name.append(artist_name)
+            # Extract data from the table
+            if table:
+                rows = table.find_all('tr')  # Find all table rows
+                for row in rows:
+                    # Find all cells in each row
+                    cells = row.find_all('td')
+                    # Extract text from the cells and remove leading/trailing spaces
+                    artist_name = cells[1].text.strip()
+                    artists_name.append(artist_name)
+            bar()
 
     # Drop element "Album" in artists_name
     artists_name = set(artists_name)
@@ -50,27 +53,28 @@ def get_artists_name(urls):
     return artists_name
 
 
-def store_artists_name(artists_name):
+def store_artists_name(artists_name, file_name = FILE_PATH):
     """_summary_
 
     Args:
         artists_name (list): List of artists name
     """
     # Write artists_name to file using pickle
-    with open(FILE_PATH, 'w') as f:
+    with open(file_name, 'w') as f:
         for artist_name in artists_name:
             f.write(artist_name + "\n")
 
 
-def main():
+
+def artists_crawler(path = FILE_PATH):
     """_summary_:
     Main function
     """
     artists_name = get_artists_name(URLS)
-    store_artists_name(artists_name)
+    store_artists_name(artists_name, path)
 
 
 if __name__ == "__main__":
     print("Start")
-    main()
+    artists_crawler()
     print("Success")

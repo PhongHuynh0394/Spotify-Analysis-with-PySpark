@@ -1,20 +1,9 @@
-from spotify_api_auth import get_token as spotify_get_token, get_auth_header as spotify_get_auth_header
-from spotify_scrapper import SpotifyScrapper, multithreading_processing_on_artist
-from pymongo import MongoClient
-from mongodb_process import MongoDB
+from .spotify_api_auth import get_token as spotify_get_token, get_auth_header as spotify_get_auth_header
+from .spotify_scrapper import SpotifyScrapper, multithreading_processing_on_artist
+from .artists_name_extract import artists_crawler
 import argparse
 import os
 import pandas as pd
-
-
-# Define MongoDB user and password
-MONGODB_USER = os.getenv("MONGODB_USER")
-MONGODB_PASSWORD = os.getenv("MONGODB_PASSWORD")
-
-# Initialize MongoDB client
-client = MongoClient(
-    f"mongodb+srv://{MONGODB_USER}:{MONGODB_PASSWORD}@python.zynpktu.mongodb.net/?retryWrites=true&w=majority"
-)
 
 # Define argument parser
 arg = argparse.ArgumentParser()
@@ -31,19 +20,32 @@ thread_chunk_size = int(args["thread_chunk_size"]
                         ) if args["thread_chunk_size"] else 1
 
 
-def main():
+def spotify_crawler(mongodb, start_index = 0, end_index = 20, thread_chunk_size = 1):
     # Begin
-    print("Start")
+    print("Start Crawling...")
 
     # Authentication
-    spotify_access_token, spotify_token_type = spotify_get_token()
-    spotify_headers = spotify_get_auth_header(
-        spotify_token_type, spotify_access_token)
+    try:
+        spotify_access_token, spotify_token_type = spotify_get_token()
+        spotify_headers = spotify_get_auth_header(
+            spotify_token_type, spotify_access_token)
+    except Exception:
+        raise Exception
 
-    # Read artists's name
-    with open('../data/artists_name.txt', 'r') as f:
-        artists_name = f.read().splitlines()
+    path = "data/artists_names.txt"
+    try:
+        # Read artists's name
+        with open(path, 'r') as f:
+            artists_name = f.read().splitlines()
+    except FileNotFoundError:
+        print("artists_name.txt not found")
+        print("Start crawling artists_name")
+        artists_crawler(path)
+        print(f"Created {path}")
 
+        with open(path, 'r') as f:
+            artists_name = f.read().splitlines()
+        
     # Initialize Spotify Scrapper
     ss = SpotifyScrapper(spotify_headers)
 
@@ -69,16 +71,17 @@ def main():
     genres_df = pd.DataFrame(final_genres_data, columns=[
                              "artist_id", "artist_genres"])
 
-    artists_df.to_csv('../data/artists_data.csv', index=False, mode='a')
-    albums_df.to_csv('../data/albums_data.csv', index=False, mode='a')
-    songs_df.to_csv('../data/songs_data.csv', index=False, mode='a')
-    genres_df.to_csv('../data/genres_data.csv', index=False, mode='a')
+    # artists_df.to_csv('../data/artists_data.csv', index=False, mode='a')
+    # albums_df.to_csv('../data/albums_data.csv', index=False, mode='a')
+    # songs_df.to_csv('../data/songs_data.csv', index=False, mode='a')
+    # genres_df.to_csv('../data/genres_data.csv', index=False, mode='a')
 
     # Initialize MongoDB
-    mongodb = MongoDB(client)
+    # mongodb = MongoDB(client)
 
-    # Create database
-    crawling_data = mongodb.create_database(db_name="crawling_data")
+    MONGODB_DATABASE = os.getenv("MONGODB_DATABASE")
+    # # Create database
+    crawling_data = mongodb.create_database(db_name=MONGODB_DATABASE)
 
     # Create collections
     artists_data = mongodb.create_collection(
@@ -102,8 +105,3 @@ def main():
 
     # End
     print("Done")
-
-
-if __name__ == "__main__":
-    main()
-    client.close()

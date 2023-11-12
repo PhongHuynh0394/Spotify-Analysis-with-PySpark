@@ -1,10 +1,10 @@
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from requests import post
 import os
 import base64
 import json
 
-load_dotenv()
+# load_dotenv()
 
 # Define Client ID and Client Secret
 CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")

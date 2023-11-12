@@ -66,7 +66,8 @@ def IngestHadoop(spark: SparkSession):
 
     database_name = "crawling_data"
 
-    with MongodbIO(database_name) as mongo_db:
+    with MongodbIO() as client:
+        mongo_db = client[database_name] 
         collections = mongo_db.list_collection_names() #get all collectons
 
         #Running task concurrently

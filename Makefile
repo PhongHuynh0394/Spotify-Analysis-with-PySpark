@@ -6,6 +6,9 @@ up:
 down:
 	docker compose down
 
+build:
+	docker compose build
+
 prefect-up:
 	docker compose -f prefect-compose.yml up -d
 
