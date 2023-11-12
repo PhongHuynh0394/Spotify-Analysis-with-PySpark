@@ -42,35 +42,28 @@ Checkout the data from Mongodb Atlas Cloud
 
 # PySpark
 
-## Prerequisite
+# Spotify Crawl Data
 
-Create .Env file using the following command
-```bash
-cp env_template .env
-```
+## Introduction
 
-Then run in your terminal to start up all docker services
-```bash
-docker compose up -d
-```
-**Note**: Spark Cluster is optional choice, we are able to use only PySpark with `localmode` to test code with HDFS
+Crawl songs information of artists from [The Top 1000 Artists of All Time](https://www.acclaimedmusic.net/061024/1948-09art.htm).
 
-To exec into container, open Docker Desktop or using the following command:
-```bash
-docker exec -it <container-id-or-name> bash
-```
-
-## Port
-Check ports on your browers:
-- [`localhost:9870`](http://localhost:9870): Namenode
-- [`localhost:9864`](http://localhost:9864): Datanode
-- [`localhost:8888`](http://localhost:8888/lab?token=pass): notebook (token=pass if you only access to port 8888)
-- [`localhost:8080`](http://localhost:8080): Spark master (if uncomment Spark master service)
-- [`localhost:8081`](http://localhost:8081): Spark worker(if uncomment Spark worker service)
+For each artist name, we will use Spotify Api to extract all albums of him/her. In each album, all songs is going to be scraped to extract features such as `id`, `name`, ...
 
 ## Usage
-There is a sample Test_Pyspark jupyter file in workspace to test connection of pyspark with hdfs in `local mode` and `cluster mode`
 
-## References
+Run the code:
 
-[Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html)
+```python=
+python main.py -s <index_start> -e <index_end> -ts <number_of_artists_in_each_thread>
+```
+
+For example:
+
+```python=
+python main.py -s 0 -e 4 -ts 1
+```
+
+## Result
+
+The artist, album, song and genre data will be stored in MongoDB Cloud.

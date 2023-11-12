@@ -1,5 +1,5 @@
-.env
 datanode
+.env
 test.sh
 /workspace/.ipynb_checkpoints
 /workspace/practice
