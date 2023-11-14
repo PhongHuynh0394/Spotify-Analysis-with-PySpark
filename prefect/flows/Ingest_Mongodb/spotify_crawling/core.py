@@ -1,9 +1,19 @@
 from .spotify_api_auth import get_token as spotify_get_token, get_auth_header as spotify_get_auth_header
 from .spotify_scrapper import SpotifyScrapper, multithreading_processing_on_artist
 from .artists_name_extract import artists_crawler
+from .mongodb_process import MongoDB
 import argparse
 import os
 import pandas as pd
+# from dotenv import load_dotenv
+
+# load_dotenv()
+
+
+# # MongoDB
+# MONGODB_USER="root"
+# MONGODB_PASSWORD=123
+
 
 # Define argument parser
 arg = argparse.ArgumentParser()
@@ -20,7 +30,7 @@ thread_chunk_size = int(args["thread_chunk_size"]
                         ) if args["thread_chunk_size"] else 1
 
 
-def spotify_crawler(mongodb, start_index = 0, end_index = 20, thread_chunk_size = 1):
+def spotify_crawler(client, start_index = 0, end_index = 20, thread_chunk_size = 1):
     # Begin
     print("Start Crawling...")
 
@@ -31,8 +41,9 @@ def spotify_crawler(mongodb, start_index = 0, end_index = 20, thread_chunk_size 
             spotify_token_type, spotify_access_token)
     except Exception:
         raise Exception
-
-    path = "data/artists_names.txt"
+    
+    file_path = os.path.abspath(__file__)
+    path = os.path.join(os.path.dirname(file_path), 'data/artists_names.txt')
     try:
         # Read artists's name
         with open(path, 'r') as f:
@@ -77,10 +88,11 @@ def spotify_crawler(mongodb, start_index = 0, end_index = 20, thread_chunk_size 
     # genres_df.to_csv('../data/genres_data.csv', index=False, mode='a')
 
     # Initialize MongoDB
-    # mongodb = MongoDB(client)
+    mongodb = MongoDB(client)
 
     MONGODB_DATABASE = os.getenv("MONGODB_DATABASE")
     # # Create database
+
     crawling_data = mongodb.create_database(db_name=MONGODB_DATABASE)
 
     # Create collections
