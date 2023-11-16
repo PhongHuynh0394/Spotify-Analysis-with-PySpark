@@ -1,4 +1,3 @@
-from alive_progress import alive_bar
 import requests
 from bs4 import BeautifulSoup
 
@@ -26,26 +25,24 @@ def get_artists_name(urls):
     """
     artists_name = []
     # Send an HTTP GET request to the web page
-    with alive_bar(len(urls)) as bar:
-        for url in urls:
-            response = requests.get(url)
+    for url in urls:
+        response = requests.get(url)
 
-            # Parse the HTML content
-            soup = BeautifulSoup(response.content, 'html.parser')
+        # Parse the HTML content
+        soup = BeautifulSoup(response.content, 'html.parser')
 
-            # Find the table
-            table = soup.find('table')
+        # Find the table
+        table = soup.find('table')
 
-            # Extract data from the table
-            if table:
-                rows = table.find_all('tr')  # Find all table rows
-                for row in rows:
-                    # Find all cells in each row
-                    cells = row.find_all('td')
-                    # Extract text from the cells and remove leading/trailing spaces
-                    artist_name = cells[1].text.strip()
-                    artists_name.append(artist_name)
-            bar()
+        # Extract data from the table
+        if table:
+            rows = table.find_all('tr')  # Find all table rows
+            for row in rows:
+                # Find all cells in each row
+                cells = row.find_all('td')
+                # Extract text from the cells and remove leading/trailing spaces
+                artist_name = cells[1].text.strip()
+                artists_name.append(artist_name)
 
     # Drop element "Album" in artists_name
     artists_name = set(artists_name)

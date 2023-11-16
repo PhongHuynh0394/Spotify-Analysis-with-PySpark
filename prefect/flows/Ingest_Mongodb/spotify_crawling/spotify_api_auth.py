@@ -41,7 +41,6 @@ def get_token():
     data = {"grant_type": "client_credentials"}
     result = post(url, headers=headers, data=data)
     json_result = json.loads(result.content)
-    print(f"json result {json_result}")
     access_token, token_type = json_result["access_token"], json_result["token_type"]
     return access_token, token_type
 

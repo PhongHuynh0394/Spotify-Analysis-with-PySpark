@@ -30,7 +30,7 @@ thread_chunk_size = int(args["thread_chunk_size"]
                         ) if args["thread_chunk_size"] else 1
 
 
-def spotify_crawler(client, start_index = 0, end_index = 20, thread_chunk_size = 1):
+def spotify_crawler(client, artists_name, start_index = 0, end_index = 20, thread_chunk_size = 1):
     # Begin
     print("Start Crawling...")
 
@@ -42,20 +42,6 @@ def spotify_crawler(client, start_index = 0, end_index = 20, thread_chunk_size =
     except Exception:
         raise Exception
     
-    file_path = os.path.abspath(__file__)
-    path = os.path.join(os.path.dirname(file_path), 'data/artists_names.txt')
-    try:
-        # Read artists's name
-        with open(path, 'r') as f:
-            artists_name = f.read().splitlines()
-    except FileNotFoundError:
-        print("artists_name.txt not found")
-        print("Start crawling artists_name")
-        artists_crawler(path)
-        print(f"Created {path}")
-
-        with open(path, 'r') as f:
-            artists_name = f.read().splitlines()
         
     # Initialize Spotify Scrapper
     ss = SpotifyScrapper(spotify_headers)
