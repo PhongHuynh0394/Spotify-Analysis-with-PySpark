@@ -31,10 +31,12 @@ services:
     restart: always
     volumes:
       - "./prefect/flows:/opt/prefect/flows"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
     env_file:
       - .env
     networks:
-        - docker-net
+      - docker-net
     depends_on:
       - prefect-server
 
