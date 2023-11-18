@@ -1,3 +1,4 @@
+import os
 from pymongo.mongo_client import MongoClient
 from prefect import task, flow
 from prefect.tasks import task_input_hash
@@ -64,7 +65,7 @@ def bronze_layer_task(collection, spark: SparkSession, table_name: str) -> None:
 def IngestHadoop(spark: SparkSession):
     """Extract data From MongoDb and Load to HDFS"""
 
-    database_name = "crawling_data"
+    database_name = os.getenv("MONGODB_DATABASE")
 
     with MongodbIO() as client:
         mongo_db = client[database_name] 
