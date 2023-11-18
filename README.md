@@ -28,6 +28,7 @@ make build
 Then just take a cup of coffee and wait Docker do the rest. After building, now you can 
 easily run the system by typing `make up` in your terminal.
 
+To switch off the system, type `make down`
 ## To Test Prefect ONLY
 
 `This note is for testing Prefect Only`
