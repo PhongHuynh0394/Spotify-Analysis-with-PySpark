@@ -1,13 +1,36 @@
 # Prefect Branch !!
 
-New features added:
-- Makefile (alias command)
-- prefect-compose.yml (docker compose for prefect)
-- pyspark installed (Updated Dockerfile)
+## Set up
 
-=> Newest: Added connecting mongodb flow
+### Environment
 
-## To Test Prefect
+Firstly, you need to create a .env file base on env_template file by the following command:
+```bash
+cp env_template .env
+```
+
+make sure you fill all your API key and MongoDB user in this blank:
+```bash
+# Mongodb
+MONGODB_USER=root
+MONGODB_PASSWORD=123
+MONGODB_DATABASE=crawling-data
+
+# Spotify
+SPOTIFY_CLIENT_ID = "54f4b6f05cdb44b592f89654412d3a39"
+SPOTIFY_CLIENT_SECRET = "b9acf2b35cf44ee982efa8c05efc7d45"
+```
+## Building services
+To build all services, run:
+```bash
+make build
+```
+Then just take a cup of coffee and wait Docker do the rest. After building, now you can 
+easily run the system by typing `make up` in your terminal.
+
+## To Test Prefect ONLY
+
+`This note is for testing Prefect Only`
 
 To make sure you have newest updated, please pull (or clone) this branch, then remove the old prefect image in your Docker Desktop (if you already had one)
 
@@ -39,31 +62,3 @@ Check [**localhost:4200**](http://localhost:4200) to visit Prefect UI. You will 
 
 
 Checkout the data from Mongodb Atlas Cloud
-
-# PySpark
-
-# Spotify Crawl Data
-
-## Introduction
-
-Crawl songs information of artists from [The Top 1000 Artists of All Time](https://www.acclaimedmusic.net/061024/1948-09art.htm).
-
-For each artist name, we will use Spotify Api to extract all albums of him/her. In each album, all songs is going to be scraped to extract features such as `id`, `name`, ...
-
-## Usage
-
-Run the code:
-
-```python=
-python main.py -s <index_start> -e <index_end> -ts <number_of_artists_in_each_thread>
-```
-
-For example:
-
-```python=
-python main.py -s 0 -e 4 -ts 1
-```
-
-## Result
-
-The artist, album, song and genre data will be stored in MongoDB Cloud.
