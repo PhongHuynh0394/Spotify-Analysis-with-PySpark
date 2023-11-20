@@ -37,8 +37,8 @@ if __name__ == "__main__":
                              tags=['Ingest data','MongoDB Atlas'],
                              parameters={"batch_size": 20,
                                          "threads": 4
-                                         },
-                             interval=180
+                                         }
+                             # interval=300
                              )
 
     pipeline_B = pipeline_B.to_deployment(name='Pipeline ELT deployment',

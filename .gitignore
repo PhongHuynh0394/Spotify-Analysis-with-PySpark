@@ -1,4 +1,4 @@
-datanode
+hadoop/
 .env
 test.sh
 /workspace/.ipynb_checkpoints

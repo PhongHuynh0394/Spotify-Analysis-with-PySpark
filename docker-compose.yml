@@ -18,13 +18,14 @@ services:
       - 9870:9870
       - 8020:8020
       - 9000:9000
+    # user: root
     env_file:
       - .env
     environment:
-      ENSURE_NAMENODE_DIR: "/tmp/hadoop-hadoop/dfs/name"
-    volumes:
-      - ./namenode:/tmp/hadoop-root/dfs/name
-      - hadoop_namenode:/tmp/hadoop-root/dfs/name
+      - ENSURE_NAMENODE_DIR="/tmp/hadoop-hadoop/dfs/name"
+    # volumes:
+    #   - hadoop_namenode:/tmp/hadoop-root/dfs/name:z
+    #   - ./hadoop/namenode-data:/tmp/hadoop-root/dfs/name
     networks:
       - docker-net
 
@@ -40,9 +41,12 @@ services:
       - 50010
     env_file:
       - .env
-    volumes:
-      - hadoop_datanode:/tmp/hadoop-root/dfs/data
-      - ./datanode:/tmp/hadoop-root/dfs/data
+    # user: root
+    environment:
+      - ENSURE_DATANODE_DIR="/tmp/hadoop-root/dfs/data"
+    # volumes:
+    #   # - ./hadoop/datanode:/tmp/hadoop-root/dfs/data:z
+    #   - hadoop_datanode:/tmp/hadoop-root/dfs/data:z
     networks:
       - docker-net
 
@@ -81,6 +85,8 @@ services:
       - JUPYTER_TOKEN=pass
     command: start-notebook.sh
     user: root
+    env_file:
+      - .env
     networks:
       - docker-net
 
@@ -115,35 +121,35 @@ services:
     depends_on:
       - prefect-server
 
-  # spark:
-  #   image: docker.io/bitnami/spark:3.5
-  #   container_name: spark-master
-  #   hostname: spark
-  #   env_file:
-  #     - .env
-  #   environment:
-  #     - SPARK_MODE=master
-  #     - SPARK_RPC_AUTHENTICATION_ENABLED=no
-  #     - SPARK_RPC_ENCRYPTION_ENABLED=no
-  #     - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-  #     - SPARK_SSL_ENABLED=no
-  #     - SPARK_USER=spark
-  #     - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
-  #   ports:
-  #     - '8080:8080'
-  #     - '7077:7077'
-  #     - '4040:4040'
-  #   networks:
-  #     - docker-net
+  # # spark:
+  # #   image: docker.io/bitnami/spark:3.5
+  # #   container_name: spark-master
+  # #   hostname: spark
+  # #   env_file:
+  # #     - .env
+  # #   environment:
+  # #     - SPARK_MODE=master
+  # #     - SPARK_RPC_AUTHENTICATION_ENABLED=no
+  # #     - SPARK_RPC_ENCRYPTION_ENABLED=no
+  # #     - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+  # #     - SPARK_SSL_ENABLED=no
+  # #     - SPARK_USER=spark
+  # #     - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+  # #   ports:
+  # #     - '8080:8080'
+  # #     - '7077:7077'
+  # #     - '4040:4040'
+  # #   networks:
+  # #     - docker-net
 
-  # spark-worker:
-  #   image: docker.io/bitnami/spark:3.5
-  #   container_name: spark-worker
-  #   env_file:
-  #     - .env
-  #   environment:
-  #     - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
-  #   ports:
-  #     - 8081:8081
-  #   networks:
-  #     - docker-net
+  # # spark-worker:
+  # #   image: docker.io/bitnami/spark:3.5
+  # #   container_name: spark-worker
+  # #   env_file:
+  # #     - .env
+  # #   environment:
+  # #     - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+  # #   ports:
+  # #     - 8081:8081
+  # #   networks:
+  # #     - docker-net
