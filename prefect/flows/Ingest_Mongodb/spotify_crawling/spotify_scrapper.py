@@ -43,7 +43,7 @@ def make_spotify_api_request(url, headers, params: dict = None):
 
     # Max retry attempts reached
     print("Max retry attempts reached. Aborting.")
-    return None
+    raise Exception("Rate limit reached")
 
 
 class SpotifyScrapper:

@@ -40,12 +40,15 @@ def crawling_artist():
 @task(name="crawling Spotify data",
       tags=["MongoDB", "Ingesting data"],
       log_prints=True)
-def ingest_Mongodb(artists_names, batch_size = 20, threads = 4):
+def ingest_Mongodb(artists_names, batch_size: int = 20, threads: int = 4, start_index = None):
     """Ingest Data to MongoDB using Spotify API"""
 
-    print("Reading logs.txt")
+    if start_index == None:
+        print("Reading logs.txt")
+
     file_path = os.path.abspath(__file__)
     log_path = os.path.join(os.path.dirname(file_path), 'spotify_crawling/data/logs.txt')
+    custom_run = True
     with open(log_path, 'a+') as file:
         file.seek(0)
         # Check empty
@@ -60,11 +63,13 @@ def ingest_Mongodb(artists_names, batch_size = 20, threads = 4):
 
         log_data = file.readlines()[-1].strip().split()
 
-        start_index = int(log_data[0])
+        if start_index == None:
+            start_index = int(log_data[0])
+            custom_run = False
 
         if start_index >= len(artists_names):
             print('Everything up to date')
-            return
+            return None
 
         end_index = start_index + batch_size
 
@@ -80,7 +85,8 @@ def ingest_Mongodb(artists_names, batch_size = 20, threads = 4):
             except Exception:
                 raise Exception
 
-        print("Updating logs.txt")
-        track_time = datetime.now()
-        track_time = track_time.strftime("%Y-%m-%d %H:%M:%S")
-        file.write(f"{end_index} {track_time}\n")
+        if not custom_run:
+            print("Updating logs.txt")
+            track_time = datetime.now()
+            track_time = track_time.strftime("%Y-%m-%d %H:%M:%S")
+            file.write(f"{end_index} {track_time}\n")

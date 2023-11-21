@@ -1,34 +1,8 @@
 from .spotify_api_auth import get_token as spotify_get_token, get_auth_header as spotify_get_auth_header
 from .spotify_scrapper import SpotifyScrapper, multithreading_processing_on_artist
-from .artists_name_extract import artists_crawler
 from .mongodb_process import MongoDB
-import argparse
 import os
 import pandas as pd
-# from dotenv import load_dotenv
-
-# load_dotenv()
-
-
-# # MongoDB
-# MONGODB_USER="root"
-# MONGODB_PASSWORD=123
-
-
-# Define argument parser
-arg = argparse.ArgumentParser()
-arg.add_argument("-s", "--start", required=False,
-                 help="Start index of artists_name list")
-arg.add_argument("-e", "--end", required=False,
-                 help="End index of artists_name list")
-arg.add_argument("-ts", "--thread-chunk-size",
-                 required=False, help="Thread chunk size")
-args = vars(arg.parse_args())
-start_index = int(args["start"]) if args["start"] else 0
-end_index = int(args["end"]) if args["end"] else 20
-thread_chunk_size = int(args["thread_chunk_size"]
-                        ) if args["thread_chunk_size"] else 1
-
 
 def spotify_crawler(client, artists_name, start_index = 0, end_index = 20, thread_chunk_size = 1):
     # Begin
@@ -55,8 +29,12 @@ def spotify_crawler(client, artists_name, start_index = 0, end_index = 20, threa
     elif thread_chunk_size < 1 or thread_chunk_size > len(artists_name) or len(artists_name) / thread_chunk_size < 1:
         raise Exception("Invalid thread chunk size")
     else:
-        final_artists_data, final_albums_data, final_songs_data, final_genres_data = multithreading_processing_on_artist(
-            artists_name[start_index:end_index], ss, thread_chunk_size=thread_chunk_size)
+        try:
+            final_artists_data, final_albums_data, final_songs_data, final_genres_data = multithreading_processing_on_artist(
+                artists_name[start_index:end_index], ss, thread_chunk_size=thread_chunk_size)
+        except Exception:
+            raise Exception
+
 
     # Convert into pandas dataframe
     artists_df = pd.DataFrame(final_artists_data, columns=[
@@ -68,10 +46,6 @@ def spotify_crawler(client, artists_name, start_index = 0, end_index = 20, threa
     genres_df = pd.DataFrame(final_genres_data, columns=[
                              "artist_id", "artist_genres"])
 
-    # artists_df.to_csv('../data/artists_data.csv', index=False, mode='a')
-    # albums_df.to_csv('../data/albums_data.csv', index=False, mode='a')
-    # songs_df.to_csv('../data/songs_data.csv', index=False, mode='a')
-    # genres_df.to_csv('../data/genres_data.csv', index=False, mode='a')
 
     # Initialize MongoDB
     mongodb = MongoDB(client)

@@ -11,13 +11,13 @@ from pyspark import SparkConf
 
 @flow(name="Ingest MongoDB Atlas flow", 
       log_prints=True)
-def pipeline_A(batch_size = 20, threads = 4):
+def pipeline_A(batch_size = 20, threads = 4, start_index = None):
     """Ingest data from raw source to MongoDB Atlas"""
 
     # Crawling artist names if not found 
     artists = crawling_artist()
 
-    ingest_Mongodb(artists, batch_size, threads)
+    ingest_Mongodb(artists, batch_size, threads, start_index)
 
 
 @flow(name="ELT flow", 
@@ -36,9 +36,10 @@ if __name__ == "__main__":
     pipeline_A = pipeline_A.to_deployment(name='Ingest data MongoDB deployment',
                              tags=['Ingest data','MongoDB Atlas'],
                              parameters={"batch_size": 20,
-                                         "threads": 4
-                                         }
-                             # interval=300
+                                         "threads": 4,
+                                         "start_index": None
+                                         },
+                             interval=300
                              )
 
     pipeline_B = pipeline_B.to_deployment(name='Pipeline ELT deployment',
