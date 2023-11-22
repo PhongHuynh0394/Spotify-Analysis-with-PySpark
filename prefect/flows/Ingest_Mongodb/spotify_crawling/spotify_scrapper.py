@@ -1,5 +1,3 @@
-from .genius_api_auth import get_token as genius_get_token
-from .genius_scrapper import GeniusScrapper
 from requests import get
 from queue import Queue
 import json
@@ -22,7 +20,7 @@ def make_spotify_api_request(url, headers, params: dict = None):
         object: Spotify api response
     """
     retry_attempts = 0
-    max_retry_attempts = 3
+    max_retry_attempts = 5
     retry_wait_time = 30  # Initial wait time in seconds
 
     while retry_attempts < max_retry_attempts:
@@ -32,7 +30,7 @@ def make_spotify_api_request(url, headers, params: dict = None):
             print(f"Rate limited. Retrying after {retry_wait_time} seconds.")
             time.sleep(retry_wait_time)
             retry_attempts += 1
-            retry_wait_time *= 2
+            retry_wait_time += 30
         elif response.status_code == 200:
             # Successful API response
             return response

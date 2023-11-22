@@ -9,19 +9,19 @@ from datetime import datetime
 from pyspark import SparkConf
 
 
-@flow(name="Ingest MongoDB Atlas flow", 
+@flow(name="Ingest MongoDB Atlas flow",
       log_prints=True)
-def pipeline_A(batch_size = 20, threads = 4, start_index = None):
+def pipeline_A(batch_size=20, threads=4, start_index=None):
     """Ingest data from raw source to MongoDB Atlas"""
 
-    # Crawling artist names if not found 
+    # Crawling artist names if not found
     artists = crawling_artist()
 
     ingest_Mongodb(artists, batch_size, threads, start_index)
 
 
-@flow(name="ELT flow", 
-      log_prints=True) 
+@flow(name="ELT flow",
+      log_prints=True)
 def pipeline_B():
     """ELT pipeline with pyspark"""
 
@@ -34,15 +34,16 @@ def pipeline_B():
 
 if __name__ == "__main__":
     pipeline_A = pipeline_A.to_deployment(name='Ingest data MongoDB deployment',
-                             tags=['Ingest data','MongoDB Atlas'],
-                             parameters={"batch_size": 20,
-                                         "threads": 4,
-                                         "start_index": None
-                                         },
-                             interval=300
-                             )
+                                          tags=['Ingest data',
+                                                'MongoDB Atlas'],
+                                          parameters={"batch_size": 25,
+                                                      "threads": 4,
+                                                      "start_index": None
+                                                      },
+                                          interval=600
+                                          )
 
     pipeline_B = pipeline_B.to_deployment(name='Pipeline ELT deployment',
-                             tags=['ELT'])
+                                          tags=['ELT'])
 
     serve(pipeline_A, pipeline_B)
