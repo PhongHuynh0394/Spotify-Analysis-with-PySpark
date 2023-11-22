@@ -5,7 +5,6 @@ from Ingest_Mongodb.mongodb_task import *
 from resources.spark_io import *
 from resources.mongodb_io import *
 from datetime import datetime
-# from pyspark.sql import SparkSession
 from pyspark import SparkConf
 
 
@@ -39,8 +38,8 @@ if __name__ == "__main__":
                                           parameters={"batch_size": 25,
                                                       "threads": 4,
                                                       "start_index": None
-                                                      },
-                                          interval=600
+                                                      }
+                                          # interval=600
                                           )
 
     pipeline_B = pipeline_B.to_deployment(name='Pipeline ELT deployment',

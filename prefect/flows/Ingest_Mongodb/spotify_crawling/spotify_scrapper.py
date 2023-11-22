@@ -1,4 +1,5 @@
 from requests import get
+from requests.exceptions import ConnectionError
 from queue import Queue
 import json
 import time
@@ -37,7 +38,7 @@ def make_spotify_api_request(url, headers, params: dict = None):
         else:
             # Handle other response codes as needed
             print(f"Error: {response.status_code}")
-            return None
+            raise ConnectionError
 
     # Max retry attempts reached
     print("Max retry attempts reached. Aborting.")
@@ -523,14 +524,16 @@ def multithreading_processing_on_artist(artists_names: list, scrapper: SpotifySc
 
     # Initialize threads
     threads = []
-    for chunk in artists_chunks:
+    for i, chunk in enumerate(artists_chunks):
         thread = threading.Thread(
             target=extract_data_from_artists, args=(chunk, scrapper, queue))
         threads.append(thread)
         thread.start()
 
-    for t in threads:
+    for i,t in enumerate(threads):
+        # This will run Threads
         t.join()
+
 
     # Extract data from queue
     final_artists_data, final_albums_data, final_songs_data, final_genres_data = [], [], [], []

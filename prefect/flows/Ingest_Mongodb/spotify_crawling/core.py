@@ -14,7 +14,7 @@ def spotify_crawler(client, artists_name, start_index = 0, end_index = 20, threa
         spotify_headers = spotify_get_auth_header(
             spotify_token_type, spotify_access_token)
     except Exception:
-        raise Exception
+        raise Exception("Invalid Token")
     
         
     # Initialize Spotify Scrapper
