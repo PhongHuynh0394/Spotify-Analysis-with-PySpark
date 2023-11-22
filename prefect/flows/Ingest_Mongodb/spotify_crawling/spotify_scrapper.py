@@ -524,13 +524,13 @@ def multithreading_processing_on_artist(artists_names: list, scrapper: SpotifySc
 
     # Initialize threads
     threads = []
-    for i, chunk in enumerate(artists_chunks):
+    for chunk in artists_chunks:
         thread = threading.Thread(
             target=extract_data_from_artists, args=(chunk, scrapper, queue))
         threads.append(thread)
         thread.start()
 
-    for i,t in enumerate(threads):
+    for u, t in enumerate(threads):
         # This will run Threads
         t.join()
 
