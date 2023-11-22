@@ -25,10 +25,16 @@ def pipeline_B():
     """ELT pipeline with pyspark"""
 
     conf = (SparkConf().setAppName("ELT-app-{}".format(datetime.today()))
+            .set("spark.executor.memory", "2g")
             .setMaster("local[*]"))
 
     with SparkIO(conf) as spark:
-        IngestHadoop(spark, return_state=True)
+        # Bronze task
+        with MongodbIO() as client:
+            state = IngestHadoop(client, spark, return_state=True)
+        
+        # Silver task
+
 
 
 if __name__ == "__main__":

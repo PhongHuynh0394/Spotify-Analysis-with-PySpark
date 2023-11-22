@@ -3,7 +3,7 @@ from pymongo.mongo_client import MongoClient
 from prefect import task, flow
 from prefect.tasks import task_input_hash
 from datetime import datetime, timedelta
-from prefect.task_runners import ConcurrentTaskRunner
+from prefect.task_runners import ConcurrentTaskRunner, SequentialTaskRunner
 from pyspark.sql import SparkSession
 from pyspark.sql.types import *
 import pandas as pd
@@ -62,18 +62,14 @@ def bronze_layer_task(collection, spark: SparkSession, table_name: str) -> None:
 @flow(name="Ingest Hadoop from MongoDB flow",
       task_runner=ConcurrentTaskRunner(),
       log_prints=True)
-def IngestHadoop(spark: SparkSession):
+def IngestHadoop(client, spark: SparkSession):
     """Extract data From MongoDb and Load to HDFS"""
 
     database_name = os.getenv("MONGODB_DATABASE")
+    mongo_db = client[database_name] 
+    collections = mongo_db.list_collection_names() #get all collectons
 
-    with MongodbIO() as client:
-        mongo_db = client[database_name] 
-        collections = mongo_db.list_collection_names() #get all collectons
-
-        #Running task concurrently
-        for collection in collections:
-            print(f"{collection} start being Ingested...")
-            future = bronze_layer_task.submit(mongo_db[collection], spark, collection) #collection is also the name of table
-            future.wait()
-            
+    #Running task concurrently
+    for collection in collections:
+        print(f"{collection} start being Ingested...")
+        future = bronze_layer_task.submit(mongo_db[collection], spark, collection) #collection is also the name of table

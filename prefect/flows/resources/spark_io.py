@@ -10,6 +10,8 @@ def SparkIO(conf: SparkConf = SparkConf()):
     spark = SparkSession.builder.config(conf=conf).getOrCreate()
     try:
         yield spark
+    except Exception:
+        raise Exception
     finally:
         print(f'Stop SparkSession app {app_name}')
         spark.stop()
