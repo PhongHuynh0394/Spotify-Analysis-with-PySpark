@@ -42,7 +42,7 @@ def make_spotify_api_request(url, headers, params: dict = None):
 
     # Max retry attempts reached
     print("Max retry attempts reached. Aborting.")
-    raise Exception("Rate limit reached")
+    raise ConnectionError("Max retry attempts reached. Aborting.")
 
 
 class SpotifyScrapper:
@@ -422,7 +422,7 @@ class SpotifyScrapper:
         return song_danceability, song_energy, song_key, song_loudness, song_mode, song_speechiness, song_acousticness, song_instrumentalness, song_liveness, song_valence, song_tempo, song_duration_ms, song_time_signature
 
 
-def extract_data_from_artists(artists_names: list, scrapper: SpotifyScrapper, queue: Queue):
+def extract_data_from_artists(artists_names: list, scrapper: SpotifyScrapper, queue: Queue, error_flag):
     """_summary_
 
     Args:
@@ -434,75 +434,81 @@ def extract_data_from_artists(artists_names: list, scrapper: SpotifyScrapper, qu
     artists_data, albums_data, songs_data, genres_data = [], [], [], []
 
     # Initialize list of artists id
-    artists_id = [scrapper.search_for_artist_id(
-        artist_name) for artist_name in artists_names]
-    ids_batch_size = 50
-    artists_id_batches = [artists_id[i:i+ids_batch_size] for i in range(
-        0, len(artists_id), ids_batch_size)]
+    try:
+        artists_id = [scrapper.search_for_artist_id(
+            artist_name) for artist_name in artists_names]
 
-    # Get all artists
-    artists = []
-    for batch in artists_id_batches:
-        artists.extend(scrapper.get_several_artists(batch))
+        ids_batch_size = 50
+        artists_id_batches = [artists_id[i:i+ids_batch_size] for i in range(
+            0, len(artists_id), ids_batch_size)]
 
-    # Get all albums id
-    albums_id = []
-    for artist in artists:
-        artist_id, artist_name, artist_popularity, artist_followers, artist_genres = scrapper.get_info_of_artist(
-            artist)
-        artists_data.append(
-            (artist_id, artist_name, artist_popularity, artist_followers))
+        # Get all artists
+        artists = []
+        for batch in artists_id_batches:
+            artists.extend(scrapper.get_several_artists(batch))
 
-        if artist_genres:
-            for genre in artist_genres:
-                genres_data.append((artist_id, genre))
+        # Get all albums id
+        albums_id = []
+        for artist in artists:
+            artist_id, artist_name, artist_popularity, artist_followers, artist_genres = scrapper.get_info_of_artist(
+                artist)
+            artists_data.append(
+                (artist_id, artist_name, artist_popularity, artist_followers))
 
-        artist_albums = scrapper.get_albums_of_artist(artist_id)
-        if not artist_albums:
-            continue
-        albums_id.extend([album["id"] for album in artist_albums])
+            if artist_genres:
+                for genre in artist_genres:
+                    genres_data.append((artist_id, genre))
 
-    # Split albums_id into batches of 20
-    album_batch_size = 20
-    albums_id_batches = [albums_id[i:i+album_batch_size] for i in range(
-        0, len(albums_id), album_batch_size)]
+            artist_albums = scrapper.get_albums_of_artist(artist_id)
+            if not artist_albums:
+                continue
+            albums_id.extend([album["id"] for album in artist_albums])
 
-    # Get all albums
-    albums = []
-    for batch in albums_id_batches:
-        albums.extend(scrapper.get_several_albums(batch))
+        # Split albums_id into batches of 20
+        album_batch_size = 20
+        albums_id_batches = [albums_id[i:i+album_batch_size] for i in range(
+            0, len(albums_id), album_batch_size)]
 
-    # Get all tracks id of all albums
-    tracks_id = []
-    for album in albums:
-        albums_id, album_type, album_name, album_popularity, album_release_date, album_total_tracks, album_label, artist_id = scrapper.get_info_of_album(
-            album)
-        albums_data.append((albums_id, album_type, album_name, album_popularity,
-                            album_release_date, album_total_tracks, album_label, artist_id))
+        # Get all albums
+        albums = []
+        for batch in albums_id_batches:
+            albums.extend(scrapper.get_several_albums(batch))
 
-        tracks_id.extend([track["id"] for track in album["tracks"]["items"]])
+        # Get all tracks id of all albums
+        tracks_id = []
+        for album in albums:
+            albums_id, album_type, album_name, album_popularity, album_release_date, album_total_tracks, album_label, artist_id = scrapper.get_info_of_album(
+                album)
+            albums_data.append((albums_id, album_type, album_name, album_popularity,
+                                album_release_date, album_total_tracks, album_label, artist_id))
 
-    # Get all tracks
-    songs = []
-    songs_features = []
+            tracks_id.extend([track["id"] for track in album["tracks"]["items"]])
 
-    # Split tracks_id into batches of 30
-    song_batch_size = 50
-    for i in range(0, len(tracks_id), song_batch_size):
-        song_batch = tracks_id[i:i+song_batch_size]
-        songs.extend(scrapper.get_several_songs(song_batch))
-        songs_features.extend(scrapper.get_several_songs_features(song_batch))
+        # Get all tracks
+        songs = []
+        songs_features = []
 
-    # Extract data from songs and songs features
-    for song, song_features in zip(songs, songs_features):
-        song_id, song_name, song_popularity, song_disc_number, song_explicit, song_is_playable, song_track_number, song_release_date, artist_id, album_id = scrapper.get_info_of_song(
-            song)
-        song_danceability, song_energy, song_key, song_loudness, song_mode, song_speechiness, song_acousticness, song_instrumentalness, song_liveness, song_valence, song_tempo, song_duration_ms, song_time_signature = scrapper.get_info_features_of_song(
-            song_features)
-        songs_data.append((song_id, song_name, song_popularity, song_disc_number, song_explicit, song_is_playable, song_track_number, song_release_date, artist_id, album_id, song_danceability, song_energy, song_key,
-                          song_loudness, song_mode, song_speechiness, song_acousticness, song_instrumentalness, song_liveness, song_valence, song_tempo, song_duration_ms, song_time_signature))
+        # Split tracks_id into batches of 30
+        song_batch_size = 50
+        for i in range(0, len(tracks_id), song_batch_size):
+            song_batch = tracks_id[i:i+song_batch_size]
+            songs.extend(scrapper.get_several_songs(song_batch))
+            songs_features.extend(scrapper.get_several_songs_features(song_batch))
 
-    queue.put((artists_data, albums_data, songs_data, genres_data))
+        # Extract data from songs and songs features
+        for song, song_features in zip(songs, songs_features):
+            song_id, song_name, song_popularity, song_disc_number, song_explicit, song_is_playable, song_track_number, song_release_date, artist_id, album_id = scrapper.get_info_of_song(
+                song)
+            song_danceability, song_energy, song_key, song_loudness, song_mode, song_speechiness, song_acousticness, song_instrumentalness, song_liveness, song_valence, song_tempo, song_duration_ms, song_time_signature = scrapper.get_info_features_of_song(
+                song_features)
+            songs_data.append((song_id, song_name, song_popularity, song_disc_number, song_explicit, song_is_playable, song_track_number, song_release_date, artist_id, album_id, song_danceability, song_energy, song_key,
+                              song_loudness, song_mode, song_speechiness, song_acousticness, song_instrumentalness, song_liveness, song_valence, song_tempo, song_duration_ms, song_time_signature))
+
+        queue.put((artists_data, albums_data, songs_data, genres_data))
+
+    except Exception:
+        error_flag[0] = True
+        raise Exception
 
 
 def multithreading_processing_on_artist(artists_names: list, scrapper: SpotifyScrapper, thread_chunk_size: int = 10):
@@ -521,19 +527,23 @@ def multithreading_processing_on_artist(artists_names: list, scrapper: SpotifySc
     thread_chunk_size = thread_chunk_size
     artists_chunks = [artists_names[i:i+thread_chunk_size]
                       for i in range(0, len(artists_names), thread_chunk_size)]
+    error_flag = [False]
 
     # Initialize threads
     threads = []
     for chunk in artists_chunks:
         thread = threading.Thread(
-            target=extract_data_from_artists, args=(chunk, scrapper, queue))
+            target=extract_data_from_artists, args=(chunk, scrapper, queue, error_flag,))
         threads.append(thread)
         thread.start()
 
-    for u, t in enumerate(threads):
+    for t in threads:
         # This will run Threads
         t.join()
 
+    if any(error_flag):
+        # catch the error if exist
+        raise Exception
 
     # Extract data from queue
     final_artists_data, final_albums_data, final_songs_data, final_genres_data = [], [], [], []

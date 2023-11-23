@@ -29,11 +29,9 @@ def spotify_crawler(client, artists_name, start_index = 0, end_index = 20, threa
     elif thread_chunk_size < 1 or thread_chunk_size > len(artists_name) or len(artists_name) / thread_chunk_size < 1:
         raise Exception("Invalid thread chunk size")
     else:
-        try:
-            final_artists_data, final_albums_data, final_songs_data, final_genres_data = multithreading_processing_on_artist(
-                artists_name[start_index:end_index], ss, thread_chunk_size=thread_chunk_size)
-        except Exception:
-            raise Exception
+        final_artists_data, final_albums_data, final_songs_data, final_genres_data = multithreading_processing_on_artist(
+            artists_name[start_index:end_index], ss, thread_chunk_size=thread_chunk_size)
+
 
 
     # Convert into pandas dataframe
@@ -53,6 +51,8 @@ def spotify_crawler(client, artists_name, start_index = 0, end_index = 20, threa
     MONGODB_DATABASE = os.getenv("MONGODB_DATABASE")
     # # Create database
 
+    print("Pusing raw data to Mongodb ...")
+
     crawling_data = mongodb.create_database(db_name=MONGODB_DATABASE)
 
     # Create collections
@@ -68,12 +68,19 @@ def spotify_crawler(client, artists_name, start_index = 0, end_index = 20, threa
     # Insert data
     mongodb.insert_many(artists_df.to_dict(orient="records"), db=crawling_data,
                         coll=artists_data)
+    print(f"Pushed {len(artists_df)} records for artists_data collection")
+
     mongodb.insert_many(albums_df.to_dict(orient="records"), db=crawling_data,
                         coll=albums_data)
+    print(f"Pushed {len(albums_df)} records for albums_data collection")
+
     mongodb.insert_many(songs_df.to_dict(orient="records"), db=crawling_data,
                         coll=songs_data)
+    print(f"Pushed {len(songs_df)} records for songs_data collection")
+
     mongodb.insert_many(genres_df.to_dict(orient="records"), db=crawling_data,
                         coll=genres_data)
+    print(f"Pushed {len(genres_df)} records for genres_data collection")
 
     # End
     print("Done")
