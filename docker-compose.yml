@@ -124,10 +124,11 @@ services:
     user: root
     volumes:
       - dremio_data:/var/lib/dremio
-      - ./dremio/localFiles:/localFiles
+      # - ./dremio/localFiles:/localFiles
+      - dremio_data:/localFiles
       # - ./dremio/lib:/var/lib/dremio
-      - ./dremio/data:/opt/dremio/data
-      # - dremio_data:/opt/dremio/data
+      # - ./dremio/data:/opt/dremio/data
+      - dremio_data:/opt/dremio/data
     ports:
       - "9047:9047"   # Web UI (HTTP)
       - "31010:31010" # ODBC/JDBC clients
