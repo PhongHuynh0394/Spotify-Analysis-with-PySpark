@@ -8,4 +8,4 @@ prefect/flows/Ingest_Mongodb/__pycache__
 prefect/flows/ELT_pipeline/__pycache__
 prefect/flows/resources/__pycache__
 
-dremio_data/
+dremio/data/pdfs/uploads
