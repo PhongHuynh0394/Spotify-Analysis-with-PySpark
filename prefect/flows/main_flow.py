@@ -31,7 +31,7 @@ def pipeline_B():
     with SparkIO(conf) as spark:
         # Bronze task
         with MongodbIO() as client:
-            state = IngestHadoop(client, spark, return_state=True)
+            IngestHadoop(client, spark, return_state=True)
         
         # Silver task
 

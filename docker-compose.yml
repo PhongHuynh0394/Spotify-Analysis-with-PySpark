@@ -7,25 +7,23 @@ volumes:
   hadoop_datanode:
   hadoop_namenode:
   prefect:
+  dremio_data:
 
 services:
   namenode:
     container_name: namenode
     image: apache/hadoop:3
     hostname: namenode
-    command: ["hdfs", "namenode"]
+    command: bash -c "if [ ! -f /tmp/hadoop-root/dfs/name/.formatted ]; then hdfs namenode -format && touch /tmp/hadoop-root/dfs/name/.formatted; fi && hdfs namenode"
     ports:
       - 9870:9870
       - 8020:8020
       - 9000:9000
-    # user: root
+    user: root
     env_file:
       - .env
-    environment:
-      - ENSURE_NAMENODE_DIR="/tmp/hadoop-hadoop/dfs/name"
-    # volumes:
-    #   - hadoop_namenode:/tmp/hadoop-root/dfs/name:z
-    #   - ./hadoop/namenode-data:/tmp/hadoop-root/dfs/name
+    volumes:
+      - hadoop_namenode:/tmp/hadoop-root/dfs/name
     networks:
       - docker-net
 
@@ -41,12 +39,9 @@ services:
       - 50010
     env_file:
       - .env
-    # user: root
-    environment:
-      - ENSURE_DATANODE_DIR="/tmp/hadoop-root/dfs/data"
-    # volumes:
-    #   # - ./hadoop/datanode:/tmp/hadoop-root/dfs/data:z
-    #   - hadoop_datanode:/tmp/hadoop-root/dfs/data:z
+    user: root
+    volumes:
+      - hadoop_datanode:/tmp/hadoop-root/dfs/data
     networks:
       - docker-net
 
@@ -121,35 +116,18 @@ services:
     depends_on:
       - prefect-server
 
-  # # spark:
-  # #   image: docker.io/bitnami/spark:3.5
-  # #   container_name: spark-master
-  # #   hostname: spark
-  # #   env_file:
-  # #     - .env
-  # #   environment:
-  # #     - SPARK_MODE=master
-  # #     - SPARK_RPC_AUTHENTICATION_ENABLED=no
-  # #     - SPARK_RPC_ENCRYPTION_ENABLED=no
-  # #     - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-  # #     - SPARK_SSL_ENABLED=no
-  # #     - SPARK_USER=spark
-  # #     - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
-  # #   ports:
-  # #     - '8080:8080'
-  # #     - '7077:7077'
-  # #     - '4040:4040'
-  # #   networks:
-  # #     - docker-net
 
-  # # spark-worker:
-  # #   image: docker.io/bitnami/spark:3.5
-  # #   container_name: spark-worker
-  # #   env_file:
-  # #     - .env
-  # #   environment:
-  # #     - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
-  # #   ports:
-  # #     - 8081:8081
-  # #   networks:
-  # #     - docker-net
+  dremio:
+    image: dremio/dremio-oss
+    hostname: dremio
+    container_name: dremio
+    volumes:
+      - dremio_data:/var/lib/dremio
+      - ./dremio_data:/localFiles
+      - dremio_data:/opt/dremio/data
+    ports:
+      - "9047:9047"   # Web UI (HTTP)
+      - "31010:31010" # ODBC/JDBC clients
+      - "32010:32010" # Apache Arrow Flight clients
+    networks:
+      - docker-net

@@ -1,4 +1,3 @@
-hadoop/
 .env
 test.sh
 /workspace/.ipynb_checkpoints
@@ -8,3 +7,5 @@ prefect/flows/__pycache__
 prefect/flows/Ingest_Mongodb/__pycache__
 prefect/flows/ELT_pipeline/__pycache__
 prefect/flows/resources/__pycache__
+
+dremio_data/
