@@ -6,7 +6,7 @@ from .rate_limit_exception import RateLimitException
 
 
 class SpotifyCrawler:
-    def __init__(self, headers, max_retry_attempts=3, retry_wait_time=30, retry_factor=2, retry_status_codes: List[int] = [429]):
+    def __init__(self, headers, max_retry_attempts=3, retry_wait_time=30, retry_factor=0.3, retry_status_codes: List[int] = [429]):
         self.headers = headers.get_auth_header()
         self.max_retry_attempts = max_retry_attempts
         self.retry_wait_time = retry_wait_time
@@ -19,7 +19,6 @@ class SpotifyCrawler:
 
         while retry_attempts < self.max_retry_attempts:
             response = get(url, headers=self.headers, params=params)
-            print(response.status_code)
             if response.status_code == 200:
                 return json.loads(response.content)
             elif response.status_code in self.retry_status_codes:
@@ -27,14 +26,13 @@ class SpotifyCrawler:
                     f"Too many requests! Retrying after {retry_wait_time} seconds.")
                 time.sleep(retry_wait_time)
                 retry_attempts += 1
-                retry_wait_time *= self.retry_factor
+                retry_wait_time *= (1 + self.retry_factor)
             else:
                 raise Exception(f"Error: {response.status_code}")
 
         # Max retry attempts reached
         print("Max retry attempts reached!")
-        # raise RateLimitException("Max retry attempts reached!")
-        raise Exception("Max retry attempts reached!")
+        raise RuntimeError("Max retry attempts reached!")
 
     def __search_artist(self, artist_name):
         url = 'https://api.spotify.com/v1/search'

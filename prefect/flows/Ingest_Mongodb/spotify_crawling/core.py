@@ -30,8 +30,8 @@ def spotify_crawler(client, artists_name, start_index=0, end_index=20):
         try:
             final_artists_information, final_albums_information, final_tracks_information, final_tracks_features_information = sc.get_all_information_from_artists(
                 artists_name[start_index:end_index])
-        except RateLimitException:
-            pass
+        except RuntimeError:
+            raise Exception("Max retry attempts reached!")
 
     # Initialize MongoDB
     mongodb = MongoDB(client)
@@ -63,7 +63,8 @@ def spotify_crawler(client, artists_name, start_index=0, end_index=20):
     print(f"Pushing tracks data: {len(final_tracks_information)} ")
     mongodb.insert_many(final_tracks_information, db=crawling_data,
                         coll=tracks_data)
-    print(f"Pushing tracks feature data: {len(final_tracks_features_information)} ")
+    print(
+        f"Pushing tracks feature data: {len(final_tracks_features_information)} ")
     mongodb.insert_many(final_tracks_features_information, db=crawling_data,
                         coll=tracks_features_data)
 

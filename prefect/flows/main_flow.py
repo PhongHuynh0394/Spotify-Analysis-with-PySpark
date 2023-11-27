@@ -40,10 +40,10 @@ if __name__ == "__main__":
     pipeline_A = pipeline_A.to_deployment(name='Ingest data MongoDB deployment',
                                           tags=['Ingest data',
                                                 'MongoDB Atlas'],
-                                          parameters={"batch_size": 50,
+                                          parameters={"batch_size": 5,
                                                       "start_index": None
                                                       },
-                                          interval=600
+                                          interval=60
                                           )
 
     pipeline_B = pipeline_B.to_deployment(name='Pipeline ETL deployment',
