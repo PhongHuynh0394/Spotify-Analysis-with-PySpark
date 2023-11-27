@@ -10,13 +10,13 @@ from pyspark import SparkConf
 
 @flow(name="Ingest MongoDB Atlas flow",
       log_prints=True)
-def pipeline_A(batch_size, threads, start_index=None):
+def pipeline_A(batch_size, start_index=None):
     """Ingest data from raw source to MongoDB Atlas"""
 
     # Crawling artist names if not found
     artists = crawling_artist()
 
-    ingest_Mongodb(artists, batch_size, threads, start_index)
+    ingest_Mongodb(artists, batch_size, start_index)
 
 
 @flow(name="ELT flow",
@@ -32,9 +32,8 @@ def pipeline_B():
         # Bronze task
         with MongodbIO() as client:
             IngestHadoop(client, spark, return_state=True)
-        
-        # Silver task
 
+        # Silver task
 
 
 if __name__ == "__main__":
@@ -42,7 +41,6 @@ if __name__ == "__main__":
                                           tags=['Ingest data',
                                                 'MongoDB Atlas'],
                                           parameters={"batch_size": 100,
-                                                      "threads": 4,
                                                       "start_index": None
                                                       }
                                           # interval=2700
