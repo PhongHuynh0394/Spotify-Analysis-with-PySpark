@@ -4,7 +4,8 @@ from .mongodb_process import MongoDB
 import os
 import pandas as pd
 
-def spotify_crawler(client, artists_name, start_index = 0, end_index = 20, thread_chunk_size = 1):
+
+def spotify_crawler(client, artists_name, start_index=0, end_index=20, thread_chunk_size=1):
     # Begin
     print("Start Crawling...")
 
@@ -15,8 +16,7 @@ def spotify_crawler(client, artists_name, start_index = 0, end_index = 20, threa
             spotify_token_type, spotify_access_token)
     except Exception:
         raise Exception
-    
-        
+
     # Initialize Spotify Scrapper
     ss = SpotifyScrapper(spotify_headers)
 
@@ -35,17 +35,15 @@ def spotify_crawler(client, artists_name, start_index = 0, end_index = 20, threa
         except Exception:
             raise Exception
 
-
     # Convert into pandas dataframe
     artists_df = pd.DataFrame(final_artists_data, columns=[
                               "artist_id", "artist_name", "artist_popularity", "artist_followers"])
     albums_df = pd.DataFrame(final_albums_data, columns=[
                              "album_id", "album_type", "album_name", "album_popularity", "album_release_date", "album_total_tracks", "album_label", "artist_id"])
-    songs_df = pd.DataFrame(final_songs_data, columns=["song_id", "song_name", "song_popularity", "song_disc_number", "song_explicit", "song_is_playable", "song_track_number", "song_release_date", "artist_id", "album_id", "song_danceability",
+    songs_df = pd.DataFrame(final_songs_data, columns=["song_id", "song_name", "song_popularity", "song_disc_number", "song_explicit", "song_is_playable", "song_track_number", "song_release_date", "artist_id", "album_id", "song_external_urls", "song_preview_url", "song_danceability",
                                                        "song_energy", "song_key", "song_loudness", "song_mode", "song_speechiness", "song_acousticness", "song_instrumentalness", "song_liveness", "song_valence", "song_tempo", "song_duration_ms", "song_time_signature"])
     genres_df = pd.DataFrame(final_genres_data, columns=[
                              "artist_id", "artist_genres"])
-
 
     # Initialize MongoDB
     mongodb = MongoDB(client)

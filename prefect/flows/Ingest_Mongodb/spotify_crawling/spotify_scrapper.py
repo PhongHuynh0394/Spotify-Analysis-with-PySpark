@@ -321,7 +321,17 @@ class SpotifyScrapper:
         except Exception:
             song_album_id = None
 
-        return song_id, song_name, song_popularity, song_disc_number, song_explicit, song_is_playable, song_track_number, song_release_date, song_artist_id, song_album_id
+        try:
+            song_external_urls = song_info["external_urls"]["spotify"]
+        except Exception:
+            song_external_urls = None
+
+        try:
+            song_preview_url = song_info["preview_url"]
+        except Exception:
+            song_preview_url = None
+
+        return song_id, song_name, song_popularity, song_disc_number, song_explicit, song_is_playable, song_track_number, song_release_date, song_artist_id, song_album_id, song_external_urls, song_preview_url
 
     def get_several_songs_features(self, songs_id: list):
         """_summary_
@@ -494,11 +504,11 @@ def extract_data_from_artists(artists_names: list, scrapper: SpotifyScrapper, qu
 
     # Extract data from songs and songs features
     for song, song_features in zip(songs, songs_features):
-        song_id, song_name, song_popularity, song_disc_number, song_explicit, song_is_playable, song_track_number, song_release_date, artist_id, album_id = scrapper.get_info_of_song(
+        song_id, song_name, song_popularity, song_disc_number, song_explicit, song_is_playable, song_track_number, song_release_date, artist_id, album_id, song_external_urls, song_preview_url = scrapper.get_info_of_song(
             song)
         song_danceability, song_energy, song_key, song_loudness, song_mode, song_speechiness, song_acousticness, song_instrumentalness, song_liveness, song_valence, song_tempo, song_duration_ms, song_time_signature = scrapper.get_info_features_of_song(
             song_features)
-        songs_data.append((song_id, song_name, song_popularity, song_disc_number, song_explicit, song_is_playable, song_track_number, song_release_date, artist_id, album_id, song_danceability, song_energy, song_key,
+        songs_data.append((song_id, song_name, song_popularity, song_disc_number, song_explicit, song_is_playable, song_track_number, song_release_date, artist_id, album_id, song_external_urls, song_preview_url, song_danceability, song_energy, song_key,
                           song_loudness, song_mode, song_speechiness, song_acousticness, song_instrumentalness, song_liveness, song_valence, song_tempo, song_duration_ms, song_time_signature))
 
     queue.put((artists_data, albums_data, songs_data, genres_data))
