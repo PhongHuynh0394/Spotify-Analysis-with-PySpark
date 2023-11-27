@@ -1,6 +1,7 @@
-from .spotify_api_auth import get_token as spotify_get_token, get_auth_header as spotify_get_auth_header
+from .spotify_api_auth import SpotifyAuth
 from .spotify_scrapper import SpotifyCrawler
 from .mongodb_process import MongoDB
+from .rate_limit_exception import RateLimitException
 import os
 
 
@@ -10,14 +11,14 @@ def spotify_crawler(client, artists_name, start_index=0, end_index=20):
 
     # Authentication
     try:
-        spotify_access_token, spotify_token_type = spotify_get_token()
-        spotify_headers = spotify_get_auth_header(
-            spotify_token_type, spotify_access_token)
+        client_id = os.getenv("SPOTIFY_CLIENT_ID")
+        client_secret = os.getenv("SPOTIFY_CLIENT_SECRET")
+        sa = SpotifyAuth(client_id, client_secret)
     except Exception:
         raise Exception("Invalid Token")
 
     # Initialize Spotify Scrapper
-    sc = SpotifyCrawler(spotify_headers)
+    sc = SpotifyCrawler(sa)
 
     if start_index < 0 or start_index >= len(artists_name):
         raise Exception("Invalid start index")
@@ -29,8 +30,8 @@ def spotify_crawler(client, artists_name, start_index=0, end_index=20):
         try:
             final_artists_information, final_albums_information, final_tracks_information, final_tracks_features_information = sc.get_all_information_from_artists(
                 artists_name[start_index:end_index])
-        except Exception as e:
-            raise e
+        except RateLimitException:
+            pass
 
     # Initialize MongoDB
     mongodb = MongoDB(client)
