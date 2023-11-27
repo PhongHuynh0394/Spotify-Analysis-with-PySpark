@@ -2,11 +2,12 @@ from requests import get
 import json
 import time
 from typing import List
+from .rate_limit_exception import RateLimitException
 
 
 class SpotifyCrawler:
     def __init__(self, headers, max_retry_attempts=3, retry_wait_time=30, retry_factor=2, retry_status_codes: List[int] = [429]):
-        self.headers = headers
+        self.headers = headers.get_auth_header()
         self.max_retry_attempts = max_retry_attempts
         self.retry_wait_time = retry_wait_time
         self.retry_factor = retry_factor
@@ -18,7 +19,6 @@ class SpotifyCrawler:
 
         while retry_attempts < self.max_retry_attempts:
             response = get(url, headers=self.headers, params=params)
-            print(response.status_code)
             if response.status_code == 200:
                 return json.loads(response.content)
             elif response.status_code in self.retry_status_codes:
@@ -31,7 +31,7 @@ class SpotifyCrawler:
                 raise Exception(f"Error: {response.status_code}")
 
         # Max retry attempts reached
-        raise Exception("Max retry attempts reached!")
+        raise RateLimitException("Max retry attempts reached!")
 
     def __search_artist(self, artist_name):
         url = 'https://api.spotify.com/v1/search'
@@ -40,8 +40,6 @@ class SpotifyCrawler:
             'type': 'artist',
             'limit': 1
         }
-        # result = get(url, headers=self.headers, params=params)
-        # json_result = json.loads(result.content)
         json_result = self.__make_request(url, params)
         artist = json_result['artists']['items'][0]
         return artist
@@ -51,8 +49,6 @@ class SpotifyCrawler:
         params = {
             'limit': limit
         }
-        # result = get(url, headers=self.headers, params=params)
-        # json_result = json.loads(result.content)
         json_result = self.__make_request(url, params)
         albums = json_result['items']
         return albums
@@ -62,8 +58,6 @@ class SpotifyCrawler:
         params = {
             'limit': 30
         }
-        # result = get(url, headers=self.headers, params=params)
-        # json_result = json.loads(result.content)
         json_result = self.__make_request(url, params)
         tracks_of_album = json_result['items']
         return tracks_of_album
@@ -85,8 +79,6 @@ class SpotifyCrawler:
             params = {
                 'ids': ','.join(chunk)
             }
-            # result = get(url, headers=self.headers, params=params)
-            # json_result = json.loads(result.content)
             json_result = self.__make_request(url, params)
             tracks_features.extend(json_result['audio_features'])
         tracks_features = [
