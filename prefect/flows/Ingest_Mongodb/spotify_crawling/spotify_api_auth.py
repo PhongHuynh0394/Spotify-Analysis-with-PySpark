@@ -1,53 +1,44 @@
-# from dotenv import load_dotenv
 from requests import post
 import os
 import base64
 import json
 
-# Define Client ID and Client Secret
 
-# Define base URL
-BASE_URL = 'https://accounts.spotify.com/api/token'
+class SpotifyAuth:
+    def __init__(self, client_id, client_secret):
+        self.__client_id = client_id
+        self.__client_secret = client_secret
+        self.__base_url = 'https://accounts.spotify.com/api/token'
 
+    def __make_request(self, url, headers, data):
+        result = post(url, headers=headers, data=data)
+        if result.status_code == 200:
+            return json.loads(result.content)
+        else:
+            raise Exception(f"Error: {result.status_code}")
 
-def get_token():
-    """_summary_
+    def __get_token(self):
+        auth_string = self.__client_id + ":" + self.__client_secret
+        auth_bytes = auth_string.encode("utf-8")
+        auth_base64 = str(base64.b64encode(auth_bytes), "utf-8")
 
-    Returns:
-        tuple: (access_token, token_type)
-    """
-    CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
-    CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
+        url = self.__base_url
+        headers = {
+            "Authorization": "Basic " + auth_base64,
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+        data = {"grant_type": "client_credentials"}
+        json_result = self.__make_request(url, headers, data)
+        access_token, token_type = json_result["access_token"], json_result["token_type"]
+        self.__access_token, self.__token_type = access_token, token_type
 
-    auth_string = CLIENT_ID + ":" + CLIENT_SECRET
-    auth_bytes = auth_string.encode("utf-8")
-    auth_base64 = str(base64.b64encode(auth_bytes), "utf-8")
+    def get_auth_header(self):
+        self.__get_token()
+        return {"Authorization": self.__token_type + " " + self.__access_token}
 
-    url = BASE_URL
-    headers = {
-        "Authorization": "Basic " + auth_base64,
-        "Content-Type": "application/x-www-form-urlencoded"
-    }
-    data = {"grant_type": "client_credentials"}
-    result = post(url, headers=headers, data=data)
-    json_result = json.loads(result.content)
-    access_token, token_type = json_result["access_token"], json_result["token_type"]
-    return access_token, token_type
-
-
-def get_auth_header(token_type, access_token):
-    """_summary_
-
-    Args:
-        token_type (str): Token type
-        access_token (str): Access token
-
-    Returns:
-        str: Authorization header
-    """
-    return {"Authorization": token_type + " " + access_token}
 
 if __name__ == "__main__":
-    access, type_tk = get_token()
-    a = get_auth_header(type_tk, access)
-    print(a)
+    # For testing
+    sa = SpotifyAuth("aeca06e9f8434b00830bf3d3f77482bd",
+                     "8a7082bd9fd94a7e8e42bbc1bb72fc9e")
+    print(sa.get_auth_header())
