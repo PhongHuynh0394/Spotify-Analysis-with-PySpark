@@ -1,6 +1,6 @@
 from prefect import flow, serve
 from sample_task import *
-from ELT_pipeline.bronze_layer import *
+from ETL_pipeline.bronze_layer import *
 from Ingest_Mongodb.mongodb_task import *
 from resources.spark_io import *
 from resources.mongodb_io import *
@@ -19,12 +19,12 @@ def pipeline_A(batch_size, start_index=None):
     ingest_Mongodb(artists, batch_size, start_index)
 
 
-@flow(name="ELT flow",
+@flow(name="ETL flow",
       log_prints=True)
 def pipeline_B():
-    """ELT pipeline with pyspark"""
+    """ETL pipeline with pyspark"""
 
-    conf = (SparkConf().setAppName("ELT-app-{}".format(datetime.today()))
+    conf = (SparkConf().setAppName("ETL-app-{}".format(datetime.today()))
             .set("spark.executor.memory", "2g")
             .setMaster("local[*]"))
 
@@ -40,13 +40,13 @@ if __name__ == "__main__":
     pipeline_A = pipeline_A.to_deployment(name='Ingest data MongoDB deployment',
                                           tags=['Ingest data',
                                                 'MongoDB Atlas'],
-                                          parameters={"batch_size": 100,
+                                          parameters={"batch_size": 50,
                                                       "start_index": None
                                                       }
                                           # interval=2700
                                           )
 
-    pipeline_B = pipeline_B.to_deployment(name='Pipeline ELT deployment',
-                                          tags=['ELT'])
+    pipeline_B = pipeline_B.to_deployment(name='Pipeline ETL deployment',
+                                          tags=['ETL'])
 
     serve(pipeline_A, pipeline_B)

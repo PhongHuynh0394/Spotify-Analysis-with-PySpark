@@ -23,7 +23,7 @@ class SpotifyCrawler:
                 return json.loads(response.content)
             elif response.status_code in self.retry_status_codes:
                 print(
-                    "Too many requests! Retrying after {retry_wait_time} seconds.")
+                    f"Too many requests! Retrying after {retry_wait_time} seconds.")
                 time.sleep(retry_wait_time)
                 retry_attempts += 1
                 retry_wait_time *= self.retry_factor
