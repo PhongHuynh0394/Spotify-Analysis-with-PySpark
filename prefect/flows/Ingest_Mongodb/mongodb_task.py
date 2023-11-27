@@ -9,7 +9,7 @@ import os
 @task(name="Crawling Artists name",
       log_prints=True)
 def crawling_artist():
-    '''Crawling artists names'''
+    """Crawling artists names"""
     file_path = os.path.abspath(__file__)
     data_dir = os.path.join(os.path.dirname(
         file_path), 'spotify_crawling/data')
@@ -72,8 +72,7 @@ def ingest_Mongodb(artists_names, batch_size: int = 20, start_index=None):
             custom_run = False
 
         if start_index >= len(artists_names):
-            print('Everything up to date')
-            return None
+            raise Exception("Invalid start index")
 
         end_index = start_index + batch_size
 
