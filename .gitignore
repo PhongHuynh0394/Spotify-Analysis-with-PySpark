@@ -10,3 +10,4 @@ prefect/flows/resources/__pycache__
 
 dremio/data/pdfs/uploads
 __pycache__/
+.cache
