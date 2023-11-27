@@ -109,6 +109,8 @@ services:
     restart: always
     volumes:
       - "./prefect/flows:/opt/prefect/flows"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
     env_file:
       - .env
     networks:

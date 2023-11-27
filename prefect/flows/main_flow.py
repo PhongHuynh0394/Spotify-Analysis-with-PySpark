@@ -42,8 +42,8 @@ if __name__ == "__main__":
                                                 'MongoDB Atlas'],
                                           parameters={"batch_size": 50,
                                                       "start_index": None
-                                                      }
-                                          # interval=2700
+                                                      },
+                                          interval=600
                                           )
 
     pipeline_B = pipeline_B.to_deployment(name='Pipeline ETL deployment',

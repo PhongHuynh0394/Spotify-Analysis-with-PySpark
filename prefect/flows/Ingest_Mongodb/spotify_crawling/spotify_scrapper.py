@@ -31,7 +31,9 @@ class SpotifyCrawler:
                 raise Exception(f"Error: {response.status_code}")
 
         # Max retry attempts reached
-        raise RateLimitException("Max retry attempts reached!")
+        print("Max retry attempts reached!")
+        # raise RateLimitException("Max retry attempts reached!")
+        raise Exception("Max retry attempts reached!")
 
     def __search_artist(self, artist_name):
         url = 'https://api.spotify.com/v1/search'
