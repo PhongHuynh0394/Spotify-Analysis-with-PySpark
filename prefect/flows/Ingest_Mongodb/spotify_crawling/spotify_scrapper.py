@@ -19,6 +19,7 @@ class SpotifyCrawler:
 
         while retry_attempts < self.max_retry_attempts:
             response = get(url, headers=self.headers, params=params)
+            print(response.status_code)
             if response.status_code == 200:
                 return json.loads(response.content)
             elif response.status_code in self.retry_status_codes:
