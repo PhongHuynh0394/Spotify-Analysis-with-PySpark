@@ -71,7 +71,10 @@ def ingest_Mongodb(artists_names, batch_size: int = 20, start_index=None):
             start_index = int(log_data[0])
             custom_run = False
 
-        if start_index >= len(artists_names):
+        if (start_index >= len(artists_names) and not custom_run) or (start_index == len(artists_names) and custom_run):
+            print("Everything is up to date!")
+            return
+        elif start_index > len(artists_names) and custom_run:
             raise Exception("Invalid start index")
 
         end_index = start_index + batch_size
