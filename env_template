@@ -49,7 +49,7 @@ CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.queue-mappings-override.enable=fa
 # Mongodb
 MONGODB_USER=root
 MONGODB_PASSWORD=123
-MONGODB_DATABASE=crawling-data
+MONGODB_DATABASE=test_spotify_crawling_data
 
 #Prefect
 PREFECT_API_URL=http://prefect-server:4200/api
@@ -57,5 +57,5 @@ PREFECT_SERVER_API_HOST=prefect-server
 PREFECT_LOGGING_LOG_PRINTS=True
 
 # Spotify
-SPOTIFY_CLIENT_ID = "18b7f71efa9c409abe443d8ac3090bf9"
-SPOTIFY_CLIENT_SECRET = "405772fa935d49048543501b8bfcdc76"
+SPOTIFY_CLIENT_ID = "aeca06e9f8434b00830bf3d3f77482bd"
+SPOTIFY_CLIENT_SECRET = "8a7082bd9fd94a7e8e42bbc1bb72fc9e"
