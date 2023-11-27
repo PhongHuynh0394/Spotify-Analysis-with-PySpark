@@ -9,4 +9,4 @@ prefect/flows/ELT_pipeline/__pycache__
 prefect/flows/resources/__pycache__
 
 dremio/data/pdfs/uploads
-__pycache__
+__pycache__/
