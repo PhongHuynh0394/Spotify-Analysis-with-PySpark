@@ -19,7 +19,7 @@ def fetch_response(url):
 st.set_page_config(page_title="Home", page_icon=":house:", layout="wide")
 
 with st.container():
-    st.header("Spotify Analysis của 4 chàng khờ", divider="rainbow")
+    st.header("Spotify Analysis", divider="rainbow")
     # st.caption(
     #     "This practical final project is part of the Python for Data Science course in the field of Data Science at VNUHCM - University of Science.")
     st.caption(
