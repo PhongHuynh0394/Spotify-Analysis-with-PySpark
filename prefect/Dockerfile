@@ -1,13 +1,15 @@
-FROM prefecthq/prefect:2-python3.10 
+ARG IMAGE_VARIANT=slim-buster
+ARG OPENJDK_VERSION=11
+ARG PYTHON_VERSION=3.11.0
 
-RUN apt update 
-RUN apt install -y default-jdk
+FROM python:${PYTHON_VERSION}-${IMAGE_VARIANT} AS py3
+FROM openjdk:${OPENJDK_VERSION}-${IMAGE_VARIANT}
 
-ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+COPY --from=py3 / /
 
-# Add our requirements.txt file to the image and install dependencies
+WORKDIR /opt/prefect
 COPY requirements.txt .
-RUN pip install --upgrade pip & pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-dir
+RUN pip install -r requirements.txt --trusted-host pypi.python.org --no-cache-dir
 
 COPY flows /opt/prefect/flows
 

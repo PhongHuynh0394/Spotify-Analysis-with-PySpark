@@ -18,20 +18,28 @@ def pipeline_A(batch_size, start_index=None):
 
     ingest_Mongodb(artists, batch_size, start_index)
 
+def getMongoAuth():
+    user = os.getenv("MONGODB_USER")
+    password = os.getenv("MONGODB_PASSWORD")
+    return f"mongodb+srv://{user}:{password}@python.zynpktu.mongodb.net/?retryWrites=true&w=majority"
+
 
 @flow(name="ETL flow",
       log_prints=True)
 def pipeline_B():
     """ETL pipeline with pyspark"""
-
+    uri = getMongoAuth()
     conf = (SparkConf().setAppName("ETL-app-{}".format(datetime.today()))
-            .set("spark.executor.memory", "2g")
-            .setMaster("local[*]"))
-
+        .set("spark.executor.memory", "2g")
+        .set("spark.mongodb.read.connection.uri",uri)
+        .set("spark.mongodb.write.connection.uri", uri)
+        .set("spark.jars.packages", "org.mongodb.spark:mongo-spark-connector_2.12:10.2.1")
+        .setMaster("local[*]")
+        )
     with SparkIO(conf) as spark:
         # Bronze task
         with MongodbIO() as client:
-            IngestHadoop(client, spark, return_state=True)
+            IngestHadoop(client, uri, spark, return_state=True)
 
         # Silver task
 

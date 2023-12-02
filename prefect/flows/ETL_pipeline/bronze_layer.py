@@ -9,29 +9,177 @@ from pyspark.sql.types import *
 import pandas as pd
 from resources.mongodb_io import MongodbIO
 
-def createSchema(df: pd.DataFrame):
+def getSchema(table_name):
     """This function create Pyspark Schema"""
-    field = []
+    artist_schema = StructType([
+    StructField(
+        "_id", StringType(), True
+    ),
+    StructField(
+        "external_urls",
+        StructType([
+            StructField("spotify", StringType(), True)
+        ])
+    ),
+    StructField(
+        "followers", 
+        StructType([
+            StructField("href", StringType(), True),
+            StructField("total", IntegerType(), True)
+        ])
+    ),
+    StructField(
+        "genres",
+        ArrayType(StringType(), True)      
+    ),
+    StructField("href", StringType(), True),
+    StructField("id", StringType(), True),
+    StructField(
+        "images",
+        ArrayType(
+            StructType([
+                StructField("height", IntegerType(), True),
+                StructField("url", StringType(), True),
+                StructField("width", IntegerType(), True)
+            ])
+        )
+    ),
+    StructField("name", StringType(), True),
+    StructField("popularity", IntegerType(), True),
+    StructField("type", StringType(), True),
+    StructField("uri", StringType(), True)
+])
 
-    for col in df.columns:
-        dtype = str(df[col].dtype)
+    album_schema = StructType([
+    StructField(
+        "_id", StringType(), True
+    ),
+    StructField("album_group", StringType(), True),
+    StructField("album_type", StringType(), True),
+    StructField(
+        "artists",
+        ArrayType(
+            StructType([
+                StructField(
+                    "external_urls",
+                    StructType([
+                        StructField("spotify", StringType(), True)
+                    ])
+                ),
+                StructField("href", StringType(), True),
+                StructField("id", StringType(), True),
+                StructField("name", StringType(), True),
+                StructField("type", StringType(), True),
+                StructField("uri", StringType(), True)
+            ])
+        )
+    ),
+    StructField(
+        "available_markets",
+        ArrayType(StringType(), True)
+    ),
+    StructField(
+        "external_urls",
+        StructType([
+            StructField("spotify", StringType(), True)
+        ])
+    ),
+    StructField("href", StringType(), True),
+    StructField("id", StringType(), True),
+    StructField(
+        "images",
+        ArrayType(
+            StructType([
+                StructField("height", IntegerType(), True),
+                StructField("url", StringType(), True),
+                StructField("width", IntegerType(), True)
+            ])
+        )
+    ),
+    StructField("name", StringType(), True),
+    StructField("release_date", StringType(), True),
+    StructField("release_date_precision", StringType(), True),
+    StructField("total_tracks", IntegerType(), True),
+    StructField("type", StringType(), True),
+    StructField("uri", StringType(), True)
+])
 
-        if dtype == 'object':
-            field_type = StringType()
-        elif 'int' in dtype:
-            field_type = IntegerType()
-        elif 'bool' in dtype: 
-            field_type = BooleanType()
-        elif 'float' in dtype: 
-            field_type = FloatType()
-        elif dtype == 'double':
-            field_type = DoubleType()
-        else:
-            field_type = StringType()
-        
-        field.append(StructField(col, field_type, True))
+    track_schema = StructType([
+    StructField(
+        "_id", StringType(), True
+    ),
+    StructField(
+        "artists",
+        ArrayType(
+            StructType([
+                StructField(
+                    "external_urls",
+                    StructType([
+                        StructField("spotify", StringType(), True)
+                    ])
+                ),
+                StructField("href", StringType(), True),
+                StructField("id", StringType(), True),
+                StructField("name", StringType(), True),
+                StructField("type", StringType(), True),
+                StructField("uri", StringType(), True)
+            ])
+        )
+    ),
+    StructField(
+        "available_markets", 
+        ArrayType(StringType(), True)
+    ),
+    StructField("disc_number", IntegerType(), True),
+    StructField("duration_ms", LongType(), True),
+    StructField("explicit", BooleanType(), True),
+    StructField(
+        "external_urls",
+        StructType([
+            StructField("spotify", StringType(), True)
+        ])
+    ),
+    StructField("href", StringType(), True),
+    StructField("id", StringType(), True),
+    StructField("is_local", BooleanType(), True),
+    StructField("name", StringType(), True),
+    StructField("preview_url", StringType(), True),
+    StructField("track_number", IntegerType(), True),
+    StructField("type", StringType(), True),
+    StructField("uri", StringType(), True)
+])
 
-    return StructType(field)
+    track_features_schema = StructType([
+    StructField(
+        "_id", StringType(), True
+    ),
+    StructField("danceability", DoubleType(), True),
+    StructField("energy", DoubleType(), True),
+    StructField("key", IntegerType(), True),
+    StructField("loudness", DoubleType(), True),
+    StructField("mode", IntegerType(), True),
+    StructField("speechiness", DoubleType(), True),
+    StructField("acousticness", DoubleType(), True),
+    StructField("instrumentalness", DoubleType(), True),
+    StructField("liveness", DoubleType(), True),
+    StructField("valence", DoubleType(), True),
+    StructField("tempo", DoubleType(), True),
+    StructField("type", StringType(), True),
+    StructField("id", StringType(), True),
+    StructField("uri", StringType(), True),
+    StructField("track_href", StringType(), True),
+    StructField("analysis_url", StringType(), True),
+    StructField("duration_ms", LongType(), True),
+    StructField("time_signature", IntegerType(), True)
+])
+    if 'artist' in table_name:
+        return artist_schema
+    elif 'album' in table_name:
+        return album_schema
+    elif 'feature' in table_name:
+        return track_features_schema
+    else:
+        return track_schema
 
 @task(name="bronze_layer_task",
       description="Extract data from MongoDB to HDFS at bronze layer",
@@ -39,31 +187,45 @@ def createSchema(df: pd.DataFrame):
       cache_expiration=timedelta(hours=1),
       task_run_name="bronze_{table_name}",
       tags=["bronze layer", "pyspark"])
-def bronze_layer_task(collection, spark: SparkSession, table_name: str) -> None:
+def bronze_layer_task(spark: SparkSession, mongo_uri: str, database_name: str, table_name: str) -> None:
     """Extract data from MongoDB to HDFS at bronze layer"""
 
     hdfs_uri = f"hdfs://namenode:8020/bronze_layer/{table_name}.parquet"
-    mongo_data = pd.DataFrame(list(collection.find({}, {"_id": 0}))) # eliminate the _id field
+    spark_data = (spark.read.format("mongodb")
+                  .schema(getSchema(table_name))
+                  .option("uri", mongo_uri)
+                  .option('database', database_name)
+                  .option('collection', table_name)
+                  .load()
+                  .select([col for col in getSchema(table_name).fieldNames() if col != '_id'])
+                  )
 
     try:
-        spark_data = spark.createDataFrame(mongo_data, schema=mongo_data.columns.tolist())
+        print(f"Writing {table_name}")
+        spark_data.write.parquet(hdfs_uri, mode="overwrite")
+        print(f"Bronze: Successfully push {table_name}.parquet")
     except Exception as e:
-        print(f"Error to Create Spark DataFrame {table_name} {e}")
-        print(f"Start Create Schema for {table_name}")
+        print(e)
+        print("Try Pushing again with default schema")
+        spark_data = (spark.read.format("mongodb")
+                    .option("uri", mongo_uri)
+                    .option('database', database_name)
+                    .option('collection', table_name)
+                    .load()
+                    .select([col for col in getSchema(table_name).fieldNames() if col != '_id'])
+                    )
 
-        schema = createSchema(mongo_data)
-        spark_data = spark.createDataFrame(mongo_data, schema=schema)
+        print(f"Writing {table_name}")
+        spark_data.write.parquet(hdfs_uri, mode="overwrite")
+        print(f"Bronze: Successfully push {table_name}.parquet")
 
-    print(f"Writing {table_name}")
-    spark_data.write.parquet(hdfs_uri, mode="overwrite")
-    print(f"Bronze: Successfully push {table_name}.parquet")
 
 
 @flow(name="Ingest Hadoop from MongoDB flow",
       task_runner=ConcurrentTaskRunner(),
       log_prints=True)
-def IngestHadoop(client, spark: SparkSession):
-    """Extract data From MongoDb and Load to HDFS"""
+def IngestHadoop(client, uri, spark: SparkSession):
+    """Extract data From MongoDB and Load to HDFS"""
 
     database_name = os.getenv("MONGODB_DATABASE")
     mongo_db = client[database_name] 
@@ -72,4 +234,4 @@ def IngestHadoop(client, spark: SparkSession):
     #Running task concurrently
     for collection in collections:
         print(f"{collection} start being Ingested...")
-        future = bronze_layer_task.submit(mongo_db[collection], spark, collection) #collection is also the name of table
+        future = bronze_layer_task.submit(spark, uri, database_name, collection) #collection is also the name of table
