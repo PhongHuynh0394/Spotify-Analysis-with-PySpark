@@ -61,6 +61,11 @@ class SpotifyCrawler:
         }
         json_result = self.__make_request(url, params)
         tracks_of_album = json_result['items']
+
+        # Append album_id to each track
+        for track in tracks_of_album:
+            track['album_id'] = album_id
+
         return tracks_of_album
 
     def __get_tracks_of_albums(self, albums_id):
