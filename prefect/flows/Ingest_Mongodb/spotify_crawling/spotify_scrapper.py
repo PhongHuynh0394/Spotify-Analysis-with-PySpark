@@ -6,7 +6,7 @@ from .rate_limit_exception import RateLimitException
 
 
 class SpotifyCrawler:
-    def __init__(self, headers, max_retry_attempts=3, retry_wait_time=30, retry_factor=0.3, retry_status_codes: List[int] = [429]):
+    def __init__(self, headers, max_retry_attempts=3, retry_wait_time=30, retry_factor=0, retry_status_codes: List[int] = [429]):
         self.headers = headers.get_auth_header()
         self.max_retry_attempts = max_retry_attempts
         self.retry_wait_time = retry_wait_time
@@ -54,6 +54,24 @@ class SpotifyCrawler:
         albums = json_result['items']
         return albums
 
+    def __get_albums_information(self, albums_id):
+        # Split albums_id into chunks of 20
+        chunks = [albums_id[x:x+20] for x in range(0, len(albums_id), 20)]
+        albums_information = []
+        for chunk in chunks:
+            url = 'https://api.spotify.com/v1/albums'
+            params = {
+                'ids': ','.join(chunk)
+            }
+            json_result = self.__make_request(url, params)
+            albums_information.extend(json_result['albums'])
+
+        # Remove tracks from albums_information
+        for album_information in albums_information:
+            del album_information['tracks']
+
+        return albums_information
+
     def __get_tracks_of_album(self, album_id):
         url = f'https://api.spotify.com/v1/albums/{album_id}/tracks'
         params = {
@@ -61,10 +79,6 @@ class SpotifyCrawler:
         }
         json_result = self.__make_request(url, params)
         tracks_of_album = json_result['items']
-
-        # Append album_id to each track
-        for track in tracks_of_album:
-            track['album_id'] = album_id
 
         return tracks_of_album
 
@@ -74,6 +88,19 @@ class SpotifyCrawler:
             tracks_of_album = self.__get_tracks_of_album(album_id)
             tracks.extend(tracks_of_album)
         return tracks
+
+    def __get_tracks_information(self, tracks_id):
+        # Split tracks_id into chunks of 50
+        chunks = [tracks_id[x:x+50] for x in range(0, len(tracks_id), 50)]
+        tracks_information = []
+        for chunk in chunks:
+            url = 'https://api.spotify.com/v1/tracks'
+            params = {
+                'ids': ','.join(chunk)
+            }
+            json_result = self.__make_request(url, params)
+            tracks_information.extend(json_result['tracks'])
+        return tracks_information
 
     def __get_tracks_features(self, tracks_id):
         # Split tracks_id into chunks of 100
@@ -95,13 +122,15 @@ class SpotifyCrawler:
         artist_information = self.__search_artist(artist_name)
         artist_id = artist_information.get('id')
 
-        albums_information = self.__get_albums_of_artist(
+        albums_of_artist = self.__get_albums_of_artist(
             artist_id, limit=10)
+        albums_id = [album.get('id') for album in albums_of_artist]
+        albums_information = self.__get_albums_information(albums_id)
 
-        albums_id = [album.get('id') for album in albums_information]
-        tracks_information = self.__get_tracks_of_albums(albums_id)
+        tracks_of_albums = self.__get_tracks_of_albums(albums_id)
+        tracks_id = [track.get('id') for track in tracks_of_albums]
+        tracks_information = self.__get_tracks_information(tracks_id)
 
-        tracks_id = [track.get('id') for track in tracks_information]
         tracks_features_information = self.__get_tracks_features(tracks_id)
         return [artist_information], albums_information, tracks_information, tracks_features_information
 
