@@ -1,56 +1,35 @@
 import requests
+import random
+import pandas as pd
 from bs4 import BeautifulSoup
 
-
 # Define URLs
-URLS = ("https://www.acclaimedmusic.net/061024/1948-09art.htm",
-        "https://www.acclaimedmusic.net/061024/1948-09art2.htm",
-        "https://www.acclaimedmusic.net/061024/1948-09art3.htm",
-        "https://www.acclaimedmusic.net/061024/1948-09art4.htm",
-        "https://www.acclaimedmusic.net/061024/1948-09art5.htm")
+URL = "https://kworb.net/spotify/artists.html"
 
 # Define path to store list of artists name
 FILE_PATH = "data/artists_names.txt"
 
 
-def get_artists_name(urls):
+def get_artists_name(url: str):
     """_summary_:
-    Get artists name from URLs
+    Get artists name from URL
 
     Args:
-        urls (tuple): Tuple of URLs
+        url (str): URL to get artists name
 
     Returns:
         artists_name (list): List of artists name
     """
-    artists_name = []
-    # Send an HTTP GET request to the web page
-    for url in urls:
-        response = requests.get(url)
+    # Read table from URL
+    spotify_artists_table = pd.read_html(url)[0]
 
-        # Parse the HTML content
-        soup = BeautifulSoup(response.content, 'html.parser')
-
-        # Find the table
-        table = soup.find('table')
-
-        # Extract data from the table
-        if table:
-            rows = table.find_all('tr')  # Find all table rows
-            for row in rows:
-                # Find all cells in each row
-                cells = row.find_all('td')
-                # Extract text from the cells and remove leading/trailing spaces
-                artist_name = cells[1].text.strip()
-                artists_name.append(artist_name)
-
-    # Drop element "Album" in artists_name
-    artists_name = set(artists_name)
-    artists_name.remove("Albums")
+    # Get artists name
+    artists_name = spotify_artists_table["Artist"]
+    artists_name = artists_name.tolist()
     return artists_name
 
 
-def store_artists_name(artists_name, file_name = FILE_PATH):
+def store_artists_name(artists_name, file_name=FILE_PATH):
     """_summary_
 
     Args:
@@ -62,16 +41,16 @@ def store_artists_name(artists_name, file_name = FILE_PATH):
             f.write(artist_name + "\n")
 
 
-
-def artists_crawler(path = FILE_PATH):
+def artists_crawler(path=FILE_PATH):
     """_summary_:
     Main function
     """
-    artists_name = get_artists_name(URLS)
+    artists_name = get_artists_name(URL)
+    random.shuffle(artists_name)
     store_artists_name(artists_name, path)
 
 
 if __name__ == "__main__":
     print("Start")
-    artists_crawler()
+    print(get_artists_name(URL))
     print("Success")
