@@ -68,22 +68,22 @@ services:
     networks:
       - docker-net
 
-  notebook:
-    container_name: notebook
-    build:
-      context: ./notebook
-    volumes:
-      - ${PWD}/workspace:/home/jovyan/work
-    ports:
-      - 8888:8888
-    environment:
-      - JUPYTER_TOKEN=pass
-    # command: start-notebook.sh
-    user: root
-    env_file:
-      - .env
-    networks:
-      - docker-net
+  # dremio:
+  #   image: dremio/dremio-oss
+  #   hostname: dremio
+  #   container_name: dremio
+  #   user: root
+  #   volumes:
+  #     - dremio_data:/var/lib/dremio
+  #     - dremio_data:/localFiles
+  #     - ./dremio_config:/opt/dremio/data
+  #     # - ./dremio_config:/etc/dremio
+  #   ports:
+  #     - "9047:9047"   # Web UI (HTTP)
+  #     - "31010:31010" # ODBC/JDBC clients
+  #     - "32010:32010" # Apache Arrow Flight clients
+  #   networks:
+  #     - docker-net
 
   prefect-server:
     build:
@@ -118,19 +118,19 @@ services:
     depends_on:
       - prefect-server
 
-
-  # dremio:
-  #   image: dremio/dremio-oss
-  #   hostname: dremio
-  #   container_name: dremio
-  #   user: root
-  #   volumes:
-  #     - dremio_data:/var/lib/dremio
-  #     - dremio_data:/localFiles
-  #     - dremio_data:/opt/dremio/data
-  #   ports:
-  #     - "9047:9047"   # Web UI (HTTP)
-  #     - "31010:31010" # ODBC/JDBC clients
-  #     - "32010:32010" # Apache Arrow Flight clients
-  #   networks:
-  #     - docker-net
+  notebook:
+    container_name: notebook
+    build:
+      context: ./notebook
+    volumes:
+      - ${PWD}/workspace:/home/jovyan/work
+    ports:
+      - 8888:8888
+    environment:
+      - JUPYTER_TOKEN=pass
+    # command: start-notebook.sh
+    user: root
+    env_file:
+      - .env
+    networks:
+      - docker-net

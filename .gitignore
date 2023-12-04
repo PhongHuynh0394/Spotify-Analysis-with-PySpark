@@ -2,6 +2,7 @@
 test.sh
 /workspace/.ipynb_checkpoints
 /workspace/practice
+/workspace/data
 
 prefect/flows/__pycache__
 prefect/flows/Ingest_Mongodb/__pycache__
