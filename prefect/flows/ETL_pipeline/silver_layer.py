@@ -5,14 +5,7 @@ from prefect.task_runners import ConcurrentTaskRunner
 from pyspark.sql.types import *
 from .utils.layer_utils import SilverCleanDataframe as silver
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import array_contains, col, explode
-
-@task(name="Writing backup task",
-      task_run_name="{table_name} backup")
-def WriteHadoop(spark_data , table_name: str, layer: str) -> None:
-    """Writing data into HDFS"""
-    pass
-
+from pyspark.sql.functions import col
 
 
 @task(name="silver_layer_task",
@@ -135,10 +128,7 @@ def silver_albums_task(spark, table_name: str = 'albums_data'):
       task_runner=ConcurrentTaskRunner(),
       log_prints=True)
 def Silverlayer(spark: SparkSession):
-    # artist_result = silver_artists_task.submit(spark, 'artists_data').result()
     silver_artists, silver_genres = silver_artists_task.submit(spark, 'artists_data').result()
-    # silver_artists = artist_result['silver_artists']
-    # silver_genres = artist_result['silver_genres']
     silver_tracks = silver_tracks_task.submit(spark, 'tracks_data')
     silver_tracks_feat = silver_tracks_feat_task.submit(spark, 'tracks_features_data')
     silver_albums = silver_albums_task.submit(spark, 'albums_data')

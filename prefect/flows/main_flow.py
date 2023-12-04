@@ -2,6 +2,7 @@ from prefect import flow, serve
 from sample_task import *
 from ETL_pipeline.bronze_layer import *
 from ETL_pipeline.silver_layer import *
+from ETL_pipeline.gold_layer import *
 from Ingest_Mongodb.mongodb_task import *
 from resources.spark_io import *
 from resources.mongodb_io import *
@@ -45,6 +46,14 @@ def pipeline_B():
 
         # Silver task
         silver_artist, silver_genre, silver_tracks, silver_tracks_feat, silver_albums = Silverlayer(spark)
+        silver_data = {"artists": silver_artist,
+                       "genres": silver_genre,
+                       "tracks": silver_tracks,
+                       "tracks_feat": silver_tracks_feat,
+                       "albums": silver_albums}
+        
+        # Gold layer
+        Goldlayer(silver_data)
 
 
 
@@ -54,8 +63,8 @@ if __name__ == "__main__":
                                                 'MongoDB Atlas'],
                                           parameters={"batch_size": 5,
                                                       "start_index": None
-                                                      },
-                                          interval=125
+                                                      }
+                                          # ,interval=125
                                           )
 
     pipeline_B = pipeline_B.to_deployment(name='Pipeline ETL deployment',
