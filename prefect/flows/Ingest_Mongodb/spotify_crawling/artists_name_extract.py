@@ -1,5 +1,4 @@
 import requests
-import random
 import pandas as pd
 from bs4 import BeautifulSoup
 
@@ -25,7 +24,9 @@ def get_artists_name(url: str):
 
     # Get artists name
     artists_name = spotify_artists_table["Artist"]
-    artists_name = artists_name.tolist()
+
+    # Extract 1000 artists name
+    artists_name = artists_name.tolist()[:1000]
     return artists_name
 
 
@@ -46,7 +47,6 @@ def artists_crawler(path=FILE_PATH):
     Main function
     """
     artists_name = get_artists_name(URL)
-    random.shuffle(artists_name)
     store_artists_name(artists_name, path)
 
 

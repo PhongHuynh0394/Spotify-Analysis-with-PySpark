@@ -3,6 +3,12 @@ from .spotify_scrapper import SpotifyCrawler
 from .mongodb_process import MongoDB
 from .rate_limit_exception import RateLimitException
 import os
+import threading
+
+
+def pushing_data_to_mongodb(mongo, data, db, coll, tag):
+    print(f"Pushing {tag}: {len(data)} ")
+    mongo.insert_many(data, db, coll)
 
 
 def spotify_crawler(client, artists_name, start_index=0, end_index=20):
@@ -54,19 +60,38 @@ def spotify_crawler(client, artists_name, start_index=0, end_index=20):
         collection_name="tracks_features_data", db=crawling_data)
 
     # Insert data
-    print(f"Pushing artists data: {len(final_artists_information)} ")
-    mongodb.insert_many(final_artists_information, db=crawling_data,
-                        coll=artists_data)
-    print(f"Pushing albums data: {len(final_albums_information)} ")
-    mongodb.insert_many(final_albums_information, db=crawling_data,
-                        coll=albums_data)
-    print(f"Pushing tracks data: {len(final_tracks_information)} ")
-    mongodb.insert_many(final_tracks_information, db=crawling_data,
-                        coll=tracks_data)
-    print(
-        f"Pushing tracks feature data: {len(final_tracks_features_information)} ")
-    mongodb.insert_many(final_tracks_features_information, db=crawling_data,
-                        coll=tracks_features_data)
+    # print(f"Pushing artists data: {len(final_artists_information)} ")
+    # mongodb.insert_many(final_artists_information, db=crawling_data,
+    #                     coll=artists_data)
+    # print(f"Pushing albums data: {len(final_albums_information)} ")
+    # mongodb.insert_many(final_albums_information, db=crawling_data,
+    #                     coll=albums_data)
+    # print(f"Pushing tracks data: {len(final_tracks_information)} ")
+    # mongodb.insert_many(final_tracks_information, db=crawling_data,
+    #                     coll=tracks_data)
+    # print(
+    #     f"Pushing tracks feature data: {len(final_tracks_features_information)} ")
+    # mongodb.insert_many(final_tracks_features_information, db=crawling_data,
+    #                     coll=tracks_features_data)
+
+    # Use multithreading to push data to mongodb
+    threads = []
+    threads.extend([
+        threading.Thread(target=pushing_data_to_mongodb, args=(
+            mongodb, final_artists_information, crawling_data, artists_data, "artists data")),
+        threading.Thread(target=pushing_data_to_mongodb, args=(
+            mongodb, final_albums_information, crawling_data, albums_data, "albums data")),
+        threading.Thread(target=pushing_data_to_mongodb, args=(
+            mongodb, final_tracks_information, crawling_data, tracks_data, "tracks data")),
+        threading.Thread(target=pushing_data_to_mongodb, args=(
+            mongodb, final_tracks_features_information, crawling_data, tracks_features_data, "tracks features data"))
+    ])
+
+    for thread in threads:
+        thread.start()
+
+    for thread in threads:
+        thread.join()
 
     # End
     print("Done")
