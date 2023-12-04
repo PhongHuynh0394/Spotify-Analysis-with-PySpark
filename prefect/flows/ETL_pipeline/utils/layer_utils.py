@@ -1,5 +1,6 @@
 import pyspark
 from typing import Dict, List
+from pyspark_dataframe_methods import cleanList
 
 
 class CleanDataframe:
@@ -64,6 +65,7 @@ class SilverCleanDataframe(CleanDataframe):
         self._split_df = split_df
         self._column_to_split = column_to_split
         self._primary_foreign_key = primary_foreign_key
+        pyspark.sql.DataFrame.cleanList = cleanList
 
     def _clean_nested_columns(self, nested_columns: Dict[str, pyspark.sql.Column]):
         """
