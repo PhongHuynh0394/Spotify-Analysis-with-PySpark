@@ -2,7 +2,6 @@ from requests import get
 import json
 import time
 from typing import List
-from .rate_limit_exception import RateLimitException
 
 
 class SpotifyCrawler:
@@ -15,18 +14,21 @@ class SpotifyCrawler:
 
     def __make_request(self, url, params: dict = None):
         retry_attempts = 0
-        retry_wait_time = self.retry_wait_time
+        # retry_wait_time = self.retry_wait_time
 
         while retry_attempts < self.max_retry_attempts:
             response = get(url, headers=self.headers, params=params)
             if response.status_code == 200:
                 return json.loads(response.content)
             elif response.status_code in self.retry_status_codes:
+                # HTTP response will include a header named 'Retry-After' if the request is rate limited
+                retry_wait_time = int(response.headers.get('Retry-After'))
+
                 print(
                     f"Too many requests! Retrying after {retry_wait_time} seconds.")
                 time.sleep(retry_wait_time)
                 retry_attempts += 1
-                retry_wait_time *= (1 + self.retry_factor)
+                # retry_wait_time *= (1 + self.retry_factor)
             else:
                 raise Exception(f"Error: {response.status_code}")
 
@@ -54,7 +56,7 @@ class SpotifyCrawler:
         albums = json_result['items']
         return albums
 
-    def __get_albums_information(self, albums_id):
+    def __get_albums_information(self, albums_id, artist_id):
         # Split albums_id into chunks of 20
         chunks = [albums_id[x:x+20] for x in range(0, len(albums_id), 20)]
         albums_information = []
@@ -66,9 +68,15 @@ class SpotifyCrawler:
             json_result = self.__make_request(url, params)
             albums_information.extend(json_result['albums'])
 
-        # Remove tracks from albums_information
+        # Remove tracks and markets from albums_information
         for album_information in albums_information:
+            # Add artist_id to album_information
+            album_information['artist_id'] = artist_id
+
+            # Remove unnecessary keys
             del album_information['tracks']
+            del album_information['available_markets']
+            del album_information['artists']
 
         return albums_information
 
@@ -100,6 +108,17 @@ class SpotifyCrawler:
             }
             json_result = self.__make_request(url, params)
             tracks_information.extend(json_result['tracks'])
+
+        for track_information in tracks_information:
+            # Add artist_id and album_id to track_information
+            track_information['artist_id'] = track_information['artists'][0]['id']
+            track_information['album_id'] = track_information['album']['id']
+
+            # Remove unnecessary keys
+            del track_information['available_markets']
+            del track_information['artists']
+            del track_information['album']
+
         return tracks_information
 
     def __get_tracks_features(self, tracks_id):
@@ -123,9 +142,10 @@ class SpotifyCrawler:
         artist_id = artist_information.get('id')
 
         albums_of_artist = self.__get_albums_of_artist(
-            artist_id, limit=10)
+            artist_id, limit=20)
         albums_id = [album.get('id') for album in albums_of_artist]
-        albums_information = self.__get_albums_information(albums_id)
+        albums_information = self.__get_albums_information(
+            albums_id, artist_id)
 
         tracks_of_albums = self.__get_tracks_of_albums(albums_id)
         tracks_id = [track.get('id') for track in tracks_of_albums]
