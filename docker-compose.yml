@@ -118,18 +118,18 @@ services:
     networks:
       - docker-net
 
-  # dremio:
-  #   image: dremio/dremio-oss
-  #   hostname: dremio
-  #   container_name: dremio
-  #   user: root
-  #   volumes:
-  #     - dremio_data:/var/lib/dremio
-  #     - dremio_data:/localFiles
-  #     - dremio_data:/opt/dremio/data
-  #   ports:
-  #     - "9047:9047"   # Web UI (HTTP)
-  #     - "31010:31010" # ODBC/JDBC clients
-  #     - "32010:32010" # Apache Arrow Flight clients
-  #   networks:
-  #     - docker-net
+  dremio:
+    image: dremio/dremio-oss
+    hostname: dremio
+    container_name: dremio
+    user: root
+    volumes:
+      - dremio_data:/var/lib/dremio
+      - dremio_data:/localFiles
+      - dremio_data:/opt/dremio/data
+    ports:
+      - "9047:9047"   # Web UI (HTTP)
+      - "31010:31010" # ODBC/JDBC clients
+      - "32010:32010" # Apache Arrow Flight clients
+    networks:
+      - docker-net
