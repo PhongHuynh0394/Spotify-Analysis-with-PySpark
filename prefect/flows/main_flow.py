@@ -18,6 +18,7 @@ def pipeline_A(batch_size, start_index=None):
 
     ingest_Mongodb(artists, batch_size, start_index)
 
+
 def getMongoAuth():
     user = os.getenv("MONGODB_USER")
     password = os.getenv("MONGODB_PASSWORD")
@@ -30,12 +31,12 @@ def pipeline_B():
     """ETL pipeline with pyspark"""
     uri = getMongoAuth()
     conf = (SparkConf().setAppName("ETL-app-{}".format(datetime.today()))
-        .set("spark.executor.memory", "2g")
-        .set("spark.mongodb.read.connection.uri",uri)
-        .set("spark.mongodb.write.connection.uri", uri)
-        .set("spark.jars.packages", "org.mongodb.spark:mongo-spark-connector_2.12:10.2.1")
-        .setMaster("local[*]")
-        )
+            .set("spark.executor.memory", "2g")
+            .set("spark.mongodb.read.connection.uri", uri)
+            .set("spark.mongodb.write.connection.uri", uri)
+            .set("spark.jars.packages", "org.mongodb.spark:mongo-spark-connector_2.12:10.2.1")
+            .setMaster("local[*]")
+            )
     with SparkIO(conf) as spark:
         # Bronze task
         with MongodbIO() as client:
@@ -48,10 +49,10 @@ if __name__ == "__main__":
     pipeline_A = pipeline_A.to_deployment(name='Ingest data MongoDB deployment',
                                           tags=['Ingest data',
                                                 'MongoDB Atlas'],
-                                          parameters={"batch_size": 4,
+                                          parameters={"batch_size": 5,
                                                       "start_index": None
                                                       },
-                                          interval=60
+                                          interval=125
                                           )
 
     pipeline_B = pipeline_B.to_deployment(name='Pipeline ETL deployment',
