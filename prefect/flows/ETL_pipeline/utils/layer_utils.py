@@ -1,6 +1,6 @@
 import pyspark
 from typing import Dict, List
-from pyspark_dataframe_methods import cleanList
+from .pyspark_dataframe_methods import cleanList
 
 
 class CleanDataframe:

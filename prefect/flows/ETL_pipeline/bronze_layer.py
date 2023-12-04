@@ -158,11 +158,10 @@ def getSchema(table_name):
 
 @task(name="bronze_layer_task",
       description="Extract data from MongoDB to HDFS at bronze layer",
-      # cache_key_fn=task_input_hash, 
-      # cache_expiration=timedelta(hours=1),
+      cache_key_fn=task_input_hash, 
+      cache_expiration=timedelta(hours=1),
       task_run_name="bronze_{table_name}",
       tags=["bronze layer", "pyspark"])
-
 def bronze_layer_task(spark: SparkSession, mongo_uri: str, database_name: str, table_name: str) -> None:
     """Extract data from MongoDB to HDFS at bronze layer"""
 
@@ -179,7 +178,7 @@ def bronze_layer_task(spark: SparkSession, mongo_uri: str, database_name: str, t
 
     print(f"Writing {table_name}")
     spark_data.write.parquet(hdfs_uri, mode="overwrite")
-    print(f"Bronze: Successfully push {table_name}.parquet")
+    print(f"Bronze: Successfully writing {table_name}.parquet")
 
 
 

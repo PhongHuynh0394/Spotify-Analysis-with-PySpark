@@ -1,6 +1,7 @@
 from prefect import flow, serve
 from sample_task import *
 from ETL_pipeline.bronze_layer import *
+from ETL_pipeline.silver_layer import *
 from Ingest_Mongodb.mongodb_task import *
 from resources.spark_io import *
 from resources.mongodb_io import *
@@ -43,6 +44,8 @@ def pipeline_B():
             IngestHadoop(client, uri, spark, return_state=True)
 
         # Silver task
+        silver_artist, silver_genre, silver_tracks, silver_tracks_feat, silver_albums = Silverlayer(spark)
+
 
 
 if __name__ == "__main__":
