@@ -59,21 +59,6 @@ def spotify_crawler(client, artists_name, start_index=0, end_index=20):
     tracks_features_data = mongodb.create_collection(
         collection_name="tracks_features_data", db=crawling_data)
 
-    # Insert data
-    # print(f"Pushing artists data: {len(final_artists_information)} ")
-    # mongodb.insert_many(final_artists_information, db=crawling_data,
-    #                     coll=artists_data)
-    # print(f"Pushing albums data: {len(final_albums_information)} ")
-    # mongodb.insert_many(final_albums_information, db=crawling_data,
-    #                     coll=albums_data)
-    # print(f"Pushing tracks data: {len(final_tracks_information)} ")
-    # mongodb.insert_many(final_tracks_information, db=crawling_data,
-    #                     coll=tracks_data)
-    # print(
-    #     f"Pushing tracks feature data: {len(final_tracks_features_information)} ")
-    # mongodb.insert_many(final_tracks_features_information, db=crawling_data,
-    #                     coll=tracks_features_data)
-
     # Use multithreading to push data to mongodb
     threads = []
     threads.extend([
