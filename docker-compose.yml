@@ -68,65 +68,68 @@ services:
     networks:
       - docker-net
 
-  prefect-server:
-    build:
-      context: ./prefect
-    image: prefect
-    hostname: prefect-server
-    container_name: prefect-server
-    volumes:
-      - prefect:/root/.prefect
-    command: prefect server start
-    environment:
-      - PREFECT_UI_URL=http://127.0.0.1:4200/api
-      - PREFECT_API_URL=http://127.0.0.1:4200/api
-      - PREFECT_SERVER_API_HOST=0.0.0.0
-    ports:
-      - 4200:4200
-    networks:
-      - docker-net
+  # prefect-server:
+  #   build:
+  #     context: ./prefect
+  #   image: prefect
+  #   hostname: prefect-server
+  #   container_name: prefect-server
+  #   volumes:
+  #     - prefect:/root/.prefect
+  #   command: prefect server start
+  #   environment:
+  #     - PREFECT_UI_URL=http://127.0.0.1:4200/api
+  #     - PREFECT_API_URL=http://127.0.0.1:4200/api
+  #     - PREFECT_SERVER_API_HOST=0.0.0.0
+  #   ports:
+  #     - 4200:4200
+  #   networks:
+  #     - docker-net
 
-  prefect:
-    image: prefect:latest
-    container_name: prefect
-    restart: always
-    volumes:
-      - "./prefect/flows:/opt/prefect/flows"
-      - "/etc/timezone:/etc/timezone:ro"
-      - "/etc/localtime:/etc/localtime:ro"
-    env_file:
-      - .env
-    networks:
-      - docker-net
-    depends_on:
-      - prefect-server
+  # prefect:
+  #   image: prefect:latest
+  #   container_name: prefect
+  #   restart: always
+  #   volumes:
+  #     - "./prefect/flows:/opt/prefect/flows"
+  #     - "/etc/timezone:/etc/timezone:ro"
+  #     - "/etc/localtime:/etc/localtime:ro"
+  #   env_file:
+  #     - .env
+  #   networks:
+  #     - docker-net
+  #   depends_on:
+  #     - prefect-server
 
-  notebook:
-    container_name: notebook
-    build:
-      context: ./notebook
-    volumes:
-      - ${PWD}/workspace:/home/jovyan/work
-    ports:
-      - 8888:8888
-    environment:
-      - JUPYTER_TOKEN=pass
-    # command: start-notebook.sh
-    user: root
-    env_file:
-      - .env
-    networks:
-      - docker-net
+  # notebook:
+  #   container_name: notebook
+  #   build:
+  #     context: ./notebook
+  #   volumes:
+  #     - ${PWD}/workspace:/home/jovyan/work
+  #   ports:
+  #     - 8888:8888
+  #   environment:
+  #     - JUPYTER_TOKEN=pass
+  #   # command: start-notebook.sh
+  #   user: root
+  #   env_file:
+  #     - .env
+  #   networks:
+  #     - docker-net
 
   dremio:
-    image: dremio/dremio-oss
+    build:
+      context: ./dremio
+    image: dremio 
     hostname: dremio
     container_name: dremio
+    command: bash init.bash
     user: root
     volumes:
       - dremio_data:/var/lib/dremio
       - dremio_data:/localFiles
-      - dremio_data:/opt/dremio/data
+      - dremio_data:/opt/dremio
     ports:
       - "9047:9047"   # Web UI (HTTP)
       - "31010:31010" # ODBC/JDBC clients
