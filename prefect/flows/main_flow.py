@@ -64,7 +64,7 @@ if __name__ == "__main__":
                                           parameters={"batch_size": 5,
                                                       "start_index": None
                                                       }
-                                          # ,interval=125
+                                          ,interval=125
                                           )
 
     pipeline_B = pipeline_B.to_deployment(name='Pipeline ETL deployment',
