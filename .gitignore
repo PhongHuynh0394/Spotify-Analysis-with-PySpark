@@ -13,3 +13,4 @@ dremio/data/pdfs/uploads
 __pycache__/
 .cache
 dremio_config/
+UI/.init

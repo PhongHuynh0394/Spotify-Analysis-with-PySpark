@@ -118,13 +118,28 @@ services:
   #   networks:
   #     - docker-net
 
-  dremio:
+  UI:
     build:
-      context: ./dremio
-    image: dremio 
+      context: ./UI
+    image: streamlit
+    command: bash -c "bash init.bash && streamlit run main.py"
+    container_name: streamlit
+    restart: always
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./UI:/usr/src/app
+    environment:
+      - DREMIO_CLIENTDIR=/usr/src/app
+    networks:
+      - docker-net
+    depends_on:
+      - dremio
+
+  dremio:
+    image: dremio/dremio-oss
     hostname: dremio
     container_name: dremio
-    command: bash init.bash
     user: root
     volumes:
       - dremio_data:/var/lib/dremio
@@ -132,7 +147,7 @@ services:
       - dremio_data:/opt/dremio
     ports:
       - "9047:9047"   # Web UI (HTTP)
-      - "31010:31010" # ODBC/JDBC clients
+      - "31010:31010" # ODBC/JDBC client
       - "32010:32010" # Apache Arrow Flight clients
     networks:
       - docker-net

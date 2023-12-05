@@ -1,0 +1,8 @@
+auth:
+    type: basic #  currently only basic is supported
+    username: dremio
+    password: dremio123
+    timeout: 10
+hostname: dremio
+port: 9047
+ssl: false

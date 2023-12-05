@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from streamlit import session_state as ss
+import os
 
 st.set_page_config(page_title="Search",
                    page_icon=":mag:",

@@ -1,0 +1,6 @@
+streamlit
+streamlit-extras
+dremio-client
+plotly
+matplotlib
+pandas
