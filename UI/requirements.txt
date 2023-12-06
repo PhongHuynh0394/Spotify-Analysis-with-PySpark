@@ -4,3 +4,4 @@ dremio-client
 plotly
 matplotlib
 pandas
+requests

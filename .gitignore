@@ -14,3 +14,4 @@ __pycache__/
 .cache
 dremio_config/
 UI/.init
+UI/auth.json
