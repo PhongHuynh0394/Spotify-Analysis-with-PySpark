@@ -12,7 +12,9 @@ CSS = "style.css"
 TABLE = {
     "Artist": "home.artist",
     "Album": "home.album",
-    "Track": "home.track"
+    "Track": "home.track",
+    # "Genre": "home.genre",
+    # "Track Feat": "home.track_feat"
 }
 
 # Set page config
@@ -44,7 +46,11 @@ local_css(os.path.dirname(os.path.dirname(os.path.abspath(
     __file__))) + "/assets/{}".format(CSS))
 
 
-def get_dremio_client(host, port, uid, pwd):
+def get_dremio_client():
+    host = os.getenv("DREMIO_HOST")
+    uid = os.getenv("DREMIO_USER")
+    pwd = os.getenv("DREMIO_PASSWORD")
+    port = os.getenv("DREMIO_PORT")
     client = DremioClient(host, port, uid, pwd)
     client.connect()
     options = client.authenticate()
@@ -156,8 +162,7 @@ def show_results(search_term, df_search):
 
 
 try:
-    client, options = get_dremio_client(
-        "localhost", 32010, "tntuan0910", "Hoang999@")
+    client, options = get_dremio_client()
 except Exception:
     st.error(
         "Cannot connect to Dremio. Please check your dremio status and try again.")

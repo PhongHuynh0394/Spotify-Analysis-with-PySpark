@@ -2,7 +2,6 @@ import pyarrow
 from pyarrow import flight
 import pandas as pd
 
-
 class DremioClient:
     def __init__(self, host, port, uid, pwd) -> None:
         self._host = host
@@ -28,10 +27,10 @@ class DremioClient:
 
 
 if __name__ == "__main__":
-    client = DremioClient("localhost", 32010, "tntuan0910", "Hoang999@")
+    client = DremioClient()
     client.connect()
     options = client.authenticate()
-    location = "home.track"
+    location = "home.tracks"
     df = client.query(
-        f"SELECT * FROM {location} WHERE name = 'Virginia Beach'", options)
+        f"SELECT * FROM {location}", options)
     print(df.head())

@@ -1,6 +1,7 @@
 streamlit
 streamlit-extras
 dremio-client
+pyarrow
 plotly
 matplotlib
 pandas

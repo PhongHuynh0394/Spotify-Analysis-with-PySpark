@@ -8,8 +8,8 @@ attempt=0
 if [ ! -f "${PWD}/.init" ]; then
 
   # Set Dremio user and password
-  DREMIO_USER='dremio'
-  DREMIO_PASSWORD='dremio123'
+  DREMIO_USER="${DREMIO_USER:-dremio}"
+  DREMIO_PASSWORD="${DREMIO_PASSWORD:-dremio123}"
 
   # Loop until successful connection or max attempts reached
   while [ "$attempt" -lt "$max_attempts" ]; do
