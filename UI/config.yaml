@@ -4,5 +4,5 @@ auth:
     password: dremio123
     timeout: 10
 hostname: dremio
-port: 9047
+port: 31010
 ssl: false

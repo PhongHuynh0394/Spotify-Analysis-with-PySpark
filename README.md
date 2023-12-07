@@ -15,7 +15,6 @@ make sure you fill all your API key and MongoDB user in this blank:
 MONGODB_USER=root
 MONGODB_PASSWORD=123
 MONGODB_DATABASE=crawling-data
-
 # Spotify
 SPOTIFY_CLIENT_ID = "54f4b6f05cdb44b592f89654412d3a39"
 SPOTIFY_CLIENT_SECRET = "b9acf2b35cf44ee982efa8c05efc7d45"
