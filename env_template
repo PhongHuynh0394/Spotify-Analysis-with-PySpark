@@ -9,7 +9,7 @@ SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
 SPARK_SSL_ENABLED=no
 SPARK_USER=spark
 
-# HDFS
+#HDFS
 HADOOP_HOME=
 CORE-SITE.XML_fs.default.name=hdfs://namenode:8020
 CORE-SITE.XML_fs.defaultFS=hdfs://namenode
@@ -19,7 +19,7 @@ HDFS-SITE.XML_dfs.permissions.enabled=false
 HDFS-SITE.XML_dfs.webhdfs.enabled=true
 # HDFS-STIE.XML_dfs.datanode.data.dir="[SSD]file://tmp/hadoop-hadoop/dfs/data"
 HDFS-SITE.XML_dfs.client.use.datanode.hostname=true
-# HDFS-SITE.XML_dfs.encrypt.data.transfer=true
+#HDFS-SITE.XML_dfs.encrypt.data.transfer=true
 
 MAPRED-SITE.XML_mapreduce.framework.name=yarn
 MAPRED-SITE.XML_yarn.app.mapreduce.am.env=HADOOP_MAPRED_HOME=$HADOOP_HOME
@@ -51,11 +51,19 @@ MONGODB_USER=root
 MONGODB_PASSWORD=123
 MONGODB_DATABASE=final_spotify_crawling_data
 
-# Prefect
+# Dremio
+DREMIO_USER=dremio
+DREMIO_PASSWORD=dremio123
+DREMIO_PORT=32010 # flight arrow
+DREMIO_HOST=dremio
+
+#Prefect
 PREFECT_API_URL=http://prefect-server:4200/api
 PREFECT_SERVER_API_HOST=prefect-server
 PREFECT_LOGGING_LOG_PRINTS=True
 
 # Spotify
-SPOTIFY_CLIENT_ID = "65a6dc669c774dfb816832d3918bfa7c"
-SPOTIFY_CLIENT_SECRET = "daf49b177cfc466cbed98a4b61e66a53"
+SPOTIFY_CLIENT_ID = "147ee2378bd24e4a871ccc226a830ff9"
+SPOTIFY_CLIENT_SECRET = "6113a8973f2245c58221708c7cdf0c31"
+
+
