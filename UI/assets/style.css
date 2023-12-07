@@ -139,11 +139,10 @@ div[class="st-emotion-cache-0 eqpbllx5"]
   text-align: left !important;
 } */
 
-/* div[class="st-emotion-cache-1kyxreq e115fcil2"] {
-  display: flex;
-  justify-content: center;
-} */
-
-img {
+.artist-image {
   width: 50%;
+  border-radius: 50%;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
 }

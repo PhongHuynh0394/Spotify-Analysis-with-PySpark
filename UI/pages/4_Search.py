@@ -61,10 +61,12 @@ def post_result(row):
 
     with st.expander("{} - {} - {}".format(row["track_name"], row["album_name"], row["artist_name"])):
         with st.spinner(text="Loading details..."):
-            _, audio_middle_column, _ = st.columns(
-                [1, 2, 1])
-            with audio_middle_column:
-                st.audio(row["track_url"])
+
+            if row["track_preview"]:
+                _, audio_middle_column, _ = st.columns(
+                    [1, 2, 1])
+                with audio_middle_column:
+                    st.audio(row["track_preview"])
 
             left_column, right_column = st.columns([10, 4])
             with right_column:
@@ -91,13 +93,8 @@ def post_result(row):
                     st.markdown(table_markdown, unsafe_allow_html=True)
 
                 with st.container():
-                    # response = fetch_response(
-                    #     "https://www.popsci.com/uploads/2021/12/02/imtiyaz-ali-LxBMsvUPAgo-unsplash-scaled.jpg?auto=webp&width=1440&height=895.5")
-                    # image = Image.open(
-                    #     BytesIO(response.content))
-                    # st.image(image, use_column_width=True)
-                    st.image(
-                        row["artist_image"], use_column_width=False)
+                    st.markdown("<img src='{}' class='artist-image'>".format(
+                        row["artist_image"]), unsafe_allow_html=True)
 
             with left_column:
                 st.markdown("""#####  Want to taste similar songs?""")
@@ -114,8 +111,6 @@ def post_result(row):
                     ]
                     # Display 5 songs by row using streamlit
                     for data in five_sample_data:
-                        # st.markdown("""###### {} - {}""".format(
-                        #     data["name"], data["artist"]))
                         st.markdown(
                             "<p class='recommend-track-section'>{} - {}</p>".format(data["name"], data["artist"]), unsafe_allow_html=True)
 
@@ -130,7 +125,7 @@ def find_results(client, options):
 
     if ss["type"] == "Track":
         sql = f"""
-            SELECT track.id AS track_id, track.name AS track_name, track.external_urls AS track_url, track.popularity as track_popularity, artist.name AS artist_name, artist.popularity AS artist_popularity, artist.image_url AS artist_image, SUBSTRING(album.release_date, 1, 4) AS track_release_year, album.name AS album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature, LISTAGG(artist_genres.genre, ', ') AS genres
+            SELECT track.id AS track_id, track.name AS track_name, track.external_urls AS track_url, track.popularity as track_popularity, track.preview_url as track_preview, artist.name AS artist_name, artist.popularity AS artist_popularity, artist.image_url AS artist_image, SUBSTRING(album.release_date, 1, 4) AS track_release_year, album.name AS album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature, LISTAGG(artist_genres.genre, ', ') AS genres
             FROM home.track AS track
             JOIN home.album AS album
             ON track.album_id = album.id
@@ -140,8 +135,8 @@ def find_results(client, options):
             ON track.id = track_features.id
             JOIN home.artist_genres as artist_genres
             ON artist.id = artist_genres.id
-            WHERE track.name LIKE '%{ss['search_term']}%'
-            GROUP BY track_id, track_name, track_url, track_popularity, artist_name, artist_popularity, artist_image, track_release_year, album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature
+            WHERE LOWER(track.name) LIKE '%{ss['search_term']}%'
+            GROUP BY track_id, track_name, track_url, track_popularity, track_preview, artist_name, artist_popularity, artist_image, track_release_year, album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature
             ORDER BY track_name
         """
     elif ss["type"] == "Album":
@@ -178,7 +173,7 @@ with st.form(key='search_form'):
             "# Search", value=ss["search_term"], placeholder="Westlife", help="Enter the name of the artist, album or track")
     with nav2:
         ss["type"] = st.selectbox(
-            "# Type", ["Artist", "Album", "Track"], placeholder="Artist", help="Select the type of search")
+            "# Type", ["Track"], placeholder="Track", help="Select the type of search")
     search_button = st.form_submit_button(
         label="# Find")
 
@@ -187,5 +182,8 @@ if search_button:
     if ss['search_term'] is None:
         st.error("Please enter the search term")
         st.stop()
+    else:
+        ss['search_term'] = ss['search_term'].lower().strip()
     df_search = find_results(client, options)
-    post_results(df_search)
+    with st.spinner(text="Loading results..."):
+        post_results(df_search)
