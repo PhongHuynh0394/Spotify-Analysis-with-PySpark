@@ -39,6 +39,6 @@ class SpotifyAuth:
 
 if __name__ == "__main__":
     # For testing
-    sa = SpotifyAuth("aeca06e9f8434b00830bf3d3f77482bd",
-                     "8a7082bd9fd94a7e8e42bbc1bb72fc9e")
+    sa = SpotifyAuth("65a6dc669c774dfb816832d3918bfa7c",
+                     "daf49b177cfc466cbed98a4b61e66a53")
     print(sa.get_auth_header())
