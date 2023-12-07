@@ -1,22 +1,11 @@
-import streamlit as st
-from streamlit.components.v1 import html
-import os
-import requests
 from PIL import Image
-from io import BytesIO
 from streamlit_extras.switch_page_button import switch_page
+import streamlit as st
+import os
 
+IMAGE_NAME = "spotify_image.jpg"
 MUSIC_NAME = "VoKichCuaEm.mp3"
-HOME_PAGE_MUSIC = os.path.dirname(os.path.abspath(
-    __file__)) + "/assets/{}".format(MUSIC_NAME)
-
-
-@st.cache_data
-def fetch_response(url):
-    with st.spinner(text="Loading image..."):
-        response = requests.get(url)
-        return response
-
+CSS = "style.css"
 
 st.set_page_config(page_title="Home",
                    page_icon=":house:",
@@ -29,7 +18,8 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
-local_css("ui/assets/style.css")
+local_css(os.path.dirname(os.path.abspath(
+    __file__)) + "/assets/{}".format(CSS))
 
 with st.container():
     # st.header("Spotify Analysis", divider="rainbow")
@@ -48,11 +38,11 @@ with st.container():
     left_column, right_column = st.columns(spec=2, gap="large")
     with left_column:
         st.code(code, language="python")
-        st.audio(HOME_PAGE_MUSIC)
+        st.audio(os.path.dirname(os.path.abspath(__file__)) +
+                 "/assets/{}".format(MUSIC_NAME))
     with right_column:
-        response = fetch_response(
-            "https://www.popsci.com/uploads/2021/12/02/imtiyaz-ali-LxBMsvUPAgo-unsplash-scaled.jpg?auto=webp&width=1440&height=895.5")
-        image = Image.open(BytesIO(response.content)).resize((400, 235))
+        image = Image.open(os.path.dirname(os.path.abspath(
+            __file__)) + "/assets/{}".format(IMAGE_NAME)).resize((400, 235))
         st.image(image, use_column_width=False)
 
     st.write("Let's begin exploring our project slowly and steadily.")
@@ -65,8 +55,8 @@ with st.container():
             switch_page("About")
 
     st.divider()
+
 with st.container():
-    # st.header("About Us", divider="rainbow")
     st.write("# About Us")
     st.write("We are four students from the University of Sciences and we are working on this project with the aim of applying the knowledge we have learned to real-world projects and striving to learn new concepts and skills.")
     left_column, right_column = st.columns(2)

@@ -58,28 +58,6 @@ details[class="st-emotion-cache-13na8ym eqpbllx4"]
   padding-left: 20px;
 }
 
-/* details[class="st-emotion-cache-13na8ym eqpbllx4"]
-  div[class="st-emotion-cache-or5ktj e1f1d6gn2"]
-  div
-  div[class="st-emotion-cache-1wmy9hl e1f1d6gn0"]
-  div[class="element-container st-emotion-cache-awu8hd e1f1d6gn3"] {
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #1db954;
-}
-
-details[class="st-emotion-cache-13na8ym eqpbllx4"]
-  div[class="st-emotion-cache-or5ktj e1f1d6gn2"]
-  div
-  div[class="st-emotion-cache-1wmy9hl e1f1d6gn0"]
-  div[class="element-container st-emotion-cache-awu8hd e1f1d6gn3"]
-  span {
-  color: black;
-  font-size: 15px;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 700;
-} */
-
 .recommend-track-section {
   padding: 20px;
   border-radius: 15px;
@@ -109,4 +87,63 @@ td {
 
 div[class="st-emotion-cache-keje6w e1f1d6gn2"] {
   margin-top: 20px;
+}
+
+div[class="st-emotion-cache-0 eqpbllx5"]
+  details[class="st-emotion-cache-13na8ym eqpbllx4"]
+  div[class="st-emotion-cache-1clstc5 eqpbllx1"]
+  div[class="st-emotion-cache-m9mqwd e1f1d6gn3"]
+  div
+  div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+div[class="st-emotion-cache-0 eqpbllx5"]
+  details[class="st-emotion-cache-13na8ym eqpbllx4"]
+  div[class="st-emotion-cache-1clstc5 eqpbllx1"]
+  div[class="st-emotion-cache-m9mqwd e1f1d6gn3"]
+  div
+  div
+  div[class="st-emotion-cache-0 e1f1d6gn0"]:nth-last-child(-n + 2) {
+  margin-top: 30px;
+}
+
+div[class="st-emotion-cache-0 eqpbllx5"]
+  details[class="st-emotion-cache-13na8ym eqpbllx4"]
+  div[class="st-emotion-cache-1clstc5 eqpbllx1"]
+  div[class="st-emotion-cache-m9mqwd e1f1d6gn3"]
+  div
+  div
+  div[class="st-emotion-cache-0 e1f1d6gn0"]
+  a {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #1db954;
+  color: black;
+  font-size: 15px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* div[class="st-emotion-cache-0 eqpbllx5"]
+  details[class="st-emotion-cache-13na8ym eqpbllx4"]
+  div[class="st-emotion-cache-1clstc5 eqpbllx1"]
+  div[class="st-emotion-cache-m9mqwd e1f1d6gn3"]
+  div
+  div
+  div[class="st-emotion-cache-k7vsyb e1nzilvr2"]
+  h5 {
+  text-align: left !important;
+} */
+
+/* div[class="st-emotion-cache-1kyxreq e115fcil2"] {
+  display: flex;
+  justify-content: center;
+} */
+
+img {
+  width: 50%;
 }
