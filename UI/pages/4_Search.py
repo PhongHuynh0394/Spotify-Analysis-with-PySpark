@@ -13,8 +13,8 @@ TABLE = {
     "Artist": "home.artist",
     "Album": "home.album",
     "Track": "home.track",
-    # "Genre": "home.genre",
-    # "Track Feat": "home.track_feat"
+    "Genre": "home.genre",
+    "Track Feat": "home.track_feat"
 }
 
 # Set page config
@@ -126,14 +126,14 @@ def find_results(client, options):
     if ss["type"] == "Track":
         sql = f"""
             SELECT track.id AS track_id, track.name AS track_name, track.external_urls AS track_url, track.popularity as track_popularity, track.preview_url as track_preview, artist.name AS artist_name, artist.popularity AS artist_popularity, artist.image_url AS artist_image, SUBSTRING(album.release_date, 1, 4) AS track_release_year, album.name AS album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature, LISTAGG(artist_genres.genre, ', ') AS genres
-            FROM home.track AS track
-            JOIN home.album AS album
+            FROM {TABLE.get("Track")} AS track
+            JOIN {TABLE.get("Album")} AS album
             ON track.album_id = album.id
-            JOIN home.artist AS artist
+            JOIN {TABLE.get("Artist")} AS artist
             ON track.artist_id = artist.id
-            JOIN home.track_features AS track_features
+            JOIN {TABLE.get("Track Feat")} AS track_features
             ON track.id = track_features.id
-            JOIN home.artist_genres as artist_genres
+            JOIN {TABLE.get("Genre")} as artist_genres
             ON artist.id = artist_genres.id
             WHERE LOWER(track.name) LIKE '%{ss['search_term']}%'
             GROUP BY track_id, track_name, track_url, track_popularity, track_preview, artist_name, artist_popularity, artist_image, track_release_year, album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature
