@@ -45,16 +45,16 @@ def pipeline_B():
             IngestHadoop(client, uri, spark, return_state=True)
 
         # Silver task
-        silver_artist, silver_genre, silver_tracks, silver_tracks_feat, silver_albums = Silverlayer(spark)
+        silver_artist, silver_genre, silver_tracks, silver_tracks_feat, silver_albums = Silverlayer(
+            spark)
         silver_data = {"artists": silver_artist,
                        "genres": silver_genre,
                        "tracks": silver_tracks,
                        "tracks_feat": silver_tracks_feat,
                        "albums": silver_albums}
-        
+
         # Gold layer
         Goldlayer(silver_data)
-
 
 
 if __name__ == "__main__":
@@ -64,7 +64,7 @@ if __name__ == "__main__":
                                           parameters={"batch_size": 5,
                                                       "start_index": None
                                                       }
-                                          ,interval=125
+                                          #   ,interval=125
                                           )
 
     pipeline_B = pipeline_B.to_deployment(name='Pipeline ETL deployment',
