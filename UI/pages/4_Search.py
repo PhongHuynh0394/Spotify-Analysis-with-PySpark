@@ -137,8 +137,10 @@ def find_results(client, options):
             ON artist.id = artist_genres.id
             WHERE LOWER(track.name) LIKE '%{ss['search_term']}%'
             GROUP BY track_id, track_name, track_url, track_popularity, track_preview, artist_name, artist_popularity, artist_image, track_release_year, album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature
-            ORDER BY track_name
+            ORDER BY track_popularity
+            LIMIT 50
         """
+
     elif ss["type"] == "Album":
         columns_query = "album_type, artist_id, external_urls, name, popularity, release_date, total_tracks"
     elif ss["type"] == "Artist":
@@ -187,3 +189,4 @@ if search_button:
     df_search = find_results(client, options)
     with st.spinner(text="Loading results..."):
         post_results(df_search)
+

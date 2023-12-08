@@ -101,22 +101,22 @@ services:
   #   depends_on:
   #     - prefect-server
 
-  # notebook:
-  #   container_name: notebook
-  #   build:
-  #     context: ./notebook
-  #   volumes:
-  #     - ${PWD}/workspace:/home/jovyan/work
-  #   ports:
-  #     - 8888:8888
-  #   environment:
-  #     - JUPYTER_TOKEN=pass
-  #   # command: start-notebook.sh
-  #   user: root
-  #   env_file:
-  #     - .env
-  #   networks:
-  #     - docker-net
+  notebook:
+    container_name: notebook
+    build:
+      context: ./notebook
+    volumes:
+      - ${PWD}/workspace:/home/jovyan/work
+    ports:
+      - 8888:8888
+    environment:
+      - JUPYTER_TOKEN=pass
+    # command: start-notebook.sh
+    user: root
+    env_file:
+      - .env
+    networks:
+      - docker-net
 
   UI:
     build:
