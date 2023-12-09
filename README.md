@@ -1,64 +1,43 @@
-# Prefect Branch !!
+# Spotify Analysis
+![HCMUS](https://img.shields.io/badge/21KDL-HCMUS?label=HCMUS&labelColor=3670A0&color=e4e8ff)
 
-## Set up
+introduce something
 
-### Environment
+<p align="center">
+  <img alt="Data Pipeline" src="./image/spotify_data_pipeline.png">
+  <img alt="Prefect" src="https://img.shields.io/badge/Prefect-%23ffffff.svg?style=for-the-badge&logo=prefect&logoColor=black">
+  <img alt="Docker" src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
+  <img alt="Spotify" src="https://img.shields.io/badge/Spotify%20API-1ED760?style=for-the-badge&logo=spotify&logoColor=white">
+  <img alt="Apache Hadoop" src="https://img.shields.io/badge/Apache%20Hadoop-66CCFF?style=for-the-badge&logo=apachehadoop&logoColor=black">
+  <img alt="Apache Spark" src="https://img.shields.io/badge/Apache%20Spark-FDEE21?style=for-the-badge&logo=apachespark&logoColor=orange">
+  <img alt="Dremio" src="https://img.shields.io/badge/dremio-%230db7ed.svg?style=for-the-badge">
+  <img alt="MongoDB" src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white">
+  <img alt="Power Bi" src="https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black">
+</p>
 
-Firstly, you need to create a .env file base on env_template file by the following command:
-```bash
-cp env_template .env
-```
+## Table of contents
+something
 
-make sure you fill all your API key and MongoDB user in this blank:
-```bash
-# Mongodb
-MONGODB_USER=root
-MONGODB_PASSWORD=123
-MONGODB_DATABASE=crawling-data
-# Spotify
-SPOTIFY_CLIENT_ID = "54f4b6f05cdb44b592f89654412d3a39"
-SPOTIFY_CLIENT_SECRET = "b9acf2b35cf44ee982efa8c05efc7d45"
-```
-## Building services
-To build all services, run:
-```bash
-make build
-```
-Then just take a cup of coffee and wait Docker do the rest. After building, now you can 
-easily run the system by typing `make up` in your terminal.
+## Prerequisite
+- [Docker](https://www.docker.com/products/docker-desktop/)
+- [Spotify API account](https://developer.spotify.com/documentation/web-api)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
 
-To switch off the system, type `make down`
-## To Test Prefect ONLY
+## Get started
+### Set up environment
+something here
 
-`This note is for testing Prefect Only`
+### Run your pipeline
+#### Pipeline 1
+something here
 
-To make sure you have newest updated, please pull (or clone) this branch, then remove the old prefect image in your Docker Desktop (if you already had one)
+#### Pipeline 2
+something here
 
-But if you don't use Docker Desktop, you can follow these commandline instead to remove your old Prefect image:
-```bash
-docker images | grep prefect | awk '{print $3}' | xargs docker rmi
-```
-Then re-build the new prefect image
+## And more
+future update
 
-Run the following command:
-```bash
-make prefect-build
-```
-This will build a prefect images with requirements.txt in prefect folder
+## About us
+greeting to contributors and contacts
 
-Wait for a second for everything build up, then start services: `make prefect-up`
-
-Reversely, run `make prefect-down` to turn off services
-
-Check [**localhost:4200**](http://localhost:4200) to visit Prefect UI. You will see there is a flow already in `flows run` or `Deployments` section. 
-
-**To Run pipeline:** Just trigger the `Run` button on prefect UI, there is 1 sample basic flow and 1 schedule flow for auto run
-
-**Pipeline Structure Files:**
-- Sample flow: [main_flow.py](./prefect/flows/main_flow.py) (This file has 2 flows)
-- Sample tasks: [sample_task.py](./prefect/flows/sample_task.py) (this file also has 2 tasks)
-- Mongodb connection task: [mongodb_task.py](./prefect/flows/Ingest_Mongodb/mongodb_task.py)
-- ELT Ingest data from MongoDB to Hadoop: [bronze_layer.py](./prefect/flows/ELT_pipeline/bronze_layer.py)
-
-
-Checkout the data from Mongodb Atlas Cloud
+something here
