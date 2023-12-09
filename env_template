@@ -1,16 +1,15 @@
-# Spark Worker
-SPARK_MODE=worker
-SPARK_MASTER_URL=spark://spark:7077
-SPARK_WORKER_MEMORY=1G
-SPARK_WORKER_CORES=1
-SPARK_RPC_AUTHENTICATION_ENABLED=no
-SPARK_RPC_ENCRYPTION_ENABLED=no
-SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-SPARK_SSL_ENABLED=no
-SPARK_USER=spark
+# Spotify API
+SPOTIFY_CLIENT_ID=<your-api-key>
+SPOTIFY_CLIENT_SECRET=<your-api-key> 
+
+# Mongodb
+MONGODB_USER=<your-user-name>
+MONGODB_PASSWORD=<your-user-password>
+MONGODB_DATABASE=spotify_data #modify this if you want another name
+
 
 #HDFS
-HADOOP_HOME=
+HADOOP_HOME= 
 CORE-SITE.XML_fs.default.name=hdfs://namenode:8020
 CORE-SITE.XML_fs.defaultFS=hdfs://namenode
 HDFS-SITE.XML_dfs.namenode.rpc-address=namenode:8020
@@ -46,24 +45,14 @@ CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.node-locality-delay=40
 CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.queue-mappings=
 CAPACITY-SCHEDULER.XML_yarn.scheduler.capacity.queue-mappings-override.enable=false
 
-# Mongodb
-MONGODB_USER=root
-MONGODB_PASSWORD=123
-MONGODB_DATABASE=final_spotify_crawling_data
-
 # Dremio
 DREMIO_USER=dremio
 DREMIO_PASSWORD=dremio123
 DREMIO_PORT=32010 # flight arrow
 DREMIO_HOST=dremio
 
-#Prefect
+# Prefect
 PREFECT_API_URL=http://prefect-server:4200/api
 PREFECT_SERVER_API_HOST=prefect-server
 PREFECT_LOGGING_LOG_PRINTS=True
-
-# Spotify
-SPOTIFY_CLIENT_ID = "147ee2378bd24e4a871ccc226a830ff9"
-SPOTIFY_CLIENT_SECRET = "6113a8973f2245c58221708c7cdf0c31"
-
 
