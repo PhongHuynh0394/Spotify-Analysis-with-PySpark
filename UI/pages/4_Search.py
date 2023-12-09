@@ -51,6 +51,10 @@ def get_dremio_client():
     uid = os.getenv("DREMIO_USER")
     pwd = os.getenv("DREMIO_PASSWORD")
     port = os.getenv("DREMIO_PORT")
+    # host = 'localhost'
+    # uid = 'dremio'
+    # pwd = 'dremio123'
+    # port=32010
     client = DremioClient(host, port, uid, pwd)
     client.connect()
     options = client.authenticate()

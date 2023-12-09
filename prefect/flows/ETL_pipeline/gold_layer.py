@@ -23,7 +23,7 @@ def gold_artist_task(silver_artists: pyspark.sql.DataFrame) -> None:
    # Write backup
     print(f'Start writing {table_name}.parquet')
     gold_artists.write.parquet(hdfs_uri, mode='overwrite')
-    print(f'Gold: Successfully writing {table_name}')
+    print(f'Gold: Successfully writing {gold_artists.count()} into {table_name}')
 
 
 @task(name="gold genres task")
@@ -43,7 +43,7 @@ def gold_genres_task(silver_genres: pyspark.sql.DataFrame) -> None:
    # Write backup
     print(f'Start writing {table_name}.parquet')
     gold_genres.write.parquet(hdfs_uri, mode='overwrite')
-    print(f'Gold: Successfully writing {table_name}')
+    print(f'Gold: Successfully writing {gold_genres.count()} into {table_name}')
 
 
 @task(name="gold albums task")
@@ -63,7 +63,7 @@ def gold_albums_task(silver_albums: pyspark.sql.DataFrame) -> None:
    # Write backup
     print(f'Start writing {table_name}.parquet')
     gold_albums.write.parquet(hdfs_uri, mode='overwrite')
-    print(f'Gold: Successfully writing {table_name}')
+    print(f'Gold: Successfully writing {gold_albums.count()} into {table_name}')
 
 
 @task(name="gold tracks task")
@@ -83,7 +83,7 @@ def gold_tracks_task(silver_tracks: pyspark.sql.DataFrame) -> None:
    # Write backup
     print(f'Start writing {table_name}.parquet')
     gold_tracks.write.parquet(hdfs_uri, mode='overwrite')
-    print(f'Gold: Successfully writing {table_name}')
+    print(f'Gold: Successfully writing {gold_tracks.count()} into {table_name}')
 
 
 
@@ -104,7 +104,7 @@ def gold_tracks_feat_task(silver_tracks_features: pyspark.sql.DataFrame) -> None
    # Write backup
     print(f'Start writing {table_name}.parquet')
     gold_tracks_features.write.parquet(hdfs_uri, mode='overwrite')
-    print(f'Gold: Successfully writing {table_name}')
+    print(f'Gold: Successfully writing {gold_tracks_features.count()} into {table_name}')
 
 @flow(name="Gold layer",
       task_runner=ConcurrentTaskRunner(),
