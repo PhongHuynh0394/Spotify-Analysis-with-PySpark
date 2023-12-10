@@ -20,6 +20,8 @@ def gold_artist_task(silver_artists: pyspark.sql.DataFrame) -> None:
                         drop_null=True,
                         drop_columns=["href", "images", "type", "uri"]).clean()
 
+    gold_artists = gold_artists.withColumnRenamed("id", "artist_id")
+
    # Write backup
     print(f'Start writing {table_name}.parquet')
     gold_artists.write.parquet(hdfs_uri, mode='overwrite')
@@ -39,6 +41,7 @@ def gold_genres_task(silver_genres: pyspark.sql.DataFrame) -> None:
                         drop_duplicate=True,
                         drop_null=True).clean()
 
+    gold_genres = gold_genres.withColumnRenamed("id", "artist_id")
 
    # Write backup
     print(f'Start writing {table_name}.parquet')
@@ -60,6 +63,9 @@ def gold_albums_task(silver_albums: pyspark.sql.DataFrame) -> None:
                         drop_null=True,
                         drop_columns=["copyrights", "external_ids", "genres", "href", "images", "type", "uri"]).clean()
 
+    gold_albums = (gold_albums.withColumnRenamed("id", "album_id") )
+                   # .withColumnRenamed('polularity', "album_popularity"))
+                                
    # Write backup
     print(f'Start writing {table_name}.parquet')
     gold_albums.write.parquet(hdfs_uri, mode='overwrite')
@@ -79,6 +85,7 @@ def gold_tracks_task(silver_tracks: pyspark.sql.DataFrame) -> None:
                         drop_duplicate=True,
                         drop_null=True,
                         drop_columns=["duration_ms", "external_ids", "href", "is_local", "type", "uri"]).clean()
+    gold_tracks = gold_tracks.withColumnRenamed("id", "track_id")
 
    # Write backup
     print(f'Start writing {table_name}.parquet')
@@ -100,6 +107,8 @@ def gold_tracks_feat_task(silver_tracks_features: pyspark.sql.DataFrame) -> None
                         drop_duplicate=True,
                         drop_null=True,
                         drop_columns=["type", "uri", "track_href", "analysis_url"]).clean()
+
+    gold_tracks_features = gold_tracks_features.withColumnRenamed("id", "track_id")
 
    # Write backup
     print(f'Start writing {table_name}.parquet')
