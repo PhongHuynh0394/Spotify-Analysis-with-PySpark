@@ -112,3 +112,18 @@ SELECT  al.AlbumName
 FROM home.V_1_5 al
 LEFT JOIN home.V_3_1 tt on al.AlbumID = tt.AlbumID;
 
+----------- Searching View --------------
+
+CREATE OR REPLACE VIEW home.searchs AS
+            SELECT track.track_id AS track_id, track.name AS track_name, track.external_urls AS track_url, track.popularity as track_popularity, track.preview_url as track_preview, artist.name AS artist_name, artist.popularity AS artist_popularity, artist.image_url AS artist_image, SUBSTRING(album.release_date, 1, 4) AS track_release_year, album.name AS album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature, LISTAGG(artist_genres.genre, ', ') AS genres
+            FROM home.track AS track
+            JOIN home.album AS album
+            ON track.album_id = album.album_id
+            JOIN home.artist AS artist
+            ON track.artist_id = artist.artist_id
+            JOIN home.track_feat AS track_features
+            ON track.track_id = track_features.track_id
+            JOIN home.genre as artist_genres
+            ON artist.artist_id = artist_genres.artist_id
+            GROUP BY track_id, track_name, track_url, track_popularity, track_preview, artist_name, artist_popularity, artist_image, track_release_year, album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature
+            ORDER BY track_popularity

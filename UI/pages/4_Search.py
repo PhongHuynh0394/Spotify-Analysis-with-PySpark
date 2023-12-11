@@ -51,10 +51,6 @@ def get_dremio_client():
     uid = os.getenv("DREMIO_USER")
     pwd = os.getenv("DREMIO_PASSWORD")
     port = os.getenv("DREMIO_PORT")
-    # host = 'localhost'
-    # uid = 'dremio'
-    # pwd = 'dremio123'
-    # port=32010
     client = DremioClient(host, port, uid, pwd)
     client.connect()
     options = client.authenticate()
@@ -129,16 +125,16 @@ def find_results(client, options):
 
     if ss["type"] == "Track":
         sql = f"""
-            SELECT track.id AS track_id, track.name AS track_name, track.external_urls AS track_url, track.popularity as track_popularity, track.preview_url as track_preview, artist.name AS artist_name, artist.popularity AS artist_popularity, artist.image_url AS artist_image, SUBSTRING(album.release_date, 1, 4) AS track_release_year, album.name AS album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature, LISTAGG(artist_genres.genre, ', ') AS genres
+            SELECT track.track_id AS track_id, track.name AS track_name, track.external_urls AS track_url, track.popularity as track_popularity, track.preview_url as track_preview, artist.name AS artist_name, artist.popularity AS artist_popularity, artist.image_url AS artist_image, SUBSTRING(album.release_date, 1, 4) AS track_release_year, album.name AS album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature, LISTAGG(artist_genres.genre, ', ') AS genres
             FROM {TABLE.get("Track")} AS track
             JOIN {TABLE.get("Album")} AS album
-            ON track.album_id = album.id
+            ON track.album_id = album.album_id
             JOIN {TABLE.get("Artist")} AS artist
-            ON track.artist_id = artist.id
+            ON track.artist_id = artist.artist_id
             JOIN {TABLE.get("Track Feat")} AS track_features
-            ON track.id = track_features.id
+            ON track.track_id = track_features.track_id
             JOIN {TABLE.get("Genre")} as artist_genres
-            ON artist.id = artist_genres.id
+            ON artist.artist_id = artist_genres.artist_id
             WHERE LOWER(track.name) LIKE '%{ss['search_term']}%'
             GROUP BY track_id, track_name, track_url, track_popularity, track_preview, artist_name, artist_popularity, artist_image, track_release_year, album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature
             ORDER BY track_popularity
