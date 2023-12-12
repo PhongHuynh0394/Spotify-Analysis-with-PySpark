@@ -6,6 +6,9 @@ import streamlit as st
 import pandas as pd
 import os
 import requests
+import dill
+import time
+
 
 # Define constants
 CSS = "style.css"
@@ -16,12 +19,27 @@ TABLE = {
     "Genre": "home.genre",
     "Track Feat": "home.track_feat"
 }
+MODEL = "recommender_model.pkl"
+
+# Get model
+model_path = (os.path.dirname(os.path.dirname(os.path.abspath(
+    __file__))) + "/assets/{}".format(MODEL))
+
+# cal time
+start = time.time()
+with open(model_path, "rb") as file:
+    model = dill.load(file)
+
+Songrecommender = model['model_class']
+recommend_model = model['model']
+end = time.time()
 
 # Set page config
 st.set_page_config(page_title="Search",
                    page_icon=":mag:",
                    layout="wide")
 
+st.write("load model {}".format(end-start))
 # Set session state
 if "search_term" not in ss:
     ss["search_term"] = None
@@ -97,22 +115,15 @@ def post_result(row):
                         row["artist_image"]), unsafe_allow_html=True)
 
             with left_column:
-                st.markdown("""#####  Want to taste similar songs?""")
-                st.write("Here are some recommendations for you:")
-                with st.container():
-                    # 5 sample music and its artist name
-                    five_sample_data = [
-                        {"name": "25 Minutes", "artist": "Michael Learns to Rock"},
-                        {"name": "Nothinig Gonna Change My Love",
-                            "artist": "Westlife"},
-                        {"name": "Beautiful In White", "artist": "Westlife"},
-                        {"name": "No Promises", "artist": "Westlife"},
-                        {"name": "Until You", "artist": "Westlife"}
-                    ]
-                    # Display 5 songs by row using streamlit
-                    for data in five_sample_data:
-                        st.markdown(
-                            "<p class='recommend-track-section'>{} - {}</p>".format(data["name"], data["artist"]), unsafe_allow_html=True)
+                if st.button("""#####  Want to taste similar songs?"""):
+                    st.write("Here are some recommendations for you:")
+                    with st.container():
+                        print(type(row['track_name']))
+                        ## Model here
+                        result = recommend_model.recommend_songs(str(row['track_name']))
+                        for data in result[['track_name', 'artist_name']].values:
+                            st.markdown(
+                                "<p class='recommend-track-section'>{} - {}</p>".format(data[0], data[1]), unsafe_allow_html=True)
 
 
 def post_results(df_search):
@@ -140,6 +151,12 @@ def find_results(client, options):
             ORDER BY track_popularity
             LIMIT 50
         """
+        sql = f"""SELECT * FROM home.searchs
+            WHERE LOWER(track_name) LIKE '%{ss['search_term']}%'
+            ORDER BY track_popularity
+            LIMIT 30
+        """
+
 
     elif ss["type"] == "Album":
         columns_query = "album_type, artist_id, external_urls, name, popularity, release_date, total_tracks"
@@ -164,6 +181,7 @@ except Exception:
     st.error(
         "Cannot connect to Dremio. Please check your dremio status and try again.")
     st.stop()
+
 
 st.write("# Searchinggg 🔎")
 
