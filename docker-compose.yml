@@ -140,6 +140,7 @@ services:
     image: dremio/dremio-oss
     hostname: dremio
     container_name: dremio
+    restart: always
     user: root
     volumes:
       - dremio_data:/var/lib/dremio
