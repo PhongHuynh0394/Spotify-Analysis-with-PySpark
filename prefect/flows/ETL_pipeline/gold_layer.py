@@ -72,7 +72,7 @@ def gold_albums_task(silver_albums: pyspark.sql.DataFrame) -> None:
                         drop_columns=["copyrights", "external_ids", "genres", "href", "images", "type", "uri"]).clean()
 
     gold_albums = (gold_albums.withColumnRenamed("id", "album_id") 
-                   .withColumnRenamed('polularity', "album_popularity")
+                   .withColumnRenamed('popularity', "album_popularity")
                    .withColumnRenamed('name', "album_name")
                    .withColumnRenamed('external_urls', "album_url")
                    .withColumnRenamed('image_url', "album_image")

@@ -1,4 +1,3 @@
-from flows.ETL_pipeline.warehouse_layer import warehouse_model_task, warehouse_search_task
 from prefect import flow, serve
 from sample_task import *
 from ETL_pipeline.bronze_layer import *
