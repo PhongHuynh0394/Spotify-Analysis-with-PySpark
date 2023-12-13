@@ -1,8 +1,10 @@
+from flows.ETL_pipeline.warehouse_layer import warehouse_model_task, warehouse_search_task
 from prefect import flow, serve
 from sample_task import *
 from ETL_pipeline.bronze_layer import *
 from ETL_pipeline.silver_layer import *
 from ETL_pipeline.gold_layer import *
+from ETL_pipeline.warehouse_layer import *
 from Ingest_Mongodb.mongodb_task import *
 from resources.spark_io import *
 from resources.mongodb_io import *
@@ -54,7 +56,12 @@ def pipeline_B():
                        "albums": silver_albums}
 
         # Gold layer
-        Goldlayer(silver_data)
+        gold_artist, gold_genre, gold_album, gold_track, gold_track_feat = Goldlayer(silver_data)
+
+        # Warehouse layer
+        searchs_table = warehouse_search_task(gold_artist, gold_genre, gold_album, gold_track, gold_track_feat)
+        warehouse_model_task(searchs_table)
+
 
 
 if __name__ == "__main__":

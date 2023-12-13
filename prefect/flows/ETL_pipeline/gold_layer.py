@@ -20,12 +20,18 @@ def gold_artist_task(silver_artists: pyspark.sql.DataFrame) -> None:
                         drop_null=True,
                         drop_columns=["href", "images", "type", "uri"]).clean()
 
-    gold_artists = gold_artists.withColumnRenamed("id", "artist_id")
+    gold_artists = (gold_artists.withColumnRenamed("id", "artist_id")
+                                .withColumnRenamed("name", "artist_name")
+                                .withColumnRenamed("external_urls", "artist_external_urls")
+                                .withColumnRenamed("popularity", "artist_popularity")
+                                .withColumnRenamed("image_url", "artist_image"))
 
    # Write backup
     print(f'Start writing {table_name}.parquet')
     gold_artists.write.parquet(hdfs_uri, mode='overwrite')
     print(f'Gold: Successfully writing {gold_artists.count()} into {table_name}')
+
+    return gold_artists
 
 
 @task(name="gold genres task")
@@ -48,6 +54,8 @@ def gold_genres_task(silver_genres: pyspark.sql.DataFrame) -> None:
     gold_genres.write.parquet(hdfs_uri, mode='overwrite')
     print(f'Gold: Successfully writing {gold_genres.count()} into {table_name}')
 
+    return gold_genres
+
 
 @task(name="gold albums task")
 def gold_albums_task(silver_albums: pyspark.sql.DataFrame) -> None:
@@ -63,13 +71,19 @@ def gold_albums_task(silver_albums: pyspark.sql.DataFrame) -> None:
                         drop_null=True,
                         drop_columns=["copyrights", "external_ids", "genres", "href", "images", "type", "uri"]).clean()
 
-    gold_albums = (gold_albums.withColumnRenamed("id", "album_id") )
-                   # .withColumnRenamed('polularity', "album_popularity"))
+    gold_albums = (gold_albums.withColumnRenamed("id", "album_id") 
+                   .withColumnRenamed('polularity', "album_popularity")
+                   .withColumnRenamed('name', "album_name")
+                   .withColumnRenamed('external_urls', "album_url")
+                   .withColumnRenamed('image_url', "album_image")
+                   )
                                 
    # Write backup
     print(f'Start writing {table_name}.parquet')
     gold_albums.write.parquet(hdfs_uri, mode='overwrite')
     print(f'Gold: Successfully writing {gold_albums.count()} into {table_name}')
+
+    return gold_albums
 
 
 @task(name="gold tracks task")
@@ -85,12 +99,19 @@ def gold_tracks_task(silver_tracks: pyspark.sql.DataFrame) -> None:
                         drop_duplicate=True,
                         drop_null=True,
                         drop_columns=["duration_ms", "external_ids", "href", "is_local", "type", "uri"]).clean()
-    gold_tracks = gold_tracks.withColumnRenamed("id", "track_id")
+    gold_tracks = (gold_tracks.withColumnRenamed("id", "track_id")
+                   .withColumnRenamed('external_urls', "track_url")
+                   .withColumnRenamed('name', "track_name")
+                   .withColumnRenamed('preview_url', "track_preview")
+                   .withColumnRenamed('popularity', "track_popularity")
+                   )
 
    # Write backup
     print(f'Start writing {table_name}.parquet')
     gold_tracks.write.parquet(hdfs_uri, mode='overwrite')
     print(f'Gold: Successfully writing {gold_tracks.count()} into {table_name}')
+
+    return gold_tracks
 
 
 
@@ -115,14 +136,17 @@ def gold_tracks_feat_task(silver_tracks_features: pyspark.sql.DataFrame) -> None
     gold_tracks_features.write.parquet(hdfs_uri, mode='overwrite')
     print(f'Gold: Successfully writing {gold_tracks_features.count()} into {table_name}')
 
+    return gold_tracks_features
+
 @flow(name="Gold layer",
       task_runner=ConcurrentTaskRunner(),
       log_prints=True)
-def Goldlayer(silver_data) -> None:
+def Goldlayer(silver_data):
     """Gold layer"""
-    gold_artist_task.submit(silver_data['artists'])
-    gold_genres_task.submit(silver_data['genres'])
-    gold_albums_task.submit(silver_data['albums'])
-    gold_tracks_task.submit(silver_data['tracks'])
-    gold_tracks_feat_task.submit(silver_data['tracks_feat'])
+    artist = gold_artist_task.submit(silver_data['artists'])
+    genre = gold_genres_task.submit(silver_data['genres'])
+    album = gold_albums_task.submit(silver_data['albums'])
+    track = gold_tracks_task.submit(silver_data['tracks'])
+    track_feat = gold_tracks_feat_task.submit(silver_data['tracks_feat'])
 
+    return artist, genre, album, track, track_feat
