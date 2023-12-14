@@ -128,7 +128,7 @@ def silver_albums_task(spark, table_name: str = 'albums_data'):
       task_runner=ConcurrentTaskRunner(),
       log_prints=True)
 def Silverlayer(spark: SparkSession):
-    silver_artists, silver_genres = silver_artists_task.submit(spark, 'artists_data').result()
+    silver_artists, silver_genres = silver_artists_task.submit(spark, 'artists_data')
     silver_tracks = silver_tracks_task.submit(spark, 'tracks_data')
     silver_tracks_feat = silver_tracks_feat_task.submit(spark, 'tracks_features_data')
     silver_albums = silver_albums_task.submit(spark, 'albums_data')

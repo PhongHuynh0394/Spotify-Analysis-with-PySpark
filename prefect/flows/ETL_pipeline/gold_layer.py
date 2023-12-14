@@ -7,10 +7,10 @@ from .utils.layer_utils import GoldCleanDataframe as gold
 import pyspark
 
 @task(name="gold artists task")
-def gold_artist_task(silver_artists: pyspark.sql.DataFrame) -> None:
+def gold_artist_task(silver_artists: pyspark.sql.DataFrame) -> pyspark.sql.DataFrame:
     """Cleaning silver artist table
 
-    return: None
+    return: gold_artists
     """
     table_name = 'gold_artists'
     hdfs_uri = f"hdfs://namenode:8020/gold_layer/{table_name}.parquet"
@@ -35,10 +35,10 @@ def gold_artist_task(silver_artists: pyspark.sql.DataFrame) -> None:
 
 
 @task(name="gold genres task")
-def gold_genres_task(silver_genres: pyspark.sql.DataFrame) -> None:
-    """Cleaning silver albums table
+def gold_genres_task(silver_genres: pyspark.sql.DataFrame) -> pyspark.sql.DataFrame:
+    """Cleaning silver genre table
 
-    return: None
+    return: gold genre
     """
     table_name = 'gold_genres'
     hdfs_uri = f"hdfs://namenode:8020/gold_layer/{table_name}.parquet"
@@ -58,10 +58,10 @@ def gold_genres_task(silver_genres: pyspark.sql.DataFrame) -> None:
 
 
 @task(name="gold albums task")
-def gold_albums_task(silver_albums: pyspark.sql.DataFrame) -> None:
+def gold_albums_task(silver_albums: pyspark.sql.DataFrame) -> pyspark.sql.DataFrame:
     """Cleaning silver albums table
 
-    return: None
+    return: gold album
     """
     table_name = 'gold_albums'
     hdfs_uri = f"hdfs://namenode:8020/gold_layer/{table_name}.parquet"
@@ -87,10 +87,10 @@ def gold_albums_task(silver_albums: pyspark.sql.DataFrame) -> None:
 
 
 @task(name="gold tracks task")
-def gold_tracks_task(silver_tracks: pyspark.sql.DataFrame) -> None:
+def gold_tracks_task(silver_tracks: pyspark.sql.DataFrame) -> pyspark.sql.DataFrame:
     """Cleaning silver tracks table
 
-    return: None
+    return: track
     """
     table_name = 'gold_tracks'
     hdfs_uri = f"hdfs://namenode:8020/gold_layer/{table_name}.parquet"
@@ -116,7 +116,7 @@ def gold_tracks_task(silver_tracks: pyspark.sql.DataFrame) -> None:
 
 
 @task(name="gold track's features task")
-def gold_tracks_feat_task(silver_tracks_features: pyspark.sql.DataFrame) -> None:
+def gold_tracks_feat_task(silver_tracks_features: pyspark.sql.DataFrame) -> pyspark.sql.DataFrame:
     """Cleaning silver track's features table
 
     return: None
