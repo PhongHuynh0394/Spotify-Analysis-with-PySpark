@@ -1,5 +1,4 @@
 from prefect import flow, serve
-from sample_task import *
 from ETL_pipeline.bronze_layer import *
 from ETL_pipeline.silver_layer import *
 from ETL_pipeline.gold_layer import *
