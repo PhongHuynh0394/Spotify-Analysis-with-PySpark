@@ -33,7 +33,8 @@ def pipeline_B():
     """ETL pipeline with pyspark"""
     uri = getMongoAuth()
     conf = (SparkConf().setAppName("ETL-app-{}".format(datetime.today()))
-            .set("spark.executor.memory", "2g")
+            .set("spark.executor.memory", "4g")
+            # .set("spark.driver.memory", "2g")
             .set("spark.mongodb.read.connection.uri", uri)
             .set("spark.mongodb.write.connection.uri", uri)
             .set("spark.jars.packages", "org.mongodb.spark:mongo-spark-connector_2.12:10.2.1")
@@ -58,7 +59,7 @@ def pipeline_B():
 
         # Warehouse layer
         searchs_table = warehouse_search_task(gold_artist, gold_genre, gold_album, gold_track, gold_track_feat)
-        warehouse_model_task(searchs_table)
+        feature_matrix = warehouse_model_task(searchs_table)
 
 
 

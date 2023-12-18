@@ -121,6 +121,8 @@ Then Transforming by PySpark in silver and gold layer. You can trigger this flow
 </div>
 
 ### Warehouse and UI
+[`localhost:9047`](http://localhost:9047/)
+
 We use Dremio to analyze data in HDFS directly. Don't forget the username is `dremio` and password is `dremio123`.
 Then follow this instruction:
 
@@ -134,27 +136,22 @@ Then press **Save** to Save your connection. You would see your connection appea
 **gold_layer** directory and format all `.parquet` directories.
 Then run your SQL statement and start analyzing. 
 
-You can use our SQL statements below:
-```SQL
-some sql
-```
+You can use our SQL statements in [warehouse.sql](./spotify_analysis/warehouse.sql):
+![dremio](./image/dremio.jpg)
 These SQL statements used to create analytic view for `Power Bi` to draw Dashboard. You can also see it in
 `<link>`
 
 #### UI
-After all, you can access to Streamlit to see the Dashboard. It can also utilize Machine Learning model
+[`localhost:8501`](http://localhost:8501/)
+
+After all, you can access to Streamlit to see the Dashboard. Moreover, it can also utilize Machine Learning model
 to Recommend most porpular songs for you.
-`<image>`
-
-
-### Reccommendation System
-Our project also include a powerful machine learning model for a reccommendation system.
-`<image>`
+![streamlit](./image/ui.jpg)
 
 ## And more
 future update
 
-## About us
+## Contributors 
 greeting to contributors and contacts
 
 something here

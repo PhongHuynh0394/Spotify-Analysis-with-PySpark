@@ -1,3 +1,10 @@
+-- Create searchs table and model feature view ---
+CREATE OR REPLACE VIEW home.searchs AS
+SELECT * FROM HDFS.model."searchs.parquet";
+
+CREATE OR REPLACE VIEW home.model AS
+SELECT * FROM HDFS.model."feature_matrix.parquet";
+
 -- Create View of gold layer
 CREATE OR REPLACE VIEW home.artist AS
 SELECT * FROM HDFS.gold_layer."gold_artists.parquet";

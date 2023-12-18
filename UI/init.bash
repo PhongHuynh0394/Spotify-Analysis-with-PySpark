@@ -61,4 +61,3 @@ if [ ! -f "${PWD}/.init" ]; then
 else
   echo "Dremio already initialized. Skipping initialization."
 fi
-

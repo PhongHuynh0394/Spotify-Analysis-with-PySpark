@@ -6,4 +6,4 @@ plotly
 matplotlib
 pandas
 requests
-dill
+scikit-learn

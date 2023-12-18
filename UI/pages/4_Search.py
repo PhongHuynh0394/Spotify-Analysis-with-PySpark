@@ -1,5 +1,6 @@
 from streamlit import session_state as ss
 from utils.dremio import DremioClient
+from utils.model import SongRecommendationSystem 
 from PIL import Image
 from io import BytesIO
 import streamlit as st
@@ -19,27 +20,12 @@ TABLE = {
     "Genre": "home.genre",
     "Track Feat": "home.track_feat"
 }
-MODEL = "recommender_model.pkl"
-
-# Get model
-model_path = (os.path.dirname(os.path.dirname(os.path.abspath(
-    __file__))) + "/assets/{}".format(MODEL))
-
-# cal time
-start = time.time()
-with open(model_path, "rb") as file:
-    model = dill.load(file)
-
-Songrecommender = model['model_class']
-recommend_model = model['model']
-end = time.time()
 
 # Set page config
 st.set_page_config(page_title="Search",
                    page_icon=":mag:",
                    layout="wide")
 
-st.write("load model {}".format(end-start))
 # Set session state
 if "search_term" not in ss:
     ss["search_term"] = None
@@ -74,8 +60,12 @@ def get_dremio_client():
     options = client.authenticate()
     return client, options
 
+def get_model(client, options):
+    model = SongRecommendationSystem(client, options)
+    model.fit('home.model')
+    return model
 
-def post_result(row):
+def post_result(row, model):
 
     with st.expander("{} - {} - {}".format(row["track_name"], row["album_name"], row["artist_name"])):
         with st.spinner(text="Loading details..."):
@@ -115,42 +105,26 @@ def post_result(row):
                         row["artist_image"]), unsafe_allow_html=True)
 
             with left_column:
-                if st.button("""#####  Want to taste similar songs?"""):
-                    st.write("Here are some recommendations for you:")
-                    with st.container():
-                        print(type(row['track_name']))
-                        ## Model here
-                        result = recommend_model.recommend_songs(str(row['track_name']))
-                        for data in result[['track_name', 'artist_name']].values:
-                            st.markdown(
-                                "<p class='recommend-track-section'>{} - {}</p>".format(data[0], data[1]), unsafe_allow_html=True)
+                st.write("""##### Want to tast similar songs?""")
+                st.write("Here are some recommendations for you:")
+                with st.container():
+                    print(type(row['track_name']))
+                    ## Model here
+                    result = model.recommend_songs(str(row['track_name']))
+                    for data in result[['track_name', 'artist_name']].values:
+                        st.markdown(
+                            "<p class='recommend-track-section'>{} - {}</p>".format(data[0], data[1]), unsafe_allow_html=True)
 
 
-def post_results(df_search):
+def post_results(df_search, model):
     for _, row in df_search.reset_index().iterrows():
-        post_result(row)
+        post_result(row, model)
 
 
 def find_results(client, options):
     sql = None
 
     if ss["type"] == "Track":
-        sql = f"""
-            SELECT track.track_id AS track_id, track.name AS track_name, track.external_urls AS track_url, track.popularity as track_popularity, track.preview_url as track_preview, artist.name AS artist_name, artist.popularity AS artist_popularity, artist.image_url AS artist_image, SUBSTRING(album.release_date, 1, 4) AS track_release_year, album.name AS album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature, LISTAGG(artist_genres.genre, ', ') AS genres
-            FROM {TABLE.get("Track")} AS track
-            JOIN {TABLE.get("Album")} AS album
-            ON track.album_id = album.album_id
-            JOIN {TABLE.get("Artist")} AS artist
-            ON track.artist_id = artist.artist_id
-            JOIN {TABLE.get("Track Feat")} AS track_features
-            ON track.track_id = track_features.track_id
-            JOIN {TABLE.get("Genre")} as artist_genres
-            ON artist.artist_id = artist_genres.artist_id
-            WHERE LOWER(track.name) LIKE '%{ss['search_term']}%'
-            GROUP BY track_id, track_name, track_url, track_popularity, track_preview, artist_name, artist_popularity, artist_image, track_release_year, album_name, track_features.danceability, track_features.energy, track_features.key, track_features.loudness, track_features.mode, track_features.speechiness, track_features.acousticness, track_features.instrumentalness, track_features.liveness, track_features.valence, track_features.tempo, track_features.duration_ms, track_features.time_signature
-            ORDER BY track_popularity
-            LIMIT 50
-        """
         sql = f"""SELECT * FROM home.searchs
             WHERE LOWER(track_name) LIKE '%{ss['search_term']}%'
             ORDER BY track_popularity
@@ -182,6 +156,8 @@ except Exception:
         "Cannot connect to Dremio. Please check your dremio status and try again.")
     st.stop()
 
+model = get_model(client, options)
+
 
 st.write("# Searchinggg 🔎")
 
@@ -206,5 +182,5 @@ if search_button:
         ss['search_term'] = ss['search_term'].lower().strip()
     df_search = find_results(client, options)
     with st.spinner(text="Loading results..."):
-        post_results(df_search)
+        post_results(df_search, model)
 
