@@ -30,8 +30,6 @@ and Power BI for visualization and in-depth data analysis.
 - [About us](#about-us)
 
 ## Overview
-### Project Structure
-Something about project structure
 
 ### Data Schema
 We initiate our data collection by scraping artists's name list from [**Spotify Artists**](https://kworb.net/spotify/artists.html).
@@ -148,10 +146,20 @@ After all, you can access to Streamlit to see the Dashboard. Moreover, it can al
 to Recommend most porpular songs for you.
 ![streamlit](./image/ui.jpg)
 
+##### PowerBI Dashboard
+Some image here 
+
 ## And more
 future update
 
 ## Contributors 
-greeting to contributors and contacts
-
-something here
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://phonghuynh.netlify.app/"><img src="https://avatars.githubusercontent.com/u/111982291?s=400&u=909cd3197c02deca63dedc9ab6172b440a743ae3&v=4" width="100px;" alt="Huỳnh Lưu Vĩnh Phong"/><br /><sub><b>Huỳnh Lưu Vĩnh Phong</b></sub></a><br />Data Engineer <br><b>Team Lead</b><br /></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/TuanTran0910"><img src="https://avatars.githubusercontent.com/u/94174684?v=4" width="100px;" alt="Trần Ngọc Tuấn"/><br /><sub><b>Trần Ngọc Tuấn</b></sub></a><br /> Data Engineer </td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/akanison12"><img src="https://avatars.githubusercontent.com/u/141467313?v=4" width="100px;" alt="Phạm Duy Sơn"/><br /><sub><b>Phạm Duy Sơn</b></sub></a><br />Data Science</td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/thiendsu2303"><img src="https://avatars.githubusercontent.com/u/90961091?v=4" width="100px;" alt="Mai Chiến Vĩ Thiên"/><br /><sub><b>Mai Chiến Vĩ Thiên</b></sub></a><br />Data Analyst </td>
+    </tr>
+  </tbody>
+</table>
