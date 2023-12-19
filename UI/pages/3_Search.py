@@ -126,9 +126,9 @@ def find_results(client, options):
 
     if ss["type"] == "Track":
         sql = f"""SELECT * FROM home.searchs
-            WHERE LOWER(track_name) LIKE '%{ss['search_term']}%'
+            WHERE LOWER(track_name) LIKE '%{ss["search_term"]}%'
             ORDER BY track_popularity
-            LIMIT 30
+            LIMIT 10
         """
 
 
