@@ -150,9 +150,8 @@ to Recommend most porpular songs for you.
 ![streamlit](./image/ui.jpg)
 
 ##### PowerBI Dashboard
-
-<iframe title="PythonDS" width="800" height="450" src="https://app.powerbi.com/reportEmbed?reportId=7ebf3669-88ad-439b-88ed-91cf002eb406&autoAuth=true&ctid=40127cd4-45f3-49a3-b05d-315a43a9f033" frameborder="0" allowFullScreen="false"></iframe>
-
+[PowerBI Dashboard](https://app.powerbi.com/reportEmbed?reportId=7ebf3669-88ad-439b-88ed-91cf002eb406&autoAuth=true&ctid=40127cd4-45f3-49a3-b05d-315a43a9f033)
+> You can also see it in [powerbi_dashboard](./spotify_analysis/powerbi_dashboard.pdf) Or in our Streamlit app
 ## And more
 In future, we will update this repo in:
 - Utilizing Deep Learning model: In the future, we plan to leverage a Deep Learning model, specifically an NLP model, to analyze the lyrics of tracks.
