@@ -52,6 +52,6 @@ with st.container():
         get_started = st.button(
             "Get Started", key="get_started", use_container_width=True)
         if get_started:
-            switch_page("About")
+            switch_page("Search")
 
 
