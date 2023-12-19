@@ -3,9 +3,9 @@ SPOTIFY_CLIENT_ID=<your-api-key>
 SPOTIFY_CLIENT_SECRET=<your-api-key> 
 
 # Mongodb
-MONGODB_USER=root
-MONGODB_PASSWORD=123
-MONGODB_DATABASE=final_spotify_crawling_data #modify this if you want another name
+MONGODB_USER=<your-user-name>
+MONGODB_PASSWORD=<your-user-password>
+MONGODB_DATABASE=spotify_data #modify this if you want another name
 
 
 #HDFS
