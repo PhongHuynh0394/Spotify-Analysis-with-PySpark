@@ -1,0 +1,9 @@
+streamlit
+streamlit-extras
+dremio-client
+pyarrow
+plotly
+matplotlib
+pandas
+requests
+scikit-learn
