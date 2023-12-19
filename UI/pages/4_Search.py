@@ -7,8 +7,8 @@ import streamlit as st
 import pandas as pd
 import os
 import requests
-import dill
-import time
+# import dill
+# import time
 
 
 # Define constants

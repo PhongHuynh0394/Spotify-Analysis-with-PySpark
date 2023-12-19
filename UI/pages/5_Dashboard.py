@@ -1,27 +1,5 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Using object notation
-add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
-)
-
-# Using "with" notation
-with st.sidebar:
-    add_radio = st.radio(
-        "Choose a shipping method",
-        ("Standard (5-15 days)", "Express (2-5 days)")
-    )
-
-# html_string = "<h3>this is an html string</h3>"
-
-# st.markdown(html_string, unsafe_allow_html=True)
-
-html_string = """
-    <div>
-    <h1>Hello World</h1>
-    </div>
-"""
-
-components.html(html_string)
+components.iframe("https://app.powerbi.com/reportEmbed?reportId=7ebf3669-88ad-439b-88ed-91cf002eb406&autoAuth=true&ctid=40127cd4-45f3-49a3-b05d-315a43a9f033",
+                  height=415)

@@ -30,6 +30,8 @@ and Power BI for visualization and in-depth data analysis.
 - [About us](#about-us)
 
 ## Overview
+### Project Structure
+![Structure](./image/pro_struct.png)
 
 ### Data Schema
 We initiate our data collection by scraping artists's name list from [**Spotify Artists**](https://kworb.net/spotify/artists.html).
@@ -137,9 +139,10 @@ Then run your SQL statement and start analyzing.
 You can use our SQL statements in [warehouse.sql](./spotify_analysis/warehouse.sql):
 ![dremio](./image/dremio.jpg)
 These SQL statements used to create analytic view for `Power Bi` to draw Dashboard. You can also see it in
-`<link>`
+[**PowerBI Dashboard**](#powerbi-dashboard)
 
 #### UI
+##### Streamlit
 [`localhost:8501`](http://localhost:8501/)
 
 After all, you can access to Streamlit to see the Dashboard. Moreover, it can also utilize Machine Learning model
@@ -147,10 +150,13 @@ to Recommend most porpular songs for you.
 ![streamlit](./image/ui.jpg)
 
 ##### PowerBI Dashboard
-Some image here 
-
+[PowerBI Dashboard](https://app.powerbi.com/reportEmbed?reportId=7ebf3669-88ad-439b-88ed-91cf002eb406&autoAuth=true&ctid=40127cd4-45f3-49a3-b05d-315a43a9f033)
+> You can also see it in [powerbi_dashboard](./spotify_analysis/powerbi_dashboard.pdf) Or in our Streamlit app
 ## And more
-future update
+In future, we will update this repo in:
+- Utilizing Deep Learning model: In the future, we plan to leverage a Deep Learning model, specifically an NLP model, to analyze the lyrics of tracks.
+- Using Flask or other frameworks: Our goal is to switch to Flask or other frameworks, replacing the Streamlit Dashboard for improved functionality.
+- Using MongoDB locally: To streamline deployment and allow for personalized configuration, we'll be transitioning to using MongoDB locally.
 
 ## Contributors 
 <table>
@@ -163,3 +169,6 @@ future update
     </tr>
   </tbody>
 </table>
+
+## Finally
+Feel free to use :smile:

@@ -54,20 +54,4 @@ with st.container():
         if get_started:
             switch_page("About")
 
-    st.divider()
 
-with st.container():
-    st.write("# About Us")
-    st.write("We are four students from the University of Sciences and we are working on this project with the aim of applying the knowledge we have learned to real-world projects and striving to learn new concepts and skills.")
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.text("- Tran Ngoc Tuan")
-        st.text("- Huynh Luu Vinh Phong")
-        st.text("- Mai Chien Vi Thien")
-        st.text("- Pham Duy Son")
-
-    with right_column:
-        st.text("https://github.com/TuanTran0910")
-        st.text("https://github.com/TuanTran0910")
-        st.text("https://github.com/TuanTran0910")
-        st.text("https://github.com/TuanTran0910")

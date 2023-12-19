@@ -196,3 +196,4 @@ def IngestHadoop(client, uri, spark: SparkSession):
     for collection in collections:
         print(f"{collection} start being Ingested...")
         future = bronze_layer_task.submit(spark, uri, database_name, collection) #collection is also the name of table
+    print("Done")
