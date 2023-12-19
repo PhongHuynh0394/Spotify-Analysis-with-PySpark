@@ -118,23 +118,23 @@ services:
     networks:
       - docker-net
 
-  # UI:
-  #   build:
-  #     context: ./UI
-  #   image: streamlit
-  #   command: bash -c "bash init.bash && streamlit run main.py"
-  #   container_name: streamlit
-  #   restart: always
-  #   ports:
-  #     - "8501:8501"
-  #   volumes:
-  #     - ./UI:/usr/src/app
-  #   env_file:
-  #     - .env
-  #   networks:
-  #     - docker-net
-  #   depends_on:
-  #     - dremio
+  UI:
+    build:
+      context: ./UI
+    image: streamlit
+    command: bash -c "bash init.bash && streamlit run main.py"
+    container_name: streamlit
+    restart: always
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./UI:/usr/src/app
+    env_file:
+      - .env
+    networks:
+      - docker-net
+    depends_on:
+      - dremio
 
   dremio:
     image: dremio/dremio-oss
