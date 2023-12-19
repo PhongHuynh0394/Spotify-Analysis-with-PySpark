@@ -50,8 +50,8 @@ The obtained raw data undergoes a series of ETL processes.
 ### Set up environment
 Clone this project to your machine by running the following command:
 ```bash
-git clone <link>
-cd <project_name>
+git clone https://github.com/PhongHuynh0394/Spotify-Analysis-with-PySpark.git
+cd Spotify-Analysis-with-PySpark
 ```
 then you need to create `.env` file base on [env_template](./env_template)
 ```bash
