@@ -4,7 +4,7 @@ import streamlit as st
 import os
 
 IMAGE_NAME = "spotify_image.jpg"
-MUSIC_NAME = "VoKichCuaEm.mp3"
+MUSIC_NAME = "MyHeartWillGoOn.mp3"
 CSS = "style.css"
 
 st.set_page_config(page_title="Home",
@@ -33,7 +33,7 @@ with st.container():
     elif mood = "sad":
         play_music(sad_music)
     else:
-        play_music("Last Christmas - Cardi B")
+        play_music("My heart will go on - Celine Dion")
     '''
     left_column, right_column = st.columns(spec=2, gap="large")
     with left_column:
