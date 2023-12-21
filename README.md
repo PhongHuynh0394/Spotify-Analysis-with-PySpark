@@ -1,5 +1,6 @@
 # Spotify Analysis :musical_note:
 ![HCMUS](https://img.shields.io/badge/21KDL-HCMUS?label=HCMUS&labelColor=3670A0&color=e4e8ff)
+[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 
 This project is aimed at analyzing data from the Spotify platform,
 utilizing the Spotify API and MongoDB for data extraction,
