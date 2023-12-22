@@ -26,9 +26,8 @@ and Power BI for visualization and in-depth data analysis.
     - [Set up environment](#set-up-environment)
     - [Run your data pipeline](#run-your-data-pipeline)
     - [Warehouse and UI](#warehouse-and-ui)
-    - [Reccommendation System](#reccommendation-system)
 - [And more](#and-more)
-- [About us](#about-us)
+- [Contributors](#contributors)
 
 ## Overview
 ### Project Structure
