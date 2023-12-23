@@ -21,6 +21,7 @@ and Power BI for visualization and in-depth data analysis.
 
 ## Table of contents :pushpin:
 - [Overview](#overview)
+- [Demo video](#demo-video)
 - [Prerequisite](#prerequisite)
 - [Getting started](#getting-started)
     - [Set up environment](#set-up-environment)
@@ -39,6 +40,8 @@ Subsequently, leveraging this list, we utilize the Spotify API to extract compre
 The obtained raw data undergoes a series of ETL processes.
 ![Data Schema](./image/schema.png)
 
+## Demo Video
+This is our demo video on Youtube, you can watch via this [Link](https://www.youtube.com/watch?v=If9-ALcsc8E&t=1s)
 
 ## Prerequisite 
 - [Docker](https://www.docker.com/products/docker-desktop/)
