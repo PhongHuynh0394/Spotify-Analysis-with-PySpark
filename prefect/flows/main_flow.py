@@ -24,7 +24,9 @@ def pipeline_A(batch_size, start_index=None):
 def getMongoAuth():
     user = os.getenv("MONGODB_USER")
     password = os.getenv("MONGODB_PASSWORD")
-    return f"mongodb+srv://{user}:{password}@python.zynpktu.mongodb.net/?retryWrites=true&w=majority"
+    cluster = os.getenv("MONGODB_SRV")
+    cluster = cluster.split("//")[-1]
+    return f"mongodb+srv://{user}:{password}@{cluster}/?retryWrites=true&w=majority"
 
 
 @flow(name="ETL flow",

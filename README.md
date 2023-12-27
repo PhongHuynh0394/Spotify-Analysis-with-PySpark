@@ -9,6 +9,7 @@ and Power BI for visualization and in-depth data analysis.
 
 <p align="center">
   <img alt="Data Pipeline" src="./image/spotify_data_pipeline.png">
+  <img alt="Terraform" src="https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white">
   <img alt="Prefect" src="https://img.shields.io/badge/Prefect-%23ffffff.svg?style=for-the-badge&logo=prefect&logoColor=black">
   <img alt="Docker" src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
   <img alt="Spotify" src="https://img.shields.io/badge/Spotify%20API-1ED760?style=for-the-badge&logo=spotify&logoColor=white">
@@ -44,12 +45,15 @@ The obtained raw data undergoes a series of ETL processes.
 This is our demo video on Youtube, you can watch via this [Link](https://www.youtube.com/watch?v=If9-ALcsc8E&t=1s)
 
 ## Prerequisite 
+- [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 - [Docker](https://www.docker.com/products/docker-desktop/)
 - [Spotify API account](https://developer.spotify.com/documentation/web-api)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
 
-
 ## Getting started :rocket:
+### Set up your MongoDB Atlas 
+There are several ways to do in this step, but we will use `terraform` to deploy Atlas cluster.
+Please follow this [**Instruction**](./mongo_terraform/README.md)
 ### Set up environment
 Clone this project to your machine by running the following command:
 ```bash
@@ -60,7 +64,7 @@ then you need to create `.env` file base on [env_template](./env_template)
 ```bash
 cp env_template .env
 ```
-Now please fill these informations blank in `.env` file, this can be done in [Prerequisite](#prerequisite) section:
+Now please fill these informations blank in `.env` file, this can be done in [Prerequisite](#prerequisite) and [Set up your MongoDB Atlas](#set-up-your-mongodb-atlas) section:
 ```
 # Spotify
 SPOTIFY_CLIENT_ID=<your-api-key>
@@ -69,6 +73,7 @@ SPOTIFY_CLIENT_SECRET=<your-api-key>
 # Mongodb
 MONGODB_USER=<your-user-name>
 MONGODB_PASSWORD=<your-user-password>
+MONGODB_SRV=<your-srv-link> # Get this from running terraform set up
 ```
 OK, now it's Docker's job ! Let's build your Docker images of this project by typing `make build` in your
 terminal 

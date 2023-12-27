@@ -6,6 +6,7 @@ test.sh
 
 prefect/flows/__pycache__
 prefect/flows/Ingest_Mongodb/__pycache__
+prefect/flows/Ingest_Mongodb/spotify_crawling/data/logs.txt
 prefect/flows/ELT_pipeline/__pycache__
 prefect/flows/resources/__pycache__
 
