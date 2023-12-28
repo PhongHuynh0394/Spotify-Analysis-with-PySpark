@@ -22,7 +22,7 @@ variable "org_id" {
 ### Create API key
 Then go to `Access Manager` section in your Atlas menu, you will see the `API keys` tab. Just make
 your own and copy it into [variables.tf](./vairables.tf) respectively
-> Make sure your api key have `organiztion owner` role
+> Make sure your api key have `organization owner` role
 ```bash
 variable "public_key" {
   type = string
