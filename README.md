@@ -8,7 +8,7 @@ Apache Hadoop for ETL processes, PySpark for transformation, and leveraging Drem
 and Power BI for visualization and in-depth data analysis.
 
 <p align="center">
-  <img alt="Data Pipeline" src="./image/spotify_data_pipeline.png">
+  <img alt="Data Pipeline" src="./image/data_pipeline.png">
   <img alt="Terraform" src="https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white">
   <img alt="Prefect" src="https://img.shields.io/badge/Prefect-%23ffffff.svg?style=for-the-badge&logo=prefect&logoColor=black">
   <img alt="Docker" src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
