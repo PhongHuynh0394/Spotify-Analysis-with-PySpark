@@ -53,7 +53,7 @@ This is our demo video on Youtube, you can watch via this [Link](https://www.you
 ## Getting started :rocket:
 ### Set up your MongoDB Atlas 
 There are several ways to do in this step, but we will use `terraform` to deploy Atlas cluster.
-Please follow this [**Instruction**](./mongo_terraform/README.md)
+Please follow this [**Instruction**](./mongo_terraform/)
 ### Set up environment
 Clone this project to your machine by running the following command:
 ```bash

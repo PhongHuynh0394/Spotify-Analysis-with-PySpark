@@ -63,7 +63,7 @@ Just notice 3 last lines. You will need them to add into your `.env` to run the 
  if you want (don't forget to modify region also)
 
 ## To destroy resources
-> **Warning**: This command will terminate all your atlas cluster contain all your data. Use it carefully !
+> :heavy_exclamation_mark: **Warning**: This command will terminate all your atlas cluster contain all your data. Use it carefully !
 
 You can destroy everything on MongoDB by typing on terminal
 ```bash
