@@ -8,7 +8,7 @@ Apache Hadoop for ETL processes, PySpark for transformation, and leveraging Drem
 and Power BI for visualization and in-depth data analysis.
 
 <p align="center">
-  <img alt="Data Pipeline" src="./image/data_pipeline.png">
+  <img alt="Data Pipeline" src="./image/spotify-diagram.png">
   <img alt="Terraform" src="https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white">
   <img alt="Prefect" src="https://img.shields.io/badge/Prefect-%23ffffff.svg?style=for-the-badge&logo=prefect&logoColor=black">
   <img alt="Docker" src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
@@ -159,6 +159,8 @@ to Recommend most porpular songs for you.
 
 ##### PowerBI Dashboard
 [PowerBI Dashboard](https://app.powerbi.com/reportEmbed?reportId=7ebf3669-88ad-439b-88ed-91cf002eb406&autoAuth=true&ctid=40127cd4-45f3-49a3-b05d-315a43a9f033)
+
+![powerbi](./image/powerbi-dash.jpg)
 > You can also see it in [powerbi_dashboard](./spotify_analysis/powerbi_dashboard.pdf) Or in our Streamlit app
 ## And more
 In future, we will update this repo in:
