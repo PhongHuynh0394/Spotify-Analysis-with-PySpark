@@ -4,7 +4,7 @@
 
 This project is aimed at analyzing data from the Spotify platform,
 utilizing the Spotify API and MongoDB for data extraction,
-Apache Hadoop for ETL processes, PySpark for transformation, and leveraging Dremio 
+Apache Hadoop for ELT processes, PySpark for transformation, and leveraging Dremio 
 and Power BI for visualization and in-depth data analysis.
 
 <p align="center">
